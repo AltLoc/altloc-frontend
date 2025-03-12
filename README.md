@@ -7,10 +7,10 @@ A frontend application designed to build habits through gamified sessions. It al
 All modules listed below are planned for **Version 1.0**.
 
 ### ✅ Auth (Authentication and Registration)  
-- [+] User registration via email  
+- [x] User registration via email  
 - [ ] User registration via Google  
 - [ ] Email confirmation  
-- [+] Login functionality  
+- [x] Login functionality  
 - [ ] Password recovery form  
 
 ---
