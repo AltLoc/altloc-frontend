@@ -1,61 +1,73 @@
 {
-    "website": "AltLoc",
-    "common": {
-      "save": "Zapisz",
-      "cancel": "Anuluj",
-      "edit": "Edytuj",
-      "delete": "Usuń",
-      "add": "Dodaj",
-      "close": "Zamknij",
-      "search": "Szukaj"
-    },
-    "social": {
-      "facebook": "Facebook",
-      "instagram": "Instagram",
-      "twitter": "X",
-      "linkedin": "LinkedIn"
-    },
-    "layout": {
-      "tasks": "Zadania",
-      "dentityMatrix": "Macierz Tożsamości",
-      "categories": "Kategorie",
-      "privacyPolicy": "Polityka prywatności",
-      "terms": "Regulamin",
-      "userAgreement": "Umowa użytkownika",
-      "copyright": "Prawa autorskie",
-      "allRightsReserved": "Wszelkie prawa zastrzeżone",
-      "logIn": "Zaloguj się",
-      "register": "Zarejestruj się"
-    },
-    "login": {
-      "title": "Zaloguj się na swoje konto",
-      "email": "Email",
-      "password": "Hasło",
-      "loggingIn": "Logowanie...",
-      "login": "Zaloguj się",
-      "or": "lub",
-      "withGoogle": "Zaloguj się przez Google",
-      "dontHaveAccount": "Nie masz jeszcze konta?",
-      "register": "Zarejestruj się"
-    },
-    "register": {
-      "title": "Utwórz konto",
-      "description": "Gamifikuj swoje życie z AltLoc",
-      "or": "lub",
-      "withGoogle": "Zarejestruj się przez Google",
-      "alreadyHave": "Masz już konto?",
-      "login": "Zaloguj się",
-      "passwordNotMatch": "Hasła nie są takie same",
-      "needToAccept": "Nie możesz kontynuować bez zaakceptowania regulaminu",
-      "emailTaken": "Użytkownik z tym adresem email już istnieje, zaloguj się lub użyj innego adresu email",
-      "name": "Imię i nazwisko",
-      "email": "Email",
-      "password": "Hasło",
-      "confirmPassword": "Potwierdź hasło",
-      "acceptTerms": "Klikając przycisk rejestracji, akceptuję",
-      "and": "oraz",
-      "creating": "Tworzenie konta...",
-      "register": "Zarejestruj się"
+  "website": "AltLoc",
+  "common": {
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "add": "Dodaj",
+    "close": "Zamknij",
+    "search": "Szukaj"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "twitter": "X",
+    "linkedin": "LinkedIn"
+  },
+  "layout": {
+    "tasks": "Zadania",
+    "dentityMatrix": "Macierz Tożsamości",
+    "categories": "Kategorie",
+    "privacyPolicy": "Polityka prywatności",
+    "terms": "Regulamin",
+    "userAgreement": "Umowa użytkownika",
+    "copyright": "Prawa autorskie",
+    "allRightsReserved": "Wszelkie prawa zastrzeżone",
+    "logIn": "Zaloguj się",
+    "register": "Zarejestruj się"
+  },
+  "login": {
+    "title": "Zaloguj się na swoje konto",
+    "email": "Email",
+    "password": "Hasło",
+    "loggingIn": "Logowanie...",
+    "login": "Zaloguj się",
+    "or": "lub",
+    "withGoogle": "Zaloguj się przez Google",
+    "dontHaveAccount": "Nie masz jeszcze konta?",
+    "register": "Zarejestruj się"
+  },
+  "register": {
+    "title": "Utwórz konto",
+    "description": "Gamifikuj swoje życie z AltLoc",
+    "or": "lub",
+    "withGoogle": "Zarejestruj się przez Google",
+    "alreadyHave": "Masz już konto?",
+    "login": "Zaloguj się",
+    "passwordNotMatch": "Hasła nie są takie same",
+    "needToAccept": "Nie możesz kontynuować bez zaakceptowania regulaminu",
+    "emailTaken": "Użytkownik z tym adresem email już istnieje, zaloguj się lub użyj innego adresu email",
+    "name": "Imię i nazwisko",
+    "email": "Email",
+    "password": "Hasło",
+    "confirmPassword": "Potwierdź hasło",
+    "acceptTerms": "Klikając przycisk rejestracji, akceptuję",
+    "and": "oraz",
+    "creating": "Tworzenie konta...",
+    "register": "Zarejestruj się"
+  },
+  "recovery": {
+    "forgotYourPassword": "Zapomniałeś hasła?",
+    "recoverItHere": "Odzyskaj je tutaj",
+    "init": {
+      "title": "Odzyskiwanie hasła",
+      "description": "Wpisz swój adres e-mail, a wyślemy Ci link do zresetowania hasła.",
+      "send": "Wyślij e-mail do odzyskania hasła",
+      "success": {
+        "title": "E-mail z instrukcjami został wysłany",
+        "description": "Sprawdź swoją skrzynkę odbiorczą, aby znaleźć link do zresetowania hasła. Jeśli wiadomość nie pojawi się w ciągu kilku minut, sprawdź folder spam."
+      }
     }
   }
-  
+}

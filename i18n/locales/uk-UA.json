@@ -1,61 +1,73 @@
 {
-    "website": "AltLoc",
-    "common": {
-      "save": "Зберегти",
-      "cancel": "Скасувати",
-      "edit": "Редагувати",
-      "delete": "Видалити",
-      "add": "Додати",
-      "close": "Закрити",
-      "search": "Пошук"
-    },
-    "social": {
-      "facebook": "Facebook",
-      "instagram": "Instagram",
-      "twitter": "X",
-      "linkedin": "LinkedIn"
-    },
-    "layout": {
-      "tasks": "Завдання",
-      "dentityMatrix": "Матриця ідентичності",
-      "categories": "Категорії",
-      "privacyPolicy": "Політика конфіденційності",
-      "terms": "Умови використання",
-      "userAgreement": "Угода користувача",
-      "copyright": "Авторські права",
-      "allRightsReserved": "Всі права захищено",
-      "logIn": "Увійти",
-      "register": "Зареєструватися"
-    },
-    "login": {
-      "title": "Увійти до вашого облікового запису",
-      "email": "Email",
-      "password": "Пароль",
-      "loggingIn": "Вхід...",
-      "login": "Увійти",
-      "or": "або",
-      "withGoogle": "Увійти через Google",
-      "dontHaveAccount": "Немає облікового запису?",
-      "register": "Зареєструватися"
-    },
-    "register": {
-      "title": "Створити акаунт",
-      "description": "Гейміфікуй своє життя з AltLoc",
-      "or": "або",
-      "withGoogle": "Зареєструватися через Google",
-      "alreadyHave": "Вже маєш акаунт?",
-      "login": "Увійти",
-      "passwordNotMatch": "Паролі не збігаються",
-      "needToAccept": "Ви не можете продовжити без прийняття умов",
-      "emailTaken": "Користувач з таким email вже існує, будь ласка, увійдіть або використайте інший email",
-      "name": "Повне ім'я",
-      "email": "Email",
-      "password": "Пароль",
-      "confirmPassword": "Підтвердьте пароль",
-      "acceptTerms": "Натискаючи кнопку реєстрації, я погоджуюсь з",
-      "and": "та",
-      "creating": "Створення акаунту...",
-      "register": "Зареєструватися"
+  "website": "AltLoc",
+  "common": {
+    "save": "Зберегти",
+    "cancel": "Скасувати",
+    "edit": "Редагувати",
+    "delete": "Видалити",
+    "add": "Додати",
+    "close": "Закрити",
+    "search": "Пошук"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "twitter": "X",
+    "linkedin": "LinkedIn"
+  },
+  "layout": {
+    "tasks": "Завдання",
+    "dentityMatrix": "Матриця ідентичності",
+    "categories": "Категорії",
+    "privacyPolicy": "Політика конфіденційності",
+    "terms": "Умови використання",
+    "userAgreement": "Угода користувача",
+    "copyright": "Авторські права",
+    "allRightsReserved": "Всі права захищено",
+    "logIn": "Увійти",
+    "register": "Зареєструватися"
+  },
+  "login": {
+    "title": "Увійти до вашого облікового запису",
+    "email": "Email",
+    "password": "Пароль",
+    "loggingIn": "Вхід...",
+    "login": "Увійти",
+    "or": "або",
+    "withGoogle": "Увійти через Google",
+    "dontHaveAccount": "Немає облікового запису?",
+    "register": "Зареєструватися"
+  },
+  "register": {
+    "title": "Створити акаунт",
+    "description": "Гейміфікуй своє життя з AltLoc",
+    "or": "або",
+    "withGoogle": "Зареєструватися через Google",
+    "alreadyHave": "Вже маєш акаунт?",
+    "login": "Увійти",
+    "passwordNotMatch": "Паролі не збігаються",
+    "needToAccept": "Ви не можете продовжити без прийняття умов",
+    "emailTaken": "Користувач з таким email вже існує, будь ласка, увійдіть або використайте інший email",
+    "name": "Повне ім'я",
+    "email": "Email",
+    "password": "Пароль",
+    "confirmPassword": "Підтвердьте пароль",
+    "acceptTerms": "Натискаючи кнопку реєстрації, я погоджуюсь з",
+    "and": "та",
+    "creating": "Створення акаунту...",
+    "register": "Зареєструватися"
+  },
+  "recovery": {
+    "forgotYourPassword": "Забули пароль?",
+    "recoverItHere": "Відновіть його тут",
+    "init": {
+      "title": "Відновлення пароля",
+      "description": "Введіть свою електронну адресу, і ми надішлемо вам посилання для скидання пароля.",
+      "send": "Надіслати лист для відновлення",
+      "success": {
+        "title": "Лист для відновлення надіслано",
+        "description": "Перевірте свою електронну пошту, щоб знайти посилання для скидання пароля. Якщо лист не з’явиться протягом кількох хвилин, перевірте папку зі спамом."
+      }
     }
   }
-  
+}

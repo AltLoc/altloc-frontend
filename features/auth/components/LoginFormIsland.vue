@@ -6,60 +6,64 @@ import { useRouter } from "vue-router";
 import { Button } from "@/components/ui/button";
 import { TextField, PasswordField } from "@/components/ui/input";
 import LoaderIcon from "@/assets/icons/loader.svg?component";
+import { toTypedSchema } from "@vee-validate/zod";
+import { useForm } from "vee-validate";
+import { useI18n } from "vue-i18n";
 
 const router = useRouter();
+const { t } = useI18n();
 
-const validationSchema = z.object({
+const LoginSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6).max(255),
 });
 
-const validationErrors = ref<{
-  email?: string;
-  password?: string;
-}>({});
+const { handleSubmit, meta, setFieldError } = useForm({
+  validationSchema: toTypedSchema(LoginSchema),
+  validateOnMount: false,
+});
 
 const { mutate: login, isPending, error } = useLoginMutation();
 
-const submitForm = async (event: Event) => {
-  const rawData = Object.fromEntries(
-    new FormData(event.target as HTMLFormElement)
-  );
-
-  const result = validationSchema.safeParse(rawData);
-  if (!result.success) {
-    const error = result.error;
-    validationErrors.value.email = error.issues.find(
-      (issue) => issue.path[0] === "email"
-    )?.message;
-    validationErrors.value.password = error.issues.find(
-      (issue) => issue.path[0] === "password"
-    )?.message;
-    return;
-  }
-  validationErrors.value = {};
-
-  login(result.data, {
+const onSubmit = handleSubmit((values) => {
+  login(values, {
     onSuccess: () => {
-      router.push("/dashboard");
+      router.push("/user/dayQuest");
+    },
+    onError: async (error) => {
+      if (error instanceof FetchError && error.response.status === 400) {
+        setFieldError("password", await error.response.text());
+      }
     },
   });
-};
+});
 </script>
 
 <template>
-  <form @submit.prevent="submitForm" class="w-full">
+  <form @submit.prevent="onSubmit" class="w-full">
     <div class="flex flex-col gap-y-3">
       <TextField
         name="email"
-        label="Email"
+        :label="t('login.email')"
         type="email"
         placeholder="johndoe@example.com"
         autocomplete="email"
       />
 
-      <PasswordField name="password" label="Password" />
+      <!-- <PasswordField name="password" label="Password" /> -->
       <span v-if="error" class="text-red-500">{{ error }}</span>
+      <div class="flex flex-col gap-1.5">
+        <PasswordField name="password" :label="t('login.password')" />
+        <div class="w-full text-end text-xs font-medium">
+          {{ t("recovery.forgotYourPassword") }}
+          <a
+            class="text-indigo-500 underline-offset-2 hover:underline"
+            href="/auth/recover-password"
+          >
+            {{ t("recovery.recoverItHere") }}
+          </a>
+        </div>
+      </div>
     </div>
     <Button
       type="submit"
@@ -70,7 +74,7 @@ const submitForm = async (event: Event) => {
         class="mr-2 size-5 animate-spin stroke-[1.5] text-white"
         v-if="isPending"
       />
-      {{ isPending ? "Logging in..." : "Log in" }}
+      {{ isPending ? t("login.loggingIn") : t("login.login") }}
     </Button>
   </form>
 </template>

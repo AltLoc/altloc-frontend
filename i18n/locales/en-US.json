@@ -1,61 +1,73 @@
 {
-    "website": "AltLoc",
-    "common": {
-        "save": "Save",
-        "cancel": "Cancel",
-        "edit": "Edit",
-        "delete": "Delete",
-        "add": "Add",
-        "close": "Close",
-        "search": "Search"
-    },
-    "social": {
-		"facebook": "Facebook",
-		"instagram": "Instagram",
-		"twitter": "X",
-		"linkedin": "LinkedIn"
-	},
-    "layout": {
-		"tasks": "Tasks",
-        "dentityMatrix": "Identity Matrix",
-		"categories": "Categories",
-		"privacyPolicy": "Privacy policy",
-		"terms": "Terms of Service",
-		"userAgreement": "User agreement",
-		"copyright": "Copyright",
-		"allRightsReserved": "All Rights Reserved",
-		"logIn": "Log in",
-		"register": "Register"
-	},
-    "login": {
-		"title": "Login to your account",
-		"email": "Email",
-		"password": "Password",
-		"loggingIn": "Logging in...",
-		"login": "Log in",
-		"or": "or",
-		"withGoogle": "Login with Google",
-		"dontHaveAccount": "Don't have an account?",
-		"register": "Register"
-	},
-    "register": {
-		"title": "Create an account",
-		"description": "Gamify your life with AltLoc",
-		"or": "or",
-		"withGoogle": "Sign up with Google",
-		"alreadyHave": "Already have an account?",
-		"login": "Log in",
-		"passwordNotMatch": "Passwords do not match",
-		"needToAccept": "You cannot continue without accepting the terms and conditions",
-		"emailTaken": "User with this email already exists, please sign in instead or use a different email",
-		"name": "Full name",
-		"email": "Email",
-		"password": "Password",
-		"confirmPassword": "Confirm password",
-		"acceptTerms": "By pressing the registration button, I accept the",
-		"and": "and",
-		"creating": "Creating account...",
-		"register": "Register"
-	}
-
+  "website": "AltLoc",
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "close": "Close",
+    "search": "Search"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "twitter": "X",
+    "linkedin": "LinkedIn"
+  },
+  "layout": {
+    "tasks": "Tasks",
+    "dentityMatrix": "Identity Matrix",
+    "categories": "Categories",
+    "privacyPolicy": "Privacy policy",
+    "terms": "Terms of Service",
+    "userAgreement": "User agreement",
+    "copyright": "Copyright",
+    "allRightsReserved": "All Rights Reserved",
+    "logIn": "Log in",
+    "register": "Register"
+  },
+  "login": {
+    "title": "Login to your account",
+    "email": "Email",
+    "password": "Password",
+    "loggingIn": "Logging in...",
+    "login": "Log in",
+    "or": "or",
+    "withGoogle": "Login with Google",
+    "dontHaveAccount": "Don't have an account?",
+    "register": "Register"
+  },
+  "register": {
+    "title": "Create an account",
+    "description": "Gamify your life with AltLoc",
+    "or": "or",
+    "withGoogle": "Sign up with Google",
+    "alreadyHave": "Already have an account?",
+    "login": "Log in",
+    "passwordNotMatch": "Passwords do not match",
+    "needToAccept": "You cannot continue without accepting the terms and conditions",
+    "emailTaken": "User with this email already exists, please sign in instead or use a different email",
+    "name": "Full name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "acceptTerms": "By pressing the registration button, I accept the",
+    "and": "and",
+    "creating": "Creating account...",
+    "register": "Register"
+  },
+  "recovery": {
+    "forgotYourPassword": "Forgot your password?",
+    "recoverItHere": "Recover it here",
+    "init": {
+      "title": "Password recovery",
+      "description": "Enter your email address and we’ll send you a link to reset your password.",
+      "send": "Send recovery email",
+      "success": {
+        "title": "Recovery email sent successfully",
+        "description": "Check your email for a link to reset your password. If it doesn’t appear within a few minutes, check your spam folder."
+      }
+    }
+  }
 }
