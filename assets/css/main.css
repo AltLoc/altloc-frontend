@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+	min-height: 100svh;
+	scrollbar-gutter: stable;
+	color: theme("colors.blue.300");
+}
+
+
+:root {
+	color-scheme: light;
+}
+
+
+[data-radix-scroll-area-viewport] > div {
+	display: block !important;
+}

@@ -1,0 +1,39 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@tanstack/vue-query": "^5.67.2",
+    "@vuepic/vue-datepicker": "9.0.3",
+    "class-variance-authority": "0.7.0",
+    "nuxt": "^3.15.4",
+    "radix-vue": "1.9.7",
+    "tailwind-merge": "2.5.3",
+    "vee-validate": "4.13.2",
+    "vite-svg-loader": "^5.1.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "@vueuse/core": "^11.3.0",
+    "universal-cookie": "^7.2.2",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@nuxtjs/i18n": "^9.3.0",
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^22.7.5",
+    "@vue/tsconfig": "^0.5.1",
+    "autoprefixer": "^10.4.20",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "tailwindcss-animate": "1.0.7",
+    "typescript": "~5.6.3"
+  }
+}
