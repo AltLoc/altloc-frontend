@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { z } from "zod";
 import { useLoginMutation } from "@/features/auth/service/authPassword";
 import { useRouter } from "vue-router";

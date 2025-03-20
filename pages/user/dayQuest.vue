@@ -2,6 +2,7 @@
 import AppLayout from "@/layouts/AppLayout.vue";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
 import { useQuery } from "@tanstack/vue-query";
+import IdentityMatrixForm from "@/features/identityMatrix/components/IdentityMatrixForm.vue";
 
 definePageMeta({
   middleware: "auth",
@@ -32,6 +33,7 @@ const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
             <span>Role: {{ user.role }}</span>
           </template>
         </div>
+        <IdentityMatrixForm />
       </div>
     </section>
   </AppLayout>

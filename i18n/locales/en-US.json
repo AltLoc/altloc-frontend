@@ -69,5 +69,16 @@
         "description": "Check your email for a link to reset your password. If it doesn’t appear within a few minutes, check your spam folder."
       }
     }
+  },
+  "app": {
+    "identityMatrix":{
+      "title": "Identity Matrix",
+      "description": "The Identity Matrix is a tool that helps you understand your identity and how it relates to your goals and values. It is a visual representation of the different aspects of your identity and how they interact with each other. By using the Identity Matrix, you can gain insight into your strengths and weaknesses, and identify areas for growth and development.",
+     "create": "Create identity matrix",
+     "creating": "Creating identity matrix...",
+      "edit": "Edit matrix",
+      "delete": "Delete matrix"
+
+    }
   }
 }

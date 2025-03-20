@@ -9,9 +9,11 @@ import {
 import Cookies from "universal-cookie";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
+import { getCurrentLocale } from "@/i18n/handlerI18n";
 
 const { locale, locales, setLocale } = useI18n();
 const cookies = new Cookies();
+const currentLocale = getCurrentLocale();
 
 const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value);
@@ -32,7 +34,7 @@ const changeLocale = (newLocale: typeof locale.value) => {
       class="mx-1 flex items-center justify-start gap-x-1.5 whitespace-nowrap border-none bg-transparent px-2.5 py-2 transition-colors xs:justify-end"
     >
       <span class="text-sm font-medium tracking-wide">
-        {{ locale }}
+        {{ currentLocale.toUpperCase() }}
       </span>
       <GlobeIcon
         aria-hidden="true"

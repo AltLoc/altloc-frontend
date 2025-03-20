@@ -7,12 +7,13 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   const router = useRouter();
 
   try {
-    // Пробуем получить данные пользователя
     await queryClient.fetchQuery(getMeQueryOptions);
   } catch (error: any) {
     if (error.response?.status === 401) {
-      // Если 401 — редиректим на страницу логина
       return router.push("/auth/login");
+    }
+    if (error.response?.status === 500) {
+      return router.push("/");
     }
   }
 });

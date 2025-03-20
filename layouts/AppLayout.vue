@@ -5,12 +5,8 @@ import AstronautIcon from "@/assets/icons/astronaut.svg?component";
 import { useQuery } from "@tanstack/vue-query";
 import { useRouter } from "vue-router";
 
-// const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
-
-// Получаем роутер для перенаправления
 const router = useRouter();
 
-// Используем query с обработчиком ошибок
 const getMeQueryOptions = {
   ...originalGetMeQueryOptions,
   onError: (err: any) => {
