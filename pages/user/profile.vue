@@ -2,13 +2,11 @@
 import AppLayout from "@/layouts/AppLayout.vue";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
 import { useQuery } from "@tanstack/vue-query";
-import IdentityMatrixForm from "@/features/identityMatrix/components/IdentityMatrixForm.vue";
 
 definePageMeta({
   middleware: "auth",
 });
 
-// Запрашиваем данные пользователя
 const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
 </script>
 
@@ -20,7 +18,10 @@ const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
 
         <div class="flex flex-col gap-2">
           <template v-if="isLoading">
-            <span>Loading...</span>
+            <LoaderIcon
+              class="mr-2 size-10 animate-spin stroke-[1.5] text-zinc-500"
+              v-if="isLoading"
+            />
           </template>
 
           <template v-else-if="isError">
@@ -33,7 +34,6 @@ const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
             <span>Role: {{ user.role }}</span>
           </template>
         </div>
-        <IdentityMatrixForm />
       </div>
     </section>
   </AppLayout>

@@ -27,7 +27,7 @@ const { mutate: login, isPending, error } = useLoginMutation();
 const onSubmit = handleSubmit((values) => {
   login(values, {
     onSuccess: () => {
-      router.push("/user/dayQuest");
+      router.push("/user/quests");
     },
     onError: async (error) => {
       if (error instanceof FetchError && error.response.status === 400) {

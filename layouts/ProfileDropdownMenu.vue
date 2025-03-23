@@ -10,11 +10,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import GameControllerIcon from "@/assets/icons/game-controller.svg?component";
 import CommentIcon from "@/assets/icons/comment.svg?component";
-import ScalesIcon from "@/assets/icons/scales.svg?component";
 import SettingsIcon from "@/assets/icons/settings.svg?component";
 import LogoutIcon from "@/assets/icons/logout.svg?component";
 import LoaderIcon from "@/assets/icons/loader.svg?component";
 import PeopleIcon from "@/assets/icons/people.svg?component";
+import MatrixIcon from "@/assets/icons/matrix.svg?component";
+import AstronautHelmetIcon from "@/assets/icons/astronaut-helmet.svg?component";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
 import { computed } from "vue";
 import type { User } from "@/models";
@@ -70,7 +71,11 @@ const avatar = computed(() => {
       </DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
-        <DropdownMenuItem as="a" href="/user/day-quest">
+        <DropdownMenuItem as="a" href="/user/profile">
+          <AstronautHelmetIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
+          <span class="text-zinc-800">Profile</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem as="a" href="/user/quests">
           <GameControllerIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">Quests</span>
         </DropdownMenuItem>
@@ -78,9 +83,9 @@ const avatar = computed(() => {
           <CommentIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">Comments</span>
         </DropdownMenuItem>
-        <DropdownMenuItem as="a" href="/user/day-balance" disabled>
-          <ScalesIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
-          <span class="text-zinc-800">Balances</span>
+        <DropdownMenuItem as="a" href="/user/matrix">
+          <MatrixIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
+          <span class="text-zinc-800">Identity matrices</span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <template v-if="user.isAdmin">
