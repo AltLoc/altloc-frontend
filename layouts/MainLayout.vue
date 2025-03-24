@@ -82,7 +82,7 @@ useSeoMeta({
     </div>
   </header>
 
-  <main class="relative flex flex-1 flex-col bg-blue-50">
+  <main class="relative flex flex-1 flex-col bg-zinc-50">
     <slot />
   </main>
 

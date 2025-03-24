@@ -19,8 +19,6 @@ const {
   ...getIdentityMatrixQuery(matrixId),
   enabled: !!matrixId,
 });
-
-console.log();
 </script>
 
 <template>

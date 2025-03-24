@@ -5,7 +5,7 @@ const props = defineProps<{ class?: ClassNameValue }>();
 </script>
 
 <template>
-	<thead :class="twMerge('bg-zinc-100 text-sm', props.class)">
-		<slot />
-	</thead>
+  <thead :class="twMerge('bg-zinc-100 text-sm', props.class)">
+    <slot />
+  </thead>
 </template>

@@ -7,23 +7,25 @@ dayjs.extend(utc);
 dayjs.extend(duration);
 
 export const formatDateToMonthDay = (timestamp: number): string => {
-	return dayjs(utcTimestampToDate(timestamp)).format("D MMMM ");
+  return dayjs(utcTimestampToDate(timestamp)).format("D MMMM ");
 };
 
-export const formatFullDateTime = (timestamp: number): string => {
-	return dayjs(utcTimestampToDate(timestamp)).format("DD MMMM YYYY HH:mm:ss");
+export const formatFullDateTime = (timestamp: string): string => {
+  return dayjs(utcTimestampToDate(dayjs(timestamp).valueOf())).format(
+    "DD MMMM YYYY HH:mm:ss"
+  );
 };
 
 export const durationDate = (time_start: number, time_end: number): string => {
-	const duration = dayjs.duration(time_end - time_start, "seconds");
+  const duration = dayjs.duration(time_end - time_start, "seconds");
 
-	const days = duration.days();
-	const hours = duration.hours();
-	const minutes = duration.minutes();
+  const days = duration.days();
+  const hours = duration.hours();
+  const minutes = duration.minutes();
 
-	const daysString = days > 0 ? `${days}d ` : "";
-	const hoursString = hours > 0 ? `${hours}h ` : "";
-	const minutesString = minutes > 0 ? `${minutes}min` : "";
+  const daysString = days > 0 ? `${days}d ` : "";
+  const hoursString = hours > 0 ? `${hours}h ` : "";
+  const minutesString = minutes > 0 ? `${minutes}min` : "";
 
-	return `${daysString}${hoursString}${minutesString}`.trim();
+  return `${daysString}${hoursString}${minutesString}`.trim();
 };

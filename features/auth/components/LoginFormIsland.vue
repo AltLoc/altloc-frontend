@@ -29,7 +29,7 @@ const onSubmit = handleSubmit((values) => {
     onSuccess: () => {
       router.push("/user/quests");
     },
-    onError: async (error) => {
+    onError: async (error: any) => {
       if (error instanceof FetchError && error.response.status === 400) {
         setFieldError("password", await error.response.text());
       }

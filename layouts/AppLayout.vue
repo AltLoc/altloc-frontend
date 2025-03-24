@@ -40,7 +40,7 @@ const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
       <ProfileDropdownMenu v-if="user" :user="user" class="md:hidden" />
     </div>
   </header>
-  <div class="relative flex flex-1 flex-col bg-blue-50 h-screen">
+  <div class="relative flex flex-1 flex-col bg-stone-50 h-screen">
     <slot />
   </div>
 </template>

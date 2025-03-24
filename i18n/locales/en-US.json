@@ -71,14 +71,14 @@
     }
   },
   "app": {
-    "identityMatrix":{
+    "identityMatrix": {
       "title": "Identity Matrix",
       "description": "The Identity Matrix is a tool that helps you understand your identity and how it relates to your goals and values. It is a visual representation of the different aspects of your identity and how they interact with each other. By using the Identity Matrix, you can gain insight into your strengths and weaknesses, and identify areas for growth and development.",
-     "create": "Create identity matrix",
-     "creating": "Creating identity matrix...",
+      "create": "Create identity matrix",
+      "creating": "Creating identity matrix...",
       "edit": "Edit matrix",
+      "editing": "Editing matrix...",
       "delete": "Delete matrix"
-
     }
   }
 }

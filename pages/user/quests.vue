@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppLayout from "@/layouts/AppLayout.vue";
-import IdentityMatrixForm from "@/features/identityMatrix/components/IdentityMatrixForm.vue";
+import IdentityMatrixForm from "~/features/identityMatrix/components/create-identity-matrix-form/CreateIdentityMatrixForm.vue";
 
 definePageMeta({
   middleware: "auth",

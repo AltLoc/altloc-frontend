@@ -1,7 +1,10 @@
 export interface IdentityMatrix {
   id: string;
-  name: string;
-  //  categories: Category[];
   userId: string;
-  created_at: string;
+  name: string;
+  // description: string;
+  // bannerKey: string;
+  // categories: Category[];
+  createdAt: string;
+  updatedAt: string;
 }

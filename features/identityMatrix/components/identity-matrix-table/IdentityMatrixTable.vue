@@ -1,0 +1,68 @@
+<script setup lang="tsx">
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableCellContent,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+} from "@/components/ui/table";
+import type { IdentityMatrix } from "@/features/identityMatrix/model";
+import dayjs from "dayjs";
+import { useDeleteIdentityMatrixMutation } from "@/features/identityMatrix/service/index";
+
+const props = defineProps<{
+  identityMatrix: IdentityMatrix[];
+}>();
+
+const { mutate: deleteIdentityMatrix } = useDeleteIdentityMatrixMutation();
+</script>
+
+<template>
+  <div class="overflow-x-auto overflow-y-hidden">
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Date</TableHeaderCell>
+          <TableHeaderCell>Action</TableHeaderCell>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow v-for="(row, index) in identityMatrix" :key="index">
+          <TableCell>
+            <a :href="`/user/matrix/${row.id}`" class="text-blue-500">
+              {{ row.name }}
+            </a>
+          </TableCell>
+
+          <TableCell>
+            {{
+              dayjs(utcTimestampToDate(dayjs(row.createdAt).valueOf())).format(
+                "MMMM D YYYY, h:mm A"
+              )
+            }}
+          </TableCell>
+          <TableCell>
+            <div class="flex gap-3">
+              <a :href="`/user/matrix/${row.id}/edit`" class="text-zinc-400">
+                Edit
+              </a>
+              <span
+                @click="
+                  () => {
+                    deleteIdentityMatrix(row.id);
+                  }
+                "
+                class="text-zinc-400"
+              >
+                Delete
+              </span>
+            </div>
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  </div>
+</template>

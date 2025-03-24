@@ -11,6 +11,14 @@ const errorSchema = z.object({
   ),
 });
 
+export const updateIdentityMatrixBodySchema = z.object({
+  name: z.string().min(6).max(32),
+});
+
+export type UpdateIdentityMatrixBody = z.infer<
+  typeof updateIdentityMatrixBodySchema
+>;
+
 export const useIdentityMarixMutation = () =>
   useMutation({
     mutationFn: async (data: { name: string }) => {
@@ -43,37 +51,6 @@ export const fetchIdentityMatrices = queryOptions({
   },
 });
 
-// export const getIdentityMatrixQuery = (matrixId: string) =>
-//   queryOptions({
-//     queryKey: ["api", "app", "identity-matrix", "detail", matrixId],
-//     queryFn: async ({ signal }) => {
-//       const res = await fetch(`/api/app/identity-matrix/${matrixId}`, {
-//         signal,
-//         method: "GET",
-//       });
-//       if (!res.ok) {
-//         throw new FetchError(res);
-//       }
-//       console.log(res.json());
-
-//       return res.json() as Promise<IdentityMatrix[]>;
-//     },
-//   });
-
-// export const getIdentityMatrixQuery = (matrixId: string) =>
-//   queryOptions({
-//     queryKey: ["api", "app", "identity-matrix", matrixId],
-//     queryFn: async ({ signal }) => {
-//       const res = await fetch(`/api/app/identity-matrix/${matrixId}`, {
-//         signal,
-//       });
-//       if (!res.ok) {
-//         throw new FetchError(res);
-//       }
-//       return res.json() as Promise<IdentityMatrix>;
-//     },
-//   });
-
 export const getIdentityMatrixQuery = (matrixId: string) =>
   queryOptions({
     queryKey: ["api", "app", "identity-matrix", matrixId],
@@ -104,6 +81,26 @@ export function useDeleteIdentityMatrixMutation() {
     onSuccess: (_) => {
       queryClient.invalidateQueries(fetchIdentityMatrices);
       // queryClient.removeQueries(categoriesQuery(categoryId));
+    },
+  });
+}
+
+export function useUpdateIdentityMatrixMutation() {
+  return useMutation({
+    mutationFn: async (options: { body: UpdateIdentityMatrixBody }) => {
+      const res = await fetch(`/api/app/identity-matrix`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(options.body),
+      });
+
+      if (!res.ok) {
+        throw new FetchError(res);
+      }
+
+      return res.json();
     },
   });
 }
