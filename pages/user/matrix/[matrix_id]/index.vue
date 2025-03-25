@@ -25,6 +25,9 @@ const {
   <AppLayout>
     <section class="relative mt-6 px-3 md:px-10">
       <div class="container mx-auto max-w-4xl flex flex-col gap-4">
+        <div class="flex">
+          <BackButton />
+        </div>
         <h2>Identity matrix By ID {{ matrixId }}</h2>
       </div>
 
