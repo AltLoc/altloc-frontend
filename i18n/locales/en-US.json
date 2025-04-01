@@ -79,6 +79,24 @@
       "edit": "Edit matrix",
       "editing": "Editing matrix...",
       "delete": "Delete matrix"
+    },
+    "domain": {
+      "title": "Domain",
+      "description": "A domain is a specific area of your life that you want to focus on. It could be a goal, a value, a skill, or anything else that is important to you. By defining your domains, you can create a clear picture of what you want to achieve and how you can get there.",
+      "create": "Create domain",
+      "creating": "Creating domain...",
+      "edit": "Edit domain",
+      "editing": "Editing domain...",
+      "delete": "Delete domain"
+    },
+    "habit": {
+      "title": "Habit",
+      "description": "A habit is a behavior that you perform regularly, often without thinking about it. Habits can be positive or negative, and they can have a big impact on your life. By identifying your habits and working to change them, you can improve your health, happiness, and productivity.",
+      "create": "Create habit",
+      "creating": "Creating habit...",
+      "edit": "Edit habit",
+      "editing": "Editing habit...",
+      "delete": "Delete habit"
     }
   }
 }

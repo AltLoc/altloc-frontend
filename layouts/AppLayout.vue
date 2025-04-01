@@ -2,10 +2,8 @@
 import ProfileDropdownMenu from "@/layouts/ProfileDropdownMenu.vue";
 import { getMeQueryOptions as originalGetMeQueryOptions } from "@/features/user/service/user.client";
 import AstronautIcon from "@/assets/icons/astronaut.svg?component";
+import LoaderIcon from "@/assets/icons/loader.svg?component";
 import { useQuery } from "@tanstack/vue-query";
-import { useRouter } from "vue-router";
-
-const router = useRouter();
 
 const getMeQueryOptions = {
   ...originalGetMeQueryOptions,
@@ -28,16 +26,15 @@ const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
         <span class="font-semibold text-xl text-zinc-100">ALTLOC</span>
       </div>
 
-      <!-- View username -->
-      <span v-if="!isLoading && !isError">
-        username: {{ user?.username }}
+      <ProfileDropdownMenu v-if="user" :user="user" class="md:hidden" />
+
+      <span v-else-if="isLoading">
+        <LoaderIcon
+          class="mr-2 size-5 animate-spin stroke-[1.5] text-zinc-400"
+        />
       </span>
 
-      <!-- Loading and Error States -->
-      <span v-else-if="isLoading">Loading...</span>
       <span v-else-if="isError">Error: {{ error?.message }}</span>
-
-      <ProfileDropdownMenu v-if="user" :user="user" class="md:hidden" />
     </div>
   </header>
   <div class="relative flex flex-1 flex-col bg-stone-50 h-screen">

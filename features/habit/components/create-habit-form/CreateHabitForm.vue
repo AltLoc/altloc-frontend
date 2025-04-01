@@ -1,41 +1,55 @@
 <script setup lang="ts">
 import { z } from "zod";
-import { useIdentityMarixMutation } from "@/features/identityMatrix/service/index";
+import { useHabitMutation } from "@/features/habit/service/index";
 import { Button } from "@/components/ui/button";
 import LoaderIcon from "@/assets/icons/loader.svg?component";
 import { toTypedSchema } from "@vee-validate/zod";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import { TextArea } from "@/components/ui/text-area/";
+import type { Domain } from "@/features/domain/model";
 
 const { t } = useI18n();
 
-const IdentityMatrixSchema = z.object({
-  name: z.string().min(6).max(255),
+const router = useRouter();
+
+const props = defineProps<{
+  domain: Domain;
+}>();
+
+const DomainSchema = z.object({
+  id: z.string().optional(),
+  domainId: z.string(),
+  name: z.string().min(6).max(32),
 });
 
-const { handleSubmit } = useForm({
-  validationSchema: toTypedSchema(IdentityMatrixSchema),
+const { handleSubmit, setFieldError } = useForm({
+  validationSchema: toTypedSchema(DomainSchema),
+  initialValues: {
+    domainId: props.domain.id,
+  },
   validateOnMount: false,
 });
 
-const {
-  mutate: createIdentityMatrix,
-  isPending,
-  error,
-} = useIdentityMarixMutation();
+const { mutate: createHabit, isPending, error } = useHabitMutation();
 
 const onSubmit = handleSubmit((values) => {
-  createIdentityMatrix(values, {
-    // onSuccess: () => {
-    //   router.push("/user/dayQuest");
-    // },
-    // onError: async (error) => {
-    //   if (error instanceof FetchError && error.response.status === 400) {
-    //     setFieldError("password", await error.response.text());
-    //   }
-    // },
-  });
+  createHabit(
+    {
+      body: {
+        domainId: props.domain.id,
+        name: values.name,
+      },
+    },
+    {
+      onSuccess: () => {
+        router.push("/user/domain/" + props.domain.id);
+      },
+      onError: (err) => {
+        setFieldError("name", err.message);
+      },
+    }
+  );
 });
 </script>
 
@@ -44,9 +58,9 @@ const onSubmit = handleSubmit((values) => {
     <div class="flex flex-col gap-y-3">
       <TextArea
         name="name"
-        :label="t('app.identityMatrix.title')"
+        :label="t('app.habit.title')"
         type="text"
-        placeholder="I identify myself as a businessman."
+        placeholder="Run 5km every morning"
         autocomplete="off"
       />
 
@@ -61,11 +75,7 @@ const onSubmit = handleSubmit((values) => {
         class="mr-2 size-5 animate-spin stroke-[1.5] text-white"
         v-if="isPending"
       />
-      {{
-        isPending
-          ? t("app.identityMatrix.creating")
-          : t("app.identityMatrix.create")
-      }}
+      {{ isPending ? t("app.habit.creating") : t("app.habit.create") }}
     </Button>
   </form>
 </template>
