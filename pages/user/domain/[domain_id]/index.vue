@@ -22,12 +22,13 @@ const { data: domain } = useQuery({
 <template>
   <AppLayout>
     <section class="relative mt-6 px-3 md:px-10">
-      <div class="container mx-auto max-w-4xl flex flex-col gap-4">
+      <div class="container mx-auto flex flex-col gap-4">
         <div class="flex">
           <BackButton />
         </div>
-        <h2>Edit matrix {{ domainId }}</h2>
-        <span> domain: {{ domain?.name }} </span>
+        <h2 class="text-lg font-semibold">Domain: {{ domain?.name }}</h2>
+
+        <span class="text-sm text-zinc-500">All habit for this domain</span>
         <HabitTable v-if="domain" :domain="domain" />
         <CreateHabitForm v-if="domain" :domain="domain" />
       </div>

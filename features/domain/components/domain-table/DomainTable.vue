@@ -31,7 +31,7 @@ const { mutate: deleteDomain } = useDeleteDomainMutation();
       <TableBody>
         <TableRow v-for="(row, index) in props.domains" :key="index">
           <TableCell>
-            <a :href="`/user/domain/${props.domains}/`" class="text-blue-500">
+            <a :href="`/user/domain/${row.id}/`" class="text-blue-500">
               {{ row.name }}
             </a>
           </TableCell>

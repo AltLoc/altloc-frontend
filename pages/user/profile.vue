@@ -13,7 +13,7 @@ const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
 <template>
   <AppLayout>
     <section class="relative mt-6 px-3 md:px-10">
-      <div class="container mx-auto max-w-4xl flex flex-col gap-4">
+      <div class="container mx-auto flex flex-col gap-4">
         <h1 class="text-2xl font-bold">User Profile</h1>
 
         <div class="flex flex-col gap-2">

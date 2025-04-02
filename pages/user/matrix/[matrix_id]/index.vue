@@ -6,6 +6,7 @@ import { getIdentityMatrixQuery } from "@/features/identityMatrix/service/index"
 import { CreateDomainForm } from "@/features/domain/components/create-domain-form";
 import DomainTable from "@/features/domain/components/domain-table/DomainTable.vue";
 import { fetchDomainsByIdentityMatrix } from "@/features/domain/service";
+import { IdentityMatrixCard } from "@/features/identityMatrix/components/identity-matrix-card/";
 
 const route = useRoute();
 
@@ -32,7 +33,7 @@ const { data: domain } = useQuery({
 <template>
   <AppLayout>
     <section class="relative mt-6 px-3 md:px-10">
-      <div class="container mx-auto max-w-4xl flex flex-col gap-4">
+      <div class="container mx-auto flex flex-col gap-10">
         <div class="flex">
           <BackButton />
         </div>
@@ -44,19 +45,10 @@ const { data: domain } = useQuery({
             Error: {{ error?.message || "Failed to load data" }}
           </div>
 
-          <div
-            v-else-if="identityMatrix"
-            class="flex gap-3 items-center justify-center"
-          >
-            <span class="size-3 rounded-full bg-blue-500"></span>
-
-            <span class="text-zinc-700">
-              Your identity matrix:
-              <strong>
-                {{ identityMatrix.name }}
-              </strong>
-            </span>
-          </div>
+          <IdentityMatrixCard
+            v-if="identityMatrix"
+            :identityMatrix="identityMatrix"
+          />
 
           <div v-else class="text-gray-500">No data found</div>
         </div>

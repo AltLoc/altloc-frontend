@@ -11,7 +11,8 @@ import { TextArea } from "@/components/ui/text-area/";
 const { t } = useI18n();
 
 const IdentityMatrixSchema = z.object({
-  name: z.string().min(6).max(255),
+  name: z.string().min(6).max(32),
+  description: z.string().min(6).max(255),
 });
 
 const { handleSubmit } = useForm({
@@ -42,11 +43,19 @@ const onSubmit = handleSubmit((values) => {
 <template>
   <form @submit.prevent="onSubmit" class="w-full">
     <div class="flex flex-col gap-y-3">
-      <TextArea
+      <TextField
         name="name"
         :label="t('app.identityMatrix.title')"
         type="text"
         placeholder="I identify myself as a businessman."
+        autocomplete="email"
+      />
+
+      <TextArea
+        name="description"
+        :label="t('app.identityMatrix.description')"
+        type="text"
+        placeholder="Short description of your identity matrix."
         autocomplete="off"
       />
 

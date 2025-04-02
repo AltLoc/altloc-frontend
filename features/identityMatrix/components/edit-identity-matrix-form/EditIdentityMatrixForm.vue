@@ -19,7 +19,8 @@ const { t } = useI18n();
 const props = defineProps<{ identityMatrix: IdentityMatrix }>();
 
 const IdentityMatrixSchema = z.object({
-  name: z.string().min(6).max(255),
+  name: z.string().min(6).max(32),
+  description: z.string().min(6).max(255),
 });
 
 const { handleSubmit, meta, setFieldError, resetForm } = useForm({
@@ -43,6 +44,7 @@ watch(
     resetForm({
       values: {
         name: identityMatrix.value.name,
+        description: identityMatrix.value.description,
       },
     });
   },
@@ -69,12 +71,20 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form v-if="identityMatrix" @submit.prevent="onSubmit" class="w-full">
-    <div class="flex flex-col gap-y-3">
-      <TextArea
+    <div class="flex flex-col gap-4">
+      <TextField
         name="name"
         :label="t('app.identityMatrix.title')"
         type="text"
         placeholder="I identify myself as a businessman."
+        autocomplete="email"
+      />
+
+      <TextArea
+        name="description"
+        :label="t('app.identityMatrix.description')"
+        type="text"
+        placeholder="Short description of your identity matrix."
         autocomplete="off"
       />
 

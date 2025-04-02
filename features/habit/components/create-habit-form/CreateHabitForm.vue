@@ -42,9 +42,9 @@ const onSubmit = handleSubmit((values) => {
       },
     },
     {
-      onSuccess: () => {
-        router.push("/user/domain/" + props.domain.id);
-      },
+      // onSuccess: () => {
+      //   router.push("/user/domain/" + props.domain.id);
+      // },
       onError: (err) => {
         setFieldError("name", err.message);
       },

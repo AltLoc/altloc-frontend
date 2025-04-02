@@ -89,7 +89,7 @@ const avatar = computed(() => {
         </DropdownMenuItem>
         <DropdownMenuItem as="a" href="/user/domain">
           <MatrixIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
-          <span class="text-zinc-800">Domain</span>
+          <span class="text-zinc-800">Domains</span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <template v-if="user.isAdmin">

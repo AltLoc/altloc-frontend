@@ -13,6 +13,7 @@ const errorSchema = z.object({
 
 export const updateIdentityMatrixBodySchema = z.object({
   name: z.string().min(6).max(32),
+  description: z.string().min(6).max(255),
 });
 
 export type UpdateIdentityMatrixBody = z.infer<

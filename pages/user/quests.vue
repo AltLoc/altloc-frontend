@@ -4,10 +4,6 @@ import { useQuery } from "@tanstack/vue-query";
 import { fetchHabits } from "@/features/habit/service";
 import { HabitGrid } from "@/features/habit/components/habit-grid";
 
-definePageMeta({
-  middleware: "auth",
-});
-
 const { data: habtis } = useQuery({
   ...fetchHabits,
   enabled: true,
@@ -17,10 +13,10 @@ const { data: habtis } = useQuery({
 <template>
   <AppLayout>
     <section class="relative mt-6 px-3 md:px-10">
-      <div class="container mx-auto max-w-4xl flex flex-col gap-4">
+      <div class="container mx-auto flex flex-col gap-4">
         <h2 class="text-2xl font-bold">Day quests</h2>
+        <HabitGrid :habit="habtis ?? []" />
       </div>
-      <HabitGrid :habit="habtis ?? []" />
     </section>
   </AppLayout>
 </template>

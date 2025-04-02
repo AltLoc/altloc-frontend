@@ -14,6 +14,10 @@ const getMeQueryOptions = {
 };
 
 const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
+
+definePageMeta({
+  middleware: "auth",
+});
 </script>
 
 <template>
