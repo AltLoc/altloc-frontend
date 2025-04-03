@@ -15,6 +15,7 @@ export const updateHabitBodySchema = z.object({
   id: z.string().optional(),
   domainId: z.string(),
   name: z.string().min(6).max(32),
+  runtime: z.number().min(1).max(18000),
 });
 
 export type UpdateDomainBody = z.infer<typeof updateHabitBodySchema>;
