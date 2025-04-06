@@ -29,6 +29,7 @@ const HabitSchema = z.object({
   domainId: z.string(),
   name: z.string().min(6).max(32),
   runtime: z.number().min(1).max(18000), // 5 hours
+  dayPart: z.enum(["MORNING", "AFTERNOON", "EVENING", "NIGHT"]),
 });
 
 const { handleSubmit, setFieldError } = useForm({
@@ -48,6 +49,7 @@ const onSubmit = handleSubmit((values) => {
         domainId: props.domain.id,
         name: values.name,
         runtime: values.runtime,
+        dayPart: values.dayPart,
       },
     },
     {
@@ -72,6 +74,33 @@ const onSubmit = handleSubmit((values) => {
         placeholder="Run 5km every morning"
         autocomplete="off"
       />
+
+      <Field
+        as="div"
+        class="flex flex-col gap-1.5"
+        name="dayPart"
+        v-slot="{ field, errorMessage }"
+      >
+        <Label for="dayPart">Day part</Label>
+        <Select
+          :name="field.name"
+          :model-value="field.value"
+          @update:model-value="(val) => field['onUpdate:modelValue']?.(val)"
+        >
+          <SelectTrigger :invalid="!!errorMessage">
+            <SelectValue placeholder="Choose day part" />
+          </SelectTrigger>
+          <SelectContent class="text-zinc-700">
+            <SelectItem value="MORNING">MORNING</SelectItem>
+            <SelectItem value="AFTERNOON">AFTERNOON</SelectItem>
+            <SelectItem value="EVENING">EVENING</SelectItem>
+            <SelectItem value="NIGHT">NIGHT</SelectItem>
+          </SelectContent>
+        </Select>
+        <span v-if="errorMessage" class="text-xs font-medium text-red-600">
+          {{ errorMessage }}
+        </span>
+      </Field>
 
       <Field
         as="div"

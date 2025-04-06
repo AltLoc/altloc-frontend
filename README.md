@@ -16,23 +16,28 @@ All modules listed below are planned for **Version 1.0**.
 ---
 
 ### ✅ User Profile  
-- [ ] Fetch and display user profile data  
+- [X] Fetch and display user profile data  
 - [ ] User can update email and password  
 - [ ] Display activity history  
 
 ---
 
-### ✅ Habit Categories  
-- [ ] Display habit categories  
-- [ ] Create, edit, and delete habit categories  
-- [ ] Category icons visualization  
+### ✅ Identity Matrix 
+- [X] Display identity matrix   
+- [X] Create, edit, and delete identity matrix  
 
 ---
 
-### ✅ Tasks  
-- [ ] Display list of tasks  
-- [ ] Create, edit, and delete tasks  
-- [ ] Show task details and due dates  
+### ✅ Domain
+- [X] Display habit domains  
+- [X] Create, edit, and delete habit domains  
+
+---
+
+### ✅ Habits  
+- [X] Display list of habits  
+- [X] Create, edit, and delete habits  
+- [X] Show habit details and due dates  
 
 ---
 
@@ -44,9 +49,9 @@ All modules listed below are planned for **Version 1.0**.
 ---
 
 ### ✅ Timer  
-- [ ] Display task timer  
-- [ ] Task completion confirmation interface  
-- [ ] Task completion log update in UI  
+- [X] Display task timer  
+- [X] Task completion confirmation interface  
+- [X] Task completion log update in UI  
 
 ---
 

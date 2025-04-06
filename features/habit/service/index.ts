@@ -16,6 +16,7 @@ export const updateHabitBodySchema = z.object({
   domainId: z.string(),
   name: z.string().min(6).max(32),
   runtime: z.number().min(1).max(18000),
+  dayPart: z.enum(["MORNING", "AFTERNOON", "EVENING", "NIGHT"]),
 });
 
 export type UpdateDomainBody = z.infer<typeof updateHabitBodySchema>;
