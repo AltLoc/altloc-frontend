@@ -21,6 +21,13 @@ export const updateHabitBodySchema = z.object({
 
 export type UpdateDomainBody = z.infer<typeof updateHabitBodySchema>;
 
+export const completedHabitBodySchema = z.object({
+  habitId: z.string(),
+  domainId: z.string(),
+  userId: z.string(),
+});
+export type CompletedHabitBody = z.infer<typeof completedHabitBodySchema>;
+
 export const useHabitMutation = () =>
   useMutation({
     mutationFn: async (options: { body: UpdateDomainBody }) => {
@@ -100,6 +107,36 @@ export function useDeleteHabitMutation() {
     onSuccess: (_, domainId: string) => {
       queryClient.invalidateQueries(fetchHabitsByDomain(domainId));
       // queryClient.removeQueries(categoriesQuery(categoryId));
+    },
+  });
+}
+
+export function useCompletedHabitkMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (habitId: string) => {
+      console.log(
+        "useCompleteTaskMutation Sending request to complete task with ID:",
+        habitId
+      );
+      const res = await fetch(`/api/app/habit/${habitId}/completed`, {
+        method: "PUT",
+      });
+      console.log("Response status:", res.status); // Вывод статуса ответа
+
+      if (!res.ok) {
+        throw new FetchError(res);
+      }
+
+      if (res.ok) {
+        console.log("Task done!!!");
+      }
+
+      return res.json() as Promise<Habit>;
+    },
+    onSuccess: (task) => {
+      queryClient.invalidateQueries(fetchHabitsByDomain(task.domainId));
+      queryClient.invalidateQueries(fetchHabits);
     },
   });
 }

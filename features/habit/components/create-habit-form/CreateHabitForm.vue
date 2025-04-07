@@ -120,7 +120,7 @@ const onSubmit = handleSubmit((values) => {
             <SelectValue placeholder="Rate from 5 min to 2 hours" />
           </SelectTrigger>
           <SelectContent class="text-zinc-700">
-            <SelectItem :value="'60'">1 min (for test)</SelectItem>
+            <SelectItem :value="'30'">30 sec (for test)</SelectItem>
             <SelectItem :value="'300'">5 min</SelectItem>
             <SelectItem :value="'900'">15 min</SelectItem>
             <SelectItem :value="'1800'">30 min</SelectItem>

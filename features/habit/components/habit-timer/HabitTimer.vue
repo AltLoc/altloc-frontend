@@ -2,6 +2,9 @@
 import { ref } from "vue";
 import type { Habit } from "@/features/habit/model";
 import { Button } from "@/components/ui/button";
+import { useCompletedHabitkMutation } from "@/features/habit/service/index";
+
+const { mutate: completeHabitMutation } = useCompletedHabitkMutation();
 
 const props = defineProps<{ habit: Habit }>();
 
@@ -34,7 +37,7 @@ const startTimer = () => {
 const completeHabit = () => {
   habit.value.isRunning = false;
   if (interval) clearInterval(interval);
-  console.info("Habit completed and send data to backend", habit.value);
+  completeHabitMutation(habit.value.id);
 };
 
 const formatTime = (seconds: number): string => {
