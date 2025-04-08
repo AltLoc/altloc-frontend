@@ -2,7 +2,8 @@
 import AppLayout from "@/layouts/AppLayout.vue";
 import { useQuery } from "@tanstack/vue-query";
 import { fetchIdentityMatrices } from "@/features/identityMatrix/service/index";
-import { IdentityMatrixTable } from "@/features/identityMatrix/components/identity-matrix-table/";
+// import { IdentityMatrixTable } from "@/features/identityMatrix/components/identity-matrix-table/";
+import { IdentityMatrixGrid } from "@/features/identityMatrix/components/identity-matrix-grid/";
 import PlusIcon from "@/assets/icons/plus.svg?component";
 
 const { data: identityMatrices } = useQuery({
@@ -16,7 +17,9 @@ const { data: identityMatrices } = useQuery({
     <section class="relative mt-6 px-3 md:px-10">
       <div class="container mx-auto flex flex-col gap-4">
         <div class="flex justify-between items-center">
-          <h2 class="text-lg font-semibold">Your Identity Matrices</h2>
+          <h2 class="text-lg font-semibold">
+            Your Identity Matrices & Domains
+          </h2>
           <router-link
             to="/user/matrix/create"
             class="flex items-center gap-3 bg-blue-100 hover:bg-blue-200 rounded-full p-2"
@@ -27,7 +30,12 @@ const { data: identityMatrices } = useQuery({
           </router-link>
         </div>
 
-        <IdentityMatrixTable :identityMatrix="identityMatrices ?? []" />
+        <!-- <IdentityMatrixTable :identityMatrix="identityMatrices ?? []" /> -->
+
+        <IdentityMatrixGrid
+          v-if="identityMatrices?.length"
+          :identityMatrix="identityMatrices ?? []"
+        />
       </div>
     </section>
   </AppLayout>

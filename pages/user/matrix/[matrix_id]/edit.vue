@@ -24,7 +24,7 @@ const { data: identityMatrix } = useQuery({
         <div class="flex">
           <BackButton />
         </div>
-        <h2>Edit matrix {{ matrixId }}</h2>
+        <h2 class="text-lg font-semibold">Edit Identity Matrix</h2>
         <EditIdentityMatrixForm
           v-if="identityMatrix"
           :identityMatrix="identityMatrix"

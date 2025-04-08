@@ -41,7 +41,7 @@ definePageMeta({
       <span v-else-if="isError">Error: {{ error?.message }}</span>
     </div>
   </header>
-  <div class="relative flex flex-1 flex-col bg-stone-50 h-screen">
+  <div class="relative flex flex-1 flex-col bg-stone-50 h-full">
     <slot />
   </div>
 </template>
