@@ -2,6 +2,7 @@ export interface Habit {
   id: string;
   domainId: string;
   name: string;
+  domainName: string;
   runtime: number;
   dayPart: string;
   targetNumberOfCompletions: number;

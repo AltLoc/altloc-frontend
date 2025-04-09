@@ -4,6 +4,7 @@ import type { Habit } from "@/features/habit/model";
 import { HabitTimer } from "@/features/habit/components/habit-timer";
 import { CircularProgress } from "@/components/ui/progress";
 import TargetIcon from "@/assets/icons/target.svg?component";
+import MatrixIcon from "@/assets/icons/matrix.svg?component";
 
 const props = defineProps<{
   habit: Habit[];
@@ -37,7 +38,10 @@ const props = defineProps<{
             />
           </div>
         </div>
-
+        <div class="flex items-center gap-0.5">
+          <MatrixIcon class="mr-2 size-5 stroke-[1.7] text-zinc-800" />
+          <span class="text-zinc-500 text-sm"> {{ habit.domainName }}</span>
+        </div>
         <HabitTimer :habit="habit" />
       </div>
     </div>
