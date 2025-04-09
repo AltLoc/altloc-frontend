@@ -103,10 +103,10 @@ const onSubmit = handleSubmit((values) => {
             <SelectValue placeholder="Choose day part" />
           </SelectTrigger>
           <SelectContent class="text-zinc-700">
-            <SelectItem value="MORNING">MORNING</SelectItem>
-            <SelectItem value="AFTERNOON">AFTERNOON</SelectItem>
-            <SelectItem value="EVENING">EVENING</SelectItem>
-            <SelectItem value="NIGHT">NIGHT</SelectItem>
+            <SelectItem value="MORNING">Morning</SelectItem>
+            <SelectItem value="AFTERNOON">Afternoom</SelectItem>
+            <SelectItem value="EVENING">Evening</SelectItem>
+            <SelectItem value="NIGHT">Night</SelectItem>
           </SelectContent>
         </Select>
         <span v-if="errorMessage" class="text-xs font-medium text-red-600">

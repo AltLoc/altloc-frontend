@@ -26,7 +26,12 @@ const { data: domain } = useQuery({
         <div class="flex">
           <BackButton />
         </div>
-        <h2 class="text-lg font-semibold">Domain: {{ domain?.name }}</h2>
+        <div class="flex gap-3 items-center bg-blue-100 rounded-md p-3 w-fit">
+          <h2 class="text-lg text-zinc-500">Domain:</h2>
+          <span class="font-semibold">
+            {{ domain?.name }}
+          </span>
+        </div>
 
         <span class="text-sm text-zinc-500">All habit for this domain</span>
         <HabitTable v-if="domain" :domain="domain" />

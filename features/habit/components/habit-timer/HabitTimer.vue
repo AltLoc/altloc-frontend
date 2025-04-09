@@ -52,7 +52,7 @@ const completeHabit = () => {
       }}
     </Button>
     <Button
-      size="sm"
+      size="xs"
       @click="completeHabit"
       :disabled="habit.remainingTime > 0"
     >
