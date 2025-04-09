@@ -90,7 +90,7 @@ const unfilledColorClass = computed(() => `stroke-[${props.colorUnfilled}]`);
 
     <!-- percentage -->
     <div class="absolute inset-0 flex items-center justify-center flex-col">
-      <span v-if="percentage" class="text-xs font-medium">
+      <span v-if="percentage" class="text-[10px] font-medium">
         {{ getPercentage }}
       </span>
     </div>

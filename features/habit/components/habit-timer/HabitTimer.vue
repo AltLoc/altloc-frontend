@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import type { Habit } from "@/features/habit/model";
 import { Button } from "@/components/ui/button";
 import { useCompletedHabitkMutation } from "@/features/habit/service/index";
@@ -31,6 +31,7 @@ const startTimer = () => {
       habit.value.remainingTime--;
     } else {
       clearInterval(interval!);
+      completeHabit(); // Автоматически завершить привычку
     }
   }, 1000);
 };
@@ -38,27 +39,36 @@ const startTimer = () => {
 const completeHabit = () => {
   habit.value.isRunning = false;
   if (interval) clearInterval(interval);
-  completeHabitMutation(habit.value.id);
+  completeHabitMutation(habit.value.id); // Вызываем мутацию для завершения привычки
 };
+
+// Автоматически завершать привычку, если время равно 0
+watch(
+  () => habit.value.remainingTime,
+  (newValue) => {
+    if (newValue <= 0 && habit.value.isRunning) {
+      completeHabit();
+    }
+  }
+);
 </script>
 
 <template>
   <div class="flex flex-col items-center justify-between habit-timer gap-3">
-    <Button size="sm" @click="startTimer" :disabled="habit.isRunning">
+    <Button
+      size="md"
+      variant="tertiary"
+      @click="startTimer"
+      :disabled="habit.isRunning || habit.isCompleted"
+    >
       {{
         habit.isRunning
           ? `There's still: ${convertSecondsToMinutes(habit.remainingTime)}`
-          : "Start Timer"
+          : habit.isCompleted
+            ? "Completed"
+            : "Start"
       }}
     </Button>
-    <Button
-      size="xs"
-      @click="completeHabit"
-      :disabled="habit.remainingTime > 0"
-    >
-      Habit completed
-    </Button>
-
     <span v-if="error" class="text-red-500">{{ error.message }}</span>
   </div>
 </template>

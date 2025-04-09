@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 import type { Habit } from "@/features/habit/model";
-import dayjs from "dayjs";
-import { utcTimestampToDate } from "@/utils/date";
 import { HabitTimer } from "@/features/habit/components/habit-timer";
 import { CircularProgress } from "@/components/ui/progress";
+import TargetIcon from "@/assets/icons/target.svg?component";
 
 const props = defineProps<{
   habit: Habit[];
@@ -21,13 +20,22 @@ const props = defineProps<{
         <div class="flex justify-between items-center">
           <h3 class="text-lg font-bold">{{ habit.name }}</h3>
 
-          <CircularProgress
-            :value="habit.targetNumberOfCompletions / habit.numberOfCompletions"
-            s
-            :max="100"
-            :size="50"
-            :percentage="true"
-          />
+          <div class="flex items-center gap-2">
+            <TargetIcon
+              class="size-5 stroke-[1.7] text-zinc-700 text-sm"
+              title="Target"
+            />
+            <CircularProgress
+              :value="
+                (habit.numberOfCompletions / habit.targetNumberOfCompletions) *
+                100
+              "
+              s
+              :max="100"
+              :size="40"
+              :percentage="true"
+            />
+          </div>
         </div>
 
         <HabitTimer :habit="habit" />
