@@ -3,8 +3,9 @@ import { ref } from "vue";
 import type { Habit } from "@/features/habit/model";
 import { Button } from "@/components/ui/button";
 import { useCompletedHabitkMutation } from "@/features/habit/service/index";
+import { convertSecondsToMinutes } from "@/utils/time";
 
-const { mutate: completeHabitMutation } = useCompletedHabitkMutation();
+const { mutate: completeHabitMutation, error } = useCompletedHabitkMutation();
 
 const props = defineProps<{ habit: Habit }>();
 
@@ -39,20 +40,14 @@ const completeHabit = () => {
   if (interval) clearInterval(interval);
   completeHabitMutation(habit.value.id);
 };
-
-const formatTime = (seconds: number): string => {
-  const minutes = Math.floor(seconds / 60);
-  const secs = seconds % 60;
-  return `${minutes}:${secs.toString().padStart(2, "0")}`;
-};
 </script>
 
 <template>
-  <div class="flex items-center justify-between habit-timer gap-3">
+  <div class="flex flex-col items-center justify-between habit-timer gap-3">
     <Button size="sm" @click="startTimer" :disabled="habit.isRunning">
       {{
         habit.isRunning
-          ? `There's still: ${formatTime(habit.remainingTime)}`
+          ? `There's still: ${convertSecondsToMinutes(habit.remainingTime)}`
           : "Start Timer"
       }}
     </Button>
@@ -63,5 +58,7 @@ const formatTime = (seconds: number): string => {
     >
       Habit completed
     </Button>
+
+    <span v-if="error" class="text-red-500">{{ error.message }}</span>
   </div>
 </template>

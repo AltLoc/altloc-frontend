@@ -96,7 +96,9 @@
       "creating": "Creating habit...",
       "edit": "Edit habit",
       "editing": "Editing habit...",
-      "delete": "Delete habit"
+      "delete": "Delete habit",
+      "targetNumberOfCompletions": "Target number of completions",
+      "numberOfCompletions": "Number of completions"
     }
   }
 }

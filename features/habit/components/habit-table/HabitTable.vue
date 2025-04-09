@@ -15,6 +15,7 @@ import {
 } from "@/features/habit/service/index";
 import { useQuery } from "@tanstack/vue-query";
 import type { Domain } from "@/features/domain/model";
+import { convertSecondsToMinutes } from "@/utils/time";
 
 const props = defineProps<{
   domain: Domain;
@@ -33,7 +34,12 @@ const { mutate: deleteHabit } = useDeleteHabitMutation();
       <TableHeader>
         <TableRow>
           <TableHeaderCell>Name</TableHeaderCell>
-          <TableHeaderCell>Date</TableHeaderCell>
+
+          <TableHeaderCell>Run time</TableHeaderCell>
+          <TableHeaderCell>Day part</TableHeaderCell>
+          <TableHeaderCell>Target</TableHeaderCell>
+          <TableHeaderCell>Completions</TableHeaderCell>
+          <TableHeaderCell> Created at </TableHeaderCell>
           <TableHeaderCell>Action</TableHeaderCell>
         </TableRow>
       </TableHeader>
@@ -46,10 +52,22 @@ const { mutate: deleteHabit } = useDeleteHabitMutation();
           </TableCell>
 
           <TableCell>
+            {{ convertSecondsToMinutes(row.runtime) }}
+          </TableCell>
+          <TableCell>
+            {{ row.dayPart }}
+          </TableCell>
+          <TableCell>
+            {{ row.targetNumberOfCompletions }}
+          </TableCell>
+          <TableCell>
+            {{ row.numberOfCompletions }}
+          </TableCell>
+          <TableCell>
             {{
-              dayjs(utcTimestampToDate(dayjs(row.createdAt).valueOf())).format(
-                "MMMM D YYYY, h:mm A"
-              )
+              dayjs(
+                utcTimestampToDate(String(dayjs(row.createdAt).valueOf()))
+              ).format("MMMM D YYYY, h:mm A")
             }}
           </TableCell>
           <TableCell>

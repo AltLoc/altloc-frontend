@@ -19,11 +19,7 @@ const props = defineProps<{
       >
         <h3 class="text-lg font-bold">{{ habit.name }}</h3>
         <span class="text-sm text-gray-500">
-          {{
-            dayjs(utcTimestampToDate(dayjs(habit.createdAt).valueOf())).format(
-              "MMMM D YYYY, h:mm A"
-            )
-          }}
+          {{ habit.targetNumberOfCompletions / habit.numberOfCompletions }} %
         </span>
         <HabitTimer :habit="habit" />
       </div>

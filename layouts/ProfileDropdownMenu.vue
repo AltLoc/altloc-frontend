@@ -108,8 +108,8 @@ const avatar = computed(() => {
             class="mr-2 size-4 animate-spin stroke-[1.5]"
             v-if="isPending"
           />
-          <LogoutIcon v-else class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
-          <span class="text-zinc-800">Logout</span>
+          <LogoutIcon v-else class="mr-2 size-4 stroke-[1.5] text-red-700" />
+          <span class="text-red-700">Logout</span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
     </DropdownMenuContent>

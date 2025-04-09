@@ -28,8 +28,9 @@ const HabitSchema = z.object({
   id: z.string().optional(),
   domainId: z.string(),
   name: z.string().min(6).max(32),
-  runtime: z.number().min(1).max(18000), // 5 hours
+  runtime: z.number().min(1).max(18000), // max 5 hours
   dayPart: z.enum(["MORNING", "AFTERNOON", "EVENING", "NIGHT"]),
+  targetNumberOfCompletions: z.number().min(1).max(10000),
 });
 
 const { handleSubmit, setFieldError } = useForm({
@@ -50,6 +51,7 @@ const onSubmit = handleSubmit((values) => {
         name: values.name,
         runtime: values.runtime,
         dayPart: values.dayPart,
+        targetNumberOfCompletions: values.targetNumberOfCompletions,
       },
     },
     {
@@ -66,12 +68,22 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form @submit.prevent="onSubmit" class="w-full">
-    <div class="flex flex-col gap-y-3">
+    <div class="flex flex-col gap-3">
       <TextArea
         name="name"
         :label="t('app.habit.title')"
         type="text"
         placeholder="Run 5km every morning"
+        autocomplete="off"
+      />
+      <!-- <Label for="targetNumberOfCompletions">
+        {{ t("app.habit.targetNumberOfCompletions") }}
+      </Label> -->
+      <TextField
+        name="targetNumberOfCompletions"
+        :label="t('app.habit.targetNumberOfCompletions')"
+        type="number"
+        placeholder="0"
         autocomplete="off"
       />
 
@@ -120,7 +132,7 @@ const onSubmit = handleSubmit((values) => {
             <SelectValue placeholder="Rate from 5 min to 2 hours" />
           </SelectTrigger>
           <SelectContent class="text-zinc-700">
-            <SelectItem :value="'30'">30 sec (for test)</SelectItem>
+            <SelectItem :value="'15'">15 sec (for test)</SelectItem>
             <SelectItem :value="'300'">5 min</SelectItem>
             <SelectItem :value="'900'">15 min</SelectItem>
             <SelectItem :value="'1800'">30 min</SelectItem>

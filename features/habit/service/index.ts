@@ -16,6 +16,7 @@ export const updateHabitBodySchema = z.object({
   domainId: z.string(),
   name: z.string().min(6).max(32),
   runtime: z.number().min(1).max(18000),
+  targetNumberOfCompletions: z.number().min(1).max(10000),
   dayPart: z.enum(["MORNING", "AFTERNOON", "EVENING", "NIGHT"]),
 });
 
@@ -111,32 +112,78 @@ export function useDeleteHabitMutation() {
   });
 }
 
+// export function useCompletedHabitkMutation() {
+//   const queryClient = useQueryClient();
+//   return useMutation({
+//     mutationFn: async (habitId: string) => {
+//       console.log(
+//         "useCompleteTaskMutation Sending request to complete task with ID:",
+//         habitId
+//       );
+//       const res = await fetch(`/api/app/habit/${habitId}/completed`, {
+//         method: "PUT",
+//       });
+//       console.log("Response status:", res.status); // Вывод статуса ответа
+
+//       if (!res.ok) {
+//         throw new FetchError(res);
+//       }
+
+//       if (res.ok) {
+//         console.log("Task done!!!");
+//       }
+
+//       return res.json() as Promise<Habit>;
+//     },
+//     onSuccess: (task) => {
+//       queryClient.invalidateQueries(fetchHabitsByDomain(task.domainId));
+//       queryClient.invalidateQueries(fetchHabits);
+//     },
+//   });
+// }
+
 export function useCompletedHabitkMutation() {
   const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: async (habitId: string) => {
       console.log(
-        "useCompleteTaskMutation Sending request to complete task with ID:",
+        "useCompletedHabitMutation: Sending request to complete habit with ID:",
         habitId
       );
-      const res = await fetch(`/api/app/habit/${habitId}/completed`, {
-        method: "PUT",
-      });
-      console.log("Response status:", res.status); // Вывод статуса ответа
 
-      if (!res.ok) {
-        throw new FetchError(res);
-      }
+      const res = await fetchWithErrorHandling(
+        `/api/app/habit/${habitId}/completed`,
+        {
+          method: "PUT",
+        }
+      );
 
-      if (res.ok) {
-        console.log("Task done!!!");
-      }
-
+      console.log("Habit completed successfully!");
       return res.json() as Promise<Habit>;
     },
-    onSuccess: (task) => {
-      queryClient.invalidateQueries(fetchHabitsByDomain(task.domainId));
+
+    onSuccess: (habit) => {
+      queryClient.invalidateQueries(fetchHabitsByDomain(habit.domainId));
       queryClient.invalidateQueries(fetchHabits);
+    },
+
+    onError: (err) => {
+      if (err instanceof FetchError) {
+        const detail = err.problemDetails?.detail;
+        // if (detail === "Habit already completed today.") {
+        //   alert("Ты уже выполнил привычку сегодня ✨");
+        // } else {
+        //   console.error(
+        //     "Ошибка при завершении привычки:",
+        //     detail || err.message
+        //   );
+        //   alert(detail || "Произошла ошибка при завершении привычки.");
+        // }
+      } else {
+        console.error("Неизвестная ошибка:", err);
+        // alert("Произошла непредвиденная ошибка.");
+      }
     },
   });
 }

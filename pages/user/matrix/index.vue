@@ -17,8 +17,11 @@ const { data: identityMatrices } = useQuery({
     <section class="relative mt-6 px-3 md:px-10">
       <div class="container mx-auto flex flex-col gap-4">
         <div class="flex justify-between items-center">
-          <h2 class="text-lg font-semibold">
-            Your Identity Matrices & Domains
+          <h2 class="text-lg font-semibold flex items-center gap-2">
+            Managment of Identity Matrices and Domains
+            <span class="text-sm text-zinc-500">
+              ({{ identityMatrices?.length ?? 0 }})
+            </span>
           </h2>
           <router-link
             to="/user/matrix/create"

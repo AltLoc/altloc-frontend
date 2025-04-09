@@ -10,6 +10,7 @@ export interface User {
   level: number;
   currency: number;
   createdAt: number;
+  hasMatrix: boolean;
   isAdmin: boolean;
   authMethods: Array<"password" | "google">;
 }

@@ -4,6 +4,8 @@ export interface Habit {
   name: string;
   runtime: number;
   dayPart: string;
+  targetNumberOfCompletions: number;
+  numberOfCompletions: number;
   isCompleted: boolean;
   createdAt: string;
   updatedAt: string;

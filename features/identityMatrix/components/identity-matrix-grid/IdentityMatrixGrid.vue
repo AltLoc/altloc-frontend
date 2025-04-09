@@ -35,8 +35,11 @@ const props = defineProps<{
         </div>
         <div class="flex justify-between items-center">
           <a :href="`/user/matrix/${identityMatrix.id}`" class="text-blue-500">
-            <h3 class="text-xl font-bold">
-              {{ identityMatrix.name }} ({{ identityMatrix.domains.length }})
+            <h3 class="text-xl font-bold flex items-center gap-2">
+              {{ identityMatrix.name }}
+              <span class="text-sm text-zinc-500">
+                ({{ identityMatrix.domains.length ?? 0 }})
+              </span>
             </h3>
           </a>
 
@@ -60,7 +63,9 @@ const props = defineProps<{
               :key="dIndex"
             >
               <a :href="`/user/domain/${domain.id}`">
-                <Badge variant="green" size="md">{{ domain.name }}</Badge>
+                <Badge variant="green" size="md">
+                  {{ domain.name }} &nbsp; ({{ domain.habits.length ?? 0 }})
+                </Badge>
               </a>
             </div>
           </template>
@@ -86,11 +91,7 @@ const props = defineProps<{
         </div>
 
         <span class="text-[10px] text-gray-500">
-          {{
-            dayjs(
-              utcTimestampToDate(dayjs(identityMatrix.createdAt).valueOf())
-            ).format("MMMM D YYYY, h:mm A")
-          }}
+          {{ utcTimestampToDate(identityMatrix.createdAt) }}
         </span>
       </div>
     </div>

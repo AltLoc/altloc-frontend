@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 /**
  * @returns UTC timestamp (seconds since midnight, January 1, 1970 UTC)
  */
@@ -8,6 +10,10 @@ export function dateToUTCTimestamp(date: Date): number {
 /**
  * @param timestamp UTC timestamp (seconds since midnight, January 1, 1970 UTC)
  */
-export function utcTimestampToDate(timestamp: number): Date {
-  return new Date(timestamp);
+// export function utcTimestampToDate(timestamp: number): Date {
+//   return new Date(timestamp);
+// }
+
+export function utcTimestampToDate(timestamp: string): Date {
+  return dayjs(timestamp).toDate(); // Преобразует строку ISO 8601 в объект Date
 }

@@ -32,6 +32,9 @@ const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
             <span>Welcome, {{ user.username }}!</span>
             <span>Email: {{ user.email }}</span>
             <span>Role: {{ user.role }}</span>
+            <span>Level: {{ user.level }}</span>
+            <span>Score: {{ user.score }}</span>
+            <span>Currency: {{ user.currency }}</span>
           </template>
         </div>
       </div>
