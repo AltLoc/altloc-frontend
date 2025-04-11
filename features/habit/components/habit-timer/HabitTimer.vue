@@ -31,7 +31,7 @@ const startTimer = () => {
       habit.value.remainingTime--;
     } else {
       clearInterval(interval!);
-      completeHabit(); // Автоматически завершить привычку
+      completeHabit();
     }
   }, 1000);
 };
@@ -39,10 +39,9 @@ const startTimer = () => {
 const completeHabit = () => {
   habit.value.isRunning = false;
   if (interval) clearInterval(interval);
-  completeHabitMutation(habit.value.id); // Вызываем мутацию для завершения привычки
+  completeHabitMutation(habit.value.id);
 };
 
-// Автоматически завершать привычку, если время равно 0
 watch(
   () => habit.value.remainingTime,
   (newValue) => {

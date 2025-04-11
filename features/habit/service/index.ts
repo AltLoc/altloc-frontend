@@ -22,6 +22,12 @@ export const updateHabitBodySchema = z.object({
 
 export type UpdateDomainBody = z.infer<typeof updateHabitBodySchema>;
 
+export const fetchHabitDayPartSchema = z.object({
+  dayPart: z.enum(["MORNING", "AFTERNOON", "EVENING", "NIGHT"]),
+});
+
+export type fetchHabitDayPartBody = z.infer<typeof fetchHabitDayPartSchema>;
+
 export const completedHabitBodySchema = z.object({
   habitId: z.string(),
   domainId: z.string(),
@@ -54,6 +60,44 @@ export const fetchHabitsByDomain = (domainId: string) =>
     queryKey: ["api", "app", "domain", "habits", domainId],
     queryFn: async ({ signal }) => {
       const res = await fetch(`/api/app/domain/${domainId}/habits`, {
+        signal,
+      });
+
+      if (!res.ok) {
+        throw new FetchError(res);
+      }
+
+      return res.json() as Promise<Habit[]>;
+    },
+  });
+
+// export const fetchHabitsByDayPart = (dayPart: string) =>
+//   queryOptions({
+//     queryKey: ["api", "app", "habits", "daypart", dayPart],
+//     queryFn: async ({ signal }) => {
+//       const res = await fetch(`/api/app/habits/day-part/${dayPart}`, {
+//         signal,
+//       });
+
+//       if (!res.ok) {
+//         throw new FetchError(res);
+//       }
+
+//       return res.json() as Promise<Habit[]>;
+//     },
+//   });
+
+export const fetchHabitsByDayPart = (dayPart: Ref<string>) =>
+  queryOptions({
+    queryKey: computed(() => [
+      "api",
+      "app",
+      "habits",
+      "daypart",
+      dayPart.value,
+    ]),
+    queryFn: async ({ signal }) => {
+      const res = await fetch(`/api/app/habits/day-part/${dayPart.value}`, {
         signal,
       });
 
