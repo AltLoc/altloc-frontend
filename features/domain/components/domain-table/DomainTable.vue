@@ -38,9 +38,9 @@ const { mutate: deleteDomain } = useDeleteDomainMutation();
 
           <TableCell>
             {{
-              dayjs(utcTimestampToDate(dayjs(row.createdAt).valueOf())).format(
-                "MMMM D YYYY, h:mm A"
-              )
+              dayjs(
+                utcTimestampToDate(String(dayjs(row.createdAt).valueOf()))
+              ).format("MMMM D YYYY, h:mm A")
             }}
           </TableCell>
           <TableCell>

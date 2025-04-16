@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import dayjs from "dayjs";
 import { utcTimestampToDate } from "@/utils/date";
 import type { IdentityMatrix } from "@/features/identityMatrix/model";
 import { Badge } from "@/components/ui/badge";
@@ -37,6 +36,7 @@ const props = defineProps<{
           <a :href="`/user/matrix/${identityMatrix.id}`" class="text-blue-500">
             <h3 class="text-xl font-bold flex items-center gap-2">
               {{ identityMatrix.name }}
+
               <span class="text-sm text-zinc-500">
                 ({{ identityMatrix.domains.length ?? 0 }})
               </span>

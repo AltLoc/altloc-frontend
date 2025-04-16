@@ -4,7 +4,8 @@ import type { Habit } from "@/features/habit/model";
 import { HabitTimer } from "@/features/habit/components/habit-timer";
 import { CircularProgress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import MatrixIcon from "@/assets/icons/matrix.svg?component";
+// import MatrixIcon from "@/assets/icons/matrix.svg?component";
+import ChartIcon from "@/assets/icons/chart.svg?component";
 
 const props = defineProps<{
   habit: Habit[];
@@ -69,11 +70,21 @@ function setDayPart(part: "MORNING" | "AFTERNOON" | "EVENING" | "NIGHT") {
             />
           </div>
         </div>
-        <div class="flex items-center gap-0.5">
-          <MatrixIcon class="mr-2 size-5 stroke-[1.7] text-zinc-800" />
-          <span class="text-zinc-500 text-sm">{{ habit.domainName }}</span>
-        </div>
+
         <HabitTimer :habit="habit" />
+        <div class="flex justify-between">
+          <div class="flex flex-col gap-0.5">
+            <!-- <MatrixIcon class="mr-2 size-5 stroke-[1.7] text-zinc-800" /> -->
+            <span class="text-zinc-400 text-[10px]">Domain:</span>
+            <span class="text-zinc-500 text-sm">{{ habit.domainName }}</span>
+          </div>
+          <div class="flex flex-col gap-0.5">
+            <a :href="`/user/habit/${habit.id}/`">
+              <span class="text-zinc-400 text-[10px]">Stats:</span>
+              <ChartIcon class="mr-2 size-5 stroke-[1.7] text-zinc-800" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

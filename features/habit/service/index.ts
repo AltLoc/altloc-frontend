@@ -71,6 +71,22 @@ export const fetchHabitsByDomain = (domainId: string) =>
     },
   });
 
+export const fetchHabit = (habitId: string) =>
+  queryOptions({
+    queryKey: ["api", "app", "habits", habitId],
+    queryFn: async ({ signal }) => {
+      const res = await fetch(`/api/app/habit/${habitId}`, {
+        signal,
+      });
+
+      if (!res.ok) {
+        throw new FetchError(res);
+      }
+
+      return res.json() as Promise<Habit>;
+    },
+  });
+
 // export const fetchHabitsByDayPart = (dayPart: string) =>
 //   queryOptions({
 //     queryKey: ["api", "app", "habits", "daypart", dayPart],

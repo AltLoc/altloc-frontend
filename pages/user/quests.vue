@@ -8,7 +8,7 @@ import { GamificationProgressBar } from "@/features/gamification/components/gami
 
 const { data: user } = useQuery(getMeQueryOptions);
 
-const dayPart = ref<string>("EVENING");
+const dayPart = ref<string>("MORNING");
 
 const habitsByDayPartQuery = useQuery({
   ...fetchHabitsByDayPart(dayPart),
