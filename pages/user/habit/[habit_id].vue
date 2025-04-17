@@ -70,6 +70,9 @@ const orderedWeekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
           <span class="text-sm font-semibold">
             Target: {{ habit?.targetNumberOfCompletions }}
           </span>
+          <span class="text-sm font-semibold">
+            Day part: {{ habit?.dayPart.toLowerCase() }}
+          </span>
         </div>
 
         <RangeCalendarRoot v-slot="{ weekDays, grid }" fixed-weeks>

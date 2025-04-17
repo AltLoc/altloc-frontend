@@ -13,7 +13,11 @@ defineProps<{
   >
     <div class="flex-1 w-full">
       <img
-        src="/images/placeholder_image.webp"
+        :src="
+          identityMatrix?.bannerKey
+            ? getCDNImageURL(identityMatrix.bannerKey)
+            : '/images/placeholder_image.webp'
+        "
         alt="Conference image"
         class="aspect-video w-full rounded-xl"
       />

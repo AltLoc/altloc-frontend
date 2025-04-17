@@ -7,6 +7,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
   plugins: ["~/plugins/vue-query.ts"],
+  runtimeConfig: {
+    public: {
+      PUBLIC_CDN_URL: process.env.PUBLIC_CDN_URL,
+    },
+  },
   vite: {
     plugins: [svgLoader()],
     resolve: {
@@ -38,7 +43,6 @@ export default defineNuxtConfig({
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
-          hid: "description",
           name: "description",
           content: "Nuxt.js project with Vue Query",
         },

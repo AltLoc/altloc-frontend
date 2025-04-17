@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { IdentityMatrixDropDownMenu } from "@/features/identityMatrix/components/identity-matrix-dropdown-menu/";
+import { getCDNImageURL } from "@/utils/images";
 
 const props = defineProps<{
   identityMatrix: IdentityMatrix[];
@@ -27,7 +28,11 @@ const props = defineProps<{
       >
         <div class="flex-1 w-full">
           <img
-            src="/images/placeholder_image.webp"
+            :src="
+              identityMatrix?.bannerKey
+                ? getCDNImageURL(identityMatrix.bannerKey)
+                : '/images/placeholder_image.webp'
+            "
             alt="Identity Matrix banner"
             class="aspect-video w-full rounded-xl"
           />

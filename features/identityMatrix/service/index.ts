@@ -12,8 +12,19 @@ const errorSchema = z.object({
 });
 
 export const updateIdentityMatrixBodySchema = z.object({
+  id: z.string().optional(),
   name: z.string().min(6).max(32),
   description: z.string().min(6).max(255),
+  banner: z
+    .instanceof(File)
+    .refine((file) => file.size < 4 * 1024 * 1024, {
+      message: "The image is too large, max size is 4 MB",
+    })
+    .refine((file) => file.type.startsWith("image/"), {
+      message: "The file must be an image",
+    })
+    .optional(),
+  bannerKey: z.string().optional(),
 });
 
 export type UpdateIdentityMatrixBody = z.infer<
@@ -38,6 +49,38 @@ export const useIdentityMarixMutation = () =>
       return;
     },
   });
+
+export const useIdentityMarixNewMutation = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (
+      body: (typeof updateIdentityMatrixBodySchema)["_output"]
+    ) => {
+      const formData = new FormData();
+      Object.entries(body).forEach(([key, value]) => {
+        if (value !== undefined) {
+          formData.append(key, value);
+        }
+      });
+
+      const res = await fetch("/api/app/identity-matrix", {
+        method: "PUT",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        throw new FetchError(res);
+      }
+
+      if (!res.ok) {
+        const errors = errorSchema.parse(await res.json()).errors;
+        throw new Error(errors.at(0)?.message);
+      }
+      return res.json() as Promise<IdentityMatrix>;
+    },
+  });
+};
 
 export const fetchIdentityMatrices = queryOptions({
   queryKey: ["api", "app", "identity-matrices"],
