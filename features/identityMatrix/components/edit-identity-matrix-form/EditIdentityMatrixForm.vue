@@ -3,7 +3,6 @@ import { z } from "zod";
 import {
   useIdentityMarixNewMutation,
   getIdentityMatrixQuery,
-  useUpdateIdentityMatrixMutation,
 } from "@/features/identityMatrix/service/index";
 import { Button } from "@/components/ui/button";
 import LoaderIcon from "@/assets/icons/loader.svg?component";

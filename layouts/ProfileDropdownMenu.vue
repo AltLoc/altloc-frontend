@@ -79,7 +79,7 @@ const avatar = computed(() => {
           <GameControllerIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">Quests</span>
         </DropdownMenuItem>
-        <DropdownMenuItem as="a" href="/user/day-comment">
+        <DropdownMenuItem as="a" href="/user/daily-comment">
           <CommentIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">Comments</span>
         </DropdownMenuItem>

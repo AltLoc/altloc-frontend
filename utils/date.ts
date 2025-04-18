@@ -25,3 +25,7 @@ export function dateToUTCTimestamp(date: Date): number {
 export function utcTimestampToDate(date: string | number): string {
   return dayjs(date).format("DD MMM YYYY, HH:mm");
 }
+
+export function utcTimestampToDayAndMonth(date: string | number): string {
+  return dayjs(date).format("DD MMM YYYY");
+}
