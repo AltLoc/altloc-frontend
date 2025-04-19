@@ -13,20 +13,22 @@ const { data: dailyCommets } = useQuery({
 <template>
   <AppLayout>
     <section class="relative mt-6 px-3 md:px-10">
-      <div class="flex justify-between items-center">
-        <h2 class="text-lg font-semibold flex items-center gap-2">
-          Daily Comment
-        </h2>
-        <NuxtLink
-          to="/user/daily-comment/create"
-          class="flex items-center gap-3 bg-blue-100 hover:bg-blue-200 rounded-full p-2"
-        >
-          <PlusIcon
-            class="size-7 stroke-[2] text-zinc-400 hover:text-zinc-700"
-          />
-        </NuxtLink>
+      <div class="container mx-auto flex flex-col gap-4">
+        <div class="flex justify-between items-center">
+          <h2 class="text-lg font-semibold flex items-center gap-2">
+            Daily Comment
+          </h2>
+          <NuxtLink
+            to="/user/daily-comment/create"
+            class="flex items-center gap-3 bg-blue-100 hover:bg-blue-200 rounded-full p-2"
+          >
+            <PlusIcon
+              class="size-7 stroke-[2] text-zinc-400 hover:text-zinc-700"
+            />
+          </NuxtLink>
+        </div>
+        <DailyCommentGrid v-if="dailyCommets" :dailyComment="dailyCommets" />
       </div>
-      <DailyCommentGrid v-if="dailyCommets" :dailyComment="dailyCommets" />
     </section>
   </AppLayout>
 </template>

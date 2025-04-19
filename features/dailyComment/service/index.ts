@@ -12,34 +12,20 @@ const errorSchema = z.object({
 });
 
 export const moodOptions = [
-  { value: "VERY_BAD", label: "Very bad", emoji: "😡" },
-  { value: "BAD", label: "Bad", emoji: "😔" },
-  { value: "NEUTRAL", label: "Neutral", emoji: "😐" },
-  { value: "GOOD", label: "Good", emoji: "😊" },
-  { value: "VERY_GOOD", label: "Very good", emoji: "🤩" },
-] as const;
+  { label: "Very Bad", score: "VERY_BAD", emoji: "😡" },
+  { label: "Bad", score: "BAD", emoji: "😔" },
+  { label: "Neutral", score: "NEUTRAL", emoji: "😐" },
+  { label: "Good", score: "GOOD", emoji: "😊" },
+  { label: "Very Good", score: "VERY_GOOD", emoji: "🤩" },
+];
 
-export type Mood = (typeof moodOptions)[number]["value"];
+export const DailyCommentBodySchema = z.object({
+  id: z.string().uuid().optional(),
+  content: z.string().min(6).max(100),
+  mood: z.enum(["VERY_BAD", "BAD", "NEUTRAL", "GOOD", "VERY_GOOD"]),
+});
 
-export const updateDailyCommentBodySchema = z
-  .object({
-    id: z.string().uuid().optional(),
-    content: z.string().min(6).max(100),
-    mood: z
-      .enum(moodOptions.map((m) => m.value) as [Mood, ...Mood[]])
-      .optional(),
-  })
-  .superRefine((data, ctx) => {
-    if (!data.id && !data.mood) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Mood is required when creating a comment.",
-        path: ["mood"],
-      });
-    }
-  });
-
-export type DailyCommentBody = z.infer<typeof updateDailyCommentBodySchema>;
+export type DailyCommentBody = z.infer<typeof DailyCommentBodySchema>;
 
 export const useDailyCommentMutation = () =>
   useMutation({
@@ -50,7 +36,6 @@ export const useDailyCommentMutation = () =>
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        // body: JSON.stringify(data),
         body: JSON.stringify(options.body),
       });
       if (!res.ok) {

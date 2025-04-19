@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { z } from "zod";
 import {
   useDailyCommentMutation,
+  getDailyCommentQuery,
   DailyCommentBodySchema,
+  moodOptions,
 } from "@/features/dailyComment/service/index";
 import { Button } from "@/components/ui/button";
 import LoaderIcon from "@/assets/icons/loader.svg?component";
@@ -10,6 +11,8 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { useForm, Field } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import { TextArea } from "@/components/ui/text-area/";
+import { useQuery, useQueryClient } from "@tanstack/vue-query";
+import type { DailyComment } from "@/features/dailyComment/model";
 import {
   Select,
   SelectContent,
@@ -21,45 +24,64 @@ import { Label } from "@/components/ui/label";
 
 const { t } = useI18n();
 
-const router = useRouter();
+const props = defineProps<{ dailyComment: DailyComment }>();
 
-const EMOTIONAL_STATE = {
-  VERY_BAD: "VERY_BAD",
-  BAD: "BAD",
-  NEUTRAL: "NEUTRAL",
-  GOOD: "GOOD",
-  VERY_GOOD: "VERY_GOOD",
-} as const;
-
-type Mood =
-  | keyof typeof EMOTIONAL_STATE
-  | (typeof EMOTIONAL_STATE)[keyof typeof EMOTIONAL_STATE];
-
-const { handleSubmit, setFieldError } = useForm({
+const { handleSubmit, meta, setFieldError, resetForm } = useForm({
   validationSchema: toTypedSchema(DailyCommentBodySchema),
-  // initialValues: {
-  //   identityMatrixId: props.identityMatrixId,
-  // },
   validateOnMount: false,
 });
 
+const queryClient = useQueryClient();
+queryClient.setQueryData(
+  getDailyCommentQuery(props.dailyComment.id).queryKey,
+  props.dailyComment
+);
+
+const { data: dailyComment } = useQuery(
+  getDailyCommentQuery(props.dailyComment.id)
+);
+
+watch(
+  dailyComment,
+  () => {
+    if (!dailyComment.value) return;
+    resetForm({
+      values: {
+        content: dailyComment.value.content,
+        mood: dailyComment.value.mood as
+          | "VERY_BAD"
+          | "BAD"
+          | "NEUTRAL"
+          | "GOOD"
+          | "VERY_GOOD"
+          | undefined,
+      },
+    });
+  },
+  { immediate: true }
+);
+
 const {
-  mutate: createDailyComment,
+  mutate: updateDailyComment,
   isPending,
   error,
 } = useDailyCommentMutation();
 
 const onSubmit = handleSubmit((values) => {
-  createDailyComment(
+  const { ...rest } = values;
+  updateDailyComment(
     {
       body: {
-        content: values.content,
-        mood: values.mood,
+        id: props.dailyComment.id,
+        content: rest.content,
+        mood: rest.mood,
       },
     },
     {
       onSuccess: () => {
-        router.push("/user/daily-comment");
+        queryClient.invalidateQueries(
+          getDailyCommentQuery(props.dailyComment.id)
+        );
       },
       onError: (err) => {
         setFieldError("content", err.message);
@@ -90,20 +112,18 @@ const onSubmit = handleSubmit((values) => {
         <Select
           :name="field.name"
           :model-value="field.value"
-          @update:model-value="field['onUpdate:modelValue']"
+          @update:modelValue="field.onChange"
         >
           <SelectTrigger :invalid="!!errorMessage">
-            <SelectValue placeholder="Rate from 😭 to 😍" />
+            <SelectValue :placeholder="t('app.domain.mood_placeholder')" />
           </SelectTrigger>
           <SelectContent class="text-zinc-700">
-            <SelectItem :value="EMOTIONAL_STATE.BAD"> Bad 😞 </SelectItem>
-            <SelectItem :value="EMOTIONAL_STATE.GOOD">Good 😊</SelectItem>
-            <SelectItem :value="EMOTIONAL_STATE.NEUTRAL">Neutral 😐</SelectItem>
-            <SelectItem :value="EMOTIONAL_STATE.VERY_BAD"
-              >Very bad 😭</SelectItem
+            <SelectItem
+              v-for="option in moodOptions"
+              :key="option.score"
+              :value="option.score.toString()"
             >
-            <SelectItem :value="EMOTIONAL_STATE.VERY_GOOD">
-              Very good 😍
+              {{ option.label }} {{ option.emoji }}
             </SelectItem>
           </SelectContent>
         </Select>
@@ -114,6 +134,7 @@ const onSubmit = handleSubmit((values) => {
 
       <span v-if="error" class="text-red-500">{{ error }}</span>
     </div>
+
     <Button
       type="submit"
       :disabled="isPending"

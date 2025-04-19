@@ -10,12 +10,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import DotsHorizontalIcon from "@/assets/icons/dots-horizontal.svg?component";
 import { DailyCommentActionDropDownMenu } from "@/features/dailyComment/components/daily-comment-action-dropdown-menu/";
+import { moodOptions } from "@/features/dailyComment/service";
 
 const props = defineProps<{
   dailyComment: DailyComment[];
 }>();
 
-const isOpenDayQuestDialog = ref(false);
 const isOpenEditCommentDialog = ref(false);
 const modalProps = ref<{ comment: DailyComment }>();
 
@@ -49,9 +49,19 @@ function handleOpenModal(
             </div>
 
             <div class="flex items-center gap-2">
-              <span class="text-zinc-400">{{ dailyComment.mood.emoji }}</span>
+              <span class="text-zinc-400">
+                {{
+                  moodOptions.find(
+                    (option) => option.score === dailyComment.mood
+                  )?.emoji
+                }}
+              </span>
               <span class="text-zinc-400 text-xs">
-                {{ dailyComment.mood.label }}
+                {{
+                  moodOptions.find(
+                    (option) => option.score === dailyComment.mood
+                  )?.label
+                }}
               </span>
             </div>
             <DropdownMenu :modal="false">
