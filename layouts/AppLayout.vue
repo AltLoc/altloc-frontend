@@ -4,6 +4,7 @@ import { getMeQueryOptions as originalGetMeQueryOptions } from "@/features/user/
 import AstronautIcon from "@/assets/icons/astronaut.svg?component";
 import LoaderIcon from "@/assets/icons/loader.svg?component";
 import { useQuery } from "@tanstack/vue-query";
+import MobileIslandMenu from "@/layouts/MobileIslandMenu.vue";
 
 const getMeQueryOptions = {
   ...originalGetMeQueryOptions,
@@ -41,7 +42,8 @@ definePageMeta({
       <span v-else-if="isError">Error: {{ error?.message }}</span>
     </div>
   </header>
-  <div class="relative flex flex-1 flex-col bg-stone-50 h-full">
+  <div class="relative flex flex-1 flex-col bg-stone-50 h-screen">
     <slot />
   </div>
+  <MobileIslandMenu />
 </template>
