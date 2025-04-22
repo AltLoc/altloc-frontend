@@ -21,7 +21,7 @@ export const moodOptions = [
 
 export const DailyCommentBodySchema = z.object({
   id: z.string().uuid().optional(),
-  content: z.string().min(6).max(100),
+  content: z.string().min(6).max(500),
   mood: z.enum(["VERY_BAD", "BAD", "NEUTRAL", "GOOD", "VERY_GOOD"]),
 });
 

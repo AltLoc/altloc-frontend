@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import DiamondIcon from "@/assets/icons/diamond.svg?component";
 import StarIcon from "@/assets/icons/star.svg?component";
+import StarBoldIcon from "@/assets/icons/starBold.svg?component";
 import { Progress } from "@/components/ui/progress";
 import { computed } from "vue";
 import type { User } from "@/features/user/model";
@@ -27,11 +28,11 @@ const progress = computed(() => {
   <div class="flex flex-col gap-3 flex-1">
     <div class="flex gap-3 justify-between">
       <div
-        class="flex gap-3 bg-blue-100 p-2 rounded-xl items-center"
+        class="flex gap-1.5 bg-blue-100 p-2 rounded-xl items-center"
         title="Experience"
       >
+        <StarBoldIcon class="size-5 stroke-[1.7] text-zinc-700 text-sm" />
         <span class="text-zinc-700 text-xs" v-if="user">
-          Exp:
           {{ user.score }}
           / {{ (user.level + 1) * baseLevelScore }}
         </span>
