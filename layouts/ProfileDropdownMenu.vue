@@ -16,7 +16,6 @@ import LoaderIcon from "@/assets/icons/loader.svg?component";
 import PeopleIcon from "@/assets/icons/people.svg?component";
 import MatrixIcon from "@/assets/icons/matrix.svg?component";
 import AstronautHelmetIcon from "@/assets/icons/astronaut-helmet.svg?component";
-import ViewCozyIcon from "@/assets/icons/view-cozy.svg?component";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
 import { computed } from "vue";
 import type { User } from "@/models";
@@ -55,7 +54,6 @@ const avatar = computed(() => {
       <span class="text-sm font-semibold text-zinc-100">
         {{ user.username }}
       </span>
-      <!-- <ViewCozyIcon class="mr-2 size-8 stroke-[1.5] text-zinc-200" /> -->
       <img
         alt="User avatar"
         :src="avatar"

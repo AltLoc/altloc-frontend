@@ -27,7 +27,9 @@ const habitsByDayPart = computed(() => habitsByDayPartQuery.data?.value ?? []);
     <section class="relative mt-6 px-3 md:px-10">
       <div class="container mx-auto flex flex-col gap-4">
         <GamificationProgressBar v-if="user" :user="user" />
-        <h2 class="text-2xl font-bold">Day quests - {{ dayPart }}</h2>
+        <h2 class="text-2xl font-bold">
+          Day quests ({{ dayPart.toLowerCase() }})
+        </h2>
         <HabitGrid :habit="habitsByDayPart ?? []" v-model:dayPart="dayPart" />
       </div>
     </section>

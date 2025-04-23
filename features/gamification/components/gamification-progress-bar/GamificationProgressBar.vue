@@ -28,7 +28,7 @@ const progress = computed(() => {
   <div class="flex flex-col gap-3 flex-1">
     <div class="flex gap-3 justify-between">
       <div
-        class="flex gap-1.5 bg-blue-100 p-2 rounded-xl items-center"
+        class="flex gap-1 bg-blue-100 p-2 rounded-xl items-center"
         title="Experience"
       >
         <StarBoldIcon class="size-5 stroke-[1.7] text-zinc-700 text-sm" />

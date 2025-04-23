@@ -2,6 +2,7 @@ import { queryOptions, useMutation, useQueryClient } from "@tanstack/vue-query";
 import { z } from "zod";
 import type { Habit } from "@/features/habit/model";
 import { FetchError } from "@/utils/fetch";
+import { getMeQueryOptions } from "@/features/user/service/user.client";
 
 const errorSchema = z.object({
   errors: z.array(
@@ -175,11 +176,13 @@ export function useDeleteHabitMutation() {
 export function useCompletedHabitkMutation() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (habitId: string) => {
-      console.log(
-        "useCompleteTaskMutation Sending request to complete task with ID:",
-        habitId
-      );
+    mutationFn: async ({
+      habitId,
+      dayPart,
+    }: {
+      habitId: string;
+      dayPart: Ref<string>;
+    }) => {
       const res = await fetch(`/api/app/habit/${habitId}/completed`, {
         method: "PUT",
       });
@@ -188,15 +191,11 @@ export function useCompletedHabitkMutation() {
         throw new FetchError(res);
       }
 
-      if (res.ok) {
-        console.log("Task done!!!");
-      }
-
       return res.json() as Promise<Habit>;
     },
-    onSuccess: (task) => {
-      queryClient.invalidateQueries(fetchHabitsByDomain(task.domainId));
-      queryClient.invalidateQueries(fetchHabits);
+    onSuccess: (_, habit) => {
+      queryClient.invalidateQueries(fetchHabitsByDayPart(habit.dayPart));
+      queryClient.invalidateQueries(getMeQueryOptions);
     },
   });
 }

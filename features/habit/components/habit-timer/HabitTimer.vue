@@ -39,7 +39,10 @@ const startTimer = () => {
 const completeHabit = () => {
   habit.value.isRunning = false;
   if (interval) clearInterval(interval);
-  completeHabitMutation(habit.value.id);
+  completeHabitMutation({
+    habitId: habit.value.id,
+    dayPart: ref(habit.value.dayPart),
+  });
 };
 
 watch(
