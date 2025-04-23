@@ -3,44 +3,15 @@ import { defineProps, defineEmits } from "vue";
 import type { Habit } from "@/features/habit/model";
 import { HabitTimer } from "@/features/habit/components/habit-timer";
 import { CircularProgress } from "@/components/ui/progress";
-import { Button } from "@/components/ui/button";
-// import MatrixIcon from "@/assets/icons/matrix.svg?component";
 import ChartIcon from "@/assets/icons/chart.svg?component";
+import TargetIcons from "@/assets/icons/target.svg?component";
 
 const props = defineProps<{
   habit: Habit[];
-  dayPart: string;
 }>();
-
-const emit = defineEmits<{
-  (e: "update:dayPart", value: string): void;
-}>();
-
-function setDayPart(part: "MORNING" | "AFTERNOON" | "EVENING" | "NIGHT") {
-  console.log(`Emitting: ${part}`);
-  emit("update:dayPart", part);
-}
 </script>
 
 <template>
-  <div class="flex gap-3 justify-center">
-    <Button size="xs" variant="tertiary" @click="setDayPart('MORNING')">
-      Morning
-    </Button>
-
-    <Button size="xs" variant="tertiary" @click="setDayPart('AFTERNOON')">
-      Afternoon
-    </Button>
-
-    <Button size="xs" variant="tertiary" @click="setDayPart('EVENING')">
-      Evening
-    </Button>
-
-    <Button size="xs" variant="tertiary" @click="setDayPart('NIGHT')">
-      Night
-    </Button>
-  </div>
-
   <div
     class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2 mt-5"
   >
