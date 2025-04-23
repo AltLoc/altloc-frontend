@@ -5,25 +5,22 @@ import { Button } from "@/components/ui/button";
 import { useCompletedHabitkMutation } from "@/features/habit/service/index";
 import { convertSecondsToMinutes } from "@/utils/time";
 
-const { mutate: completeHabitMutation, error } = useCompletedHabitkMutation();
-
 const props = defineProps<{ habit: Habit }>();
 
-interface HabitTimer extends Habit {
-  remainingTime: number;
-  isRunning: boolean;
-}
-
-const habit = ref<HabitTimer>({
+const habit = ref({
   ...props.habit,
   remainingTime: props.habit.runtime,
   isRunning: false,
+  isCompleted: props.habit.isCompleted,
 });
+
+const { mutate: completeHabitMutation, error } = useCompletedHabitkMutation();
 
 let interval: ReturnType<typeof setInterval> | null = null;
 
 const startTimer = () => {
-  if (habit.value.isRunning) return;
+  if (habit.value.isRunning || habit.value.isCompleted) return;
+
   habit.value.isRunning = true;
 
   interval = setInterval(() => {
@@ -38,17 +35,26 @@ const startTimer = () => {
 
 const completeHabit = () => {
   habit.value.isRunning = false;
+  habit.value.isCompleted = true;
   if (interval) clearInterval(interval);
-  completeHabitMutation({
-    habitId: habit.value.id,
-    dayPart: ref(habit.value.dayPart),
-  });
+
+  completeHabitMutation(
+    {
+      habitId: habit.value.id,
+      dayPart: ref(habit.value.dayPart),
+    },
+    {
+      onSuccess: () => {
+        console.log("Habit completed successfully");
+      },
+    }
+  );
 };
 
 watch(
   () => habit.value.remainingTime,
-  (newValue) => {
-    if (newValue <= 0 && habit.value.isRunning) {
+  (newVal) => {
+    if (newVal <= 0 && habit.value.isRunning && !habit.value.isCompleted) {
       completeHabit();
     }
   }
@@ -71,6 +77,7 @@ watch(
             : "Start"
       }}
     </Button>
+
     <span v-if="error" class="text-red-500">{{ error.message }}</span>
   </div>
 </template>
