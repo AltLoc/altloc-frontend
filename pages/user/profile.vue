@@ -2,6 +2,7 @@
 import AppLayout from "@/layouts/AppLayout.vue";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
 import { useQuery } from "@tanstack/vue-query";
+import UserCard from "~/features/user/components/user-card/UserCard.vue";
 
 definePageMeta({
   middleware: "auth",
@@ -28,14 +29,7 @@ const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
             <span>Error: {{ error?.message }}</span>
           </template>
 
-          <template v-else-if="user">
-            <span>Welcome, {{ user.username }}!</span>
-            <span>Email: {{ user.email }}</span>
-            <span>Role: {{ user.role }}</span>
-            <span>Level: {{ user.level }}</span>
-            <span>Score: {{ user.score }}</span>
-            <span>Currency: {{ user.currency }}</span>
-          </template>
+          <UserCard v-else-if="user" :user="user" />
         </div>
       </div>
     </section>
