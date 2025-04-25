@@ -20,7 +20,7 @@ import { getMeQueryOptions } from "@/features/user/service/user.client";
 import { computed } from "vue";
 import type { User } from "@/models";
 import { useQueryClient } from "@tanstack/vue-query";
-import { getCDNImageURL } from "@/utils";
+import { getCDNImageURL } from "@/utils/images";
 
 import { useRouter } from "vue-router";
 import { useLogoutMutation } from "@/features/auth/service/authPassword";
@@ -41,11 +41,11 @@ const logoutUser = () => {
   });
 };
 
-const avatar = computed(() => {
-  return props.user.avatarKey
-    ? getCDNImageURL(props.user.avatarKey)
-    : "/images/placeholder_image.webp";
-});
+// const avatar = computed(() => {
+//   return props.user.avatarKey
+//     ? getCDNImageURL(props.user.avatarKey)
+//     : "/images/placeholder_image.webp";
+// });
 </script>
 
 <template>
@@ -56,7 +56,11 @@ const avatar = computed(() => {
       </span>
       <img
         alt="User avatar"
-        :src="avatar"
+        :src="
+          user?.avatarKey
+            ? getCDNImageURL(user.avatarKey)
+            : '/images/placeholder_image.webp'
+        "
         class="size-10 shrink-0 rounded-full border border-black/10 transition-colors group-hover:border-black/20"
       />
     </DropdownMenuTrigger>
