@@ -38,9 +38,18 @@ defineProps<{
       >
         {{ user.username }}
       </h1>
-      <div class="flex gap-1.5 items-center">
-        <MailIcon class="size-6 stroke-[1.7] text-zinc-700" title="Email" />
-        <span class="text-zinc-700"> {{ user.email }}</span>
+
+      <div class="flex gap-6">
+        <div class="flex gap-1.5 items-center">
+          <MailIcon class="size-6 stroke-[1.7] text-zinc-700" title="Email" />
+          <span class="text-zinc-700"> {{ user.email }}</span>
+        </div>
+        <div class="flex gap-1.5 items-center">
+          <span v-if="user.emailVerified" class="text-sm text-green-500">
+            Email verified
+          </span>
+          <span v-else class="text-sm text-red-500"> Email not verified </span>
+        </div>
       </div>
       <div class="flex gap-1.5 items-center">
         <StarIcon class="size-6 stroke-[1.7] text-zinc-700" title="Level" />

@@ -122,9 +122,9 @@ export const useLogoutMutation = () => {
 
 export const useVerifyEmailMutation = () => {
   return useMutation({
-    mutationFn: async (data: { user_id: string; activation_token: string }) => {
+    mutationFn: async (data: { activation_token: string }) => {
       const res = await fetch(
-        `/api/auth/password/verify-email/${data.user_id}/${data.activation_token}`,
+        `/api/auth/password/verify-email/${data.activation_token}`,
         {
           method: "POST",
           headers: {
@@ -132,8 +132,12 @@ export const useVerifyEmailMutation = () => {
           },
         }
       );
+      // if (!res.ok) {
+      //   throw new Error(await res.text());
+      // }
       if (!res.ok) {
-        throw new Error(await res.text());
+        const errors = errorSchema.parse(await res.json()).errors;
+        throw new Error(errors.at(0)?.message);
       }
       return;
     },

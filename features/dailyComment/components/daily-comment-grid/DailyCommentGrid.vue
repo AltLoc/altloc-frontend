@@ -40,30 +40,33 @@ function handleOpenModal(
         class="bg-white shadow-md rounded-md p-4 flex-1 flex flex-col gap-4 w-auto"
       >
         <div class="flex flex-col gap-4">
-          <div class="flex gap-3 items-center">
-            <div class="flex gap-2 items-center">
-              <CalendarIcon class="size-5 stroke-[1.7] text-zinc-400" />
-              <span class="text-xs text-zinc-400">
-                {{ utcTimestampToDayAndMonth(dailyComment.createdAt) }}
-              </span>
+          <div class="flex gap-3 items-center justify-between">
+            <div class="flex gap-3 items-center">
+              <div class="flex gap-2 items-center">
+                <CalendarIcon class="size-5 stroke-[1.7] text-zinc-400" />
+                <span class="text-xs text-zinc-400">
+                  {{ utcTimestampToDayAndMonth(dailyComment.createdAt) }}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="text-zinc-400">
+                  {{
+                    moodOptions.find(
+                      (option) => option.score === dailyComment.mood
+                    )?.emoji
+                  }}
+                </span>
+                <span class="text-zinc-400 text-xs">
+                  {{
+                    moodOptions.find(
+                      (option) => option.score === dailyComment.mood
+                    )?.label
+                  }}
+                </span>
+              </div>
             </div>
 
-            <div class="flex items-center gap-2">
-              <span class="text-zinc-400">
-                {{
-                  moodOptions.find(
-                    (option) => option.score === dailyComment.mood
-                  )?.emoji
-                }}
-              </span>
-              <span class="text-zinc-400 text-xs">
-                {{
-                  moodOptions.find(
-                    (option) => option.score === dailyComment.mood
-                  )?.label
-                }}
-              </span>
-            </div>
             <DropdownMenu :modal="false">
               <DropdownMenuTrigger
                 class="flex items-center p-1 hover:bg-black/5 rounded data-[state=open]:bg-black/5"

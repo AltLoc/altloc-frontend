@@ -16,7 +16,7 @@ import {
   FileUploadItemImagePreview,
 } from "@/components/ui/file-upload";
 import { AvatarImage, AvatarRoot, AvatarFallback } from "radix-vue";
-import { PLACEHOLDER_IMAGE } from "@/utils/images";
+import { PLACEHOLDER_AVATAR } from "@/utils/images";
 
 const { t } = useI18n();
 
@@ -124,7 +124,7 @@ const onSubmit = handleSubmit((values) => {
                   height="128"
                   width="128"
                   class="size-full object-cover"
-                  :src="PLACEHOLDER_IMAGE"
+                  :src="PLACEHOLDER_AVATAR"
                 />
                 <AvatarFallback
                   class="block size-full animate-pulse bg-zinc-200"
