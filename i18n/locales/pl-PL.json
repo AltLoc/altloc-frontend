@@ -63,10 +63,87 @@
     "init": {
       "title": "Odzyskiwanie hasła",
       "description": "Wpisz swój adres e-mail, a wyślemy Ci link do zresetowania hasła.",
-      "send": "Wyślij e-mail do odzyskania hasła",
+      "send": "Wyślij e-mail odzyskujący hasło",
       "success": {
-        "title": "E-mail z instrukcjami został wysłany",
+        "title": "E-mail odzyskujący hasło został wysłany",
         "description": "Sprawdź swoją skrzynkę odbiorczą, aby znaleźć link do zresetowania hasła. Jeśli wiadomość nie pojawi się w ciągu kilku minut, sprawdź folder spam."
+      }
+    }
+  },
+  "app": {
+    "identityMatrix": {
+      "title": "Macierz Tożsamości",
+      "description": "Macierz Tożsamości to narzędzie, które pomaga zrozumieć Twoją tożsamość i jej związek z Twoimi celami i wartościami. To wizualna reprezentacja różnych aspektów Twojej tożsamości oraz ich wzajemnych powiązań. Dzięki niej możesz poznać swoje mocne i słabe strony oraz zidentyfikować obszary do rozwoju.",
+      "create": "Utwórz macierz tożsamości",
+      "creating": "Tworzenie macierzy...",
+      "edit": "Edytuj macierz",
+      "editing": "Edycja macierzy...",
+      "delete": "Usuń macierz"
+    },
+    "domain": {
+      "title": "Dziedzina",
+      "description": "Dziedzina to konkretny obszar Twojego życia, na którym chcesz się skupić. Może to być cel, wartość, umiejętność lub coś innego, co jest dla Ciebie ważne. Określając swoje dziedziny, tworzysz jasny obraz tego, co chcesz osiągnąć i jak do tego dojść.",
+      "create": "Utwórz dziedzinę",
+      "creating": "Tworzenie dziedziny...",
+      "edit": "Edytuj dziedzinę",
+      "editing": "Edycja dziedziny...",
+      "delete": "Usuń dziedzinę"
+    },
+    "habit": {
+      "title": "Nawyk",
+      "description": "Nawyk to zachowanie, które wykonujesz regularnie, często automatycznie. Nawyki mogą być pozytywne lub negatywne i mają duży wpływ na Twoje życie. Identyfikując i modyfikując swoje nawyki, możesz poprawić zdrowie, szczęście i produktywność.",
+      "create": "Utwórz nawyk",
+      "creating": "Tworzenie nawyku...",
+      "edit": "Edytuj nawyk",
+      "editing": "Edycja nawyku...",
+      "delete": "Usuń nawyk",
+      "targetNumberOfCompletions": "Docelowa liczba ukończeń",
+      "numberOfCompletions": "Liczba ukończeń",
+      "completed": "Ukończono",
+      "start": "Start",
+      "thereStill": "Pozostało: ",
+      "dayPart": {
+        "morning": "Rano",
+        "afternoon": "Popołudnie",
+        "evening": "Wieczór",
+        "night": "Noc"
+      },
+      "dailyQuests": "Codzienne zadania"
+    },
+    "dailyComment": {
+      "title": "Codzienny komentarz",
+      "description": "Codzienny komentarz to krótka refleksja nad dniem. Może być sposobem na wyrażenie wdzięczności, wyznaczenie intencji lub po prostu zapisanie swoich myśli i uczuć. Regularne pisanie komentarzy pozwala lepiej zrozumieć emocje i doświadczenia oraz śledzić postępy.",
+      "create": "Utwórz komentarz dzienny",
+      "creating": "Tworzenie komentarza...",
+      "edit": "Edytuj komentarz",
+      "editing": "Edycja komentarza...",
+      "delete": "Usuń komentarz",
+      "mood": "Nastrój",
+      "rateFromTo": "Oceń od 😞 do 😍",
+      "moodName": {
+        "veryBad": "Bardzo źle 😭",
+        "bad": "Źle 😞",
+        "neutral": "Neutralnie 😐",
+        "good": "Dobrze 😊",
+        "veryGood": "Bardzo dobrze 😍"
+      }
+    },
+    "cabinet": {
+      "nav": {
+        "profile": "Profil",
+        "quests": "Zadania",
+        "matrixAndDomains": "Macierz i Dziedziny",
+        "dailyComment": "Komentarze",
+        "settings": "Ustawienia",
+        "logout": "Wyloguj się"
+      },
+      "settings": {
+        "title": "Konto",
+        "account": {
+          "title": "Edytuj konto",
+          "name": "Imię i nazwisko",
+          "save": "Zapisz"
+        }
       }
     }
   }

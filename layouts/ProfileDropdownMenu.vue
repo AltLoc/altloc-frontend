@@ -17,13 +17,14 @@ import PeopleIcon from "@/assets/icons/people.svg?component";
 import MatrixIcon from "@/assets/icons/matrix.svg?component";
 import AstronautHelmetIcon from "@/assets/icons/astronaut-helmet.svg?component";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
-import { computed } from "vue";
 import type { User } from "@/models";
 import { useQueryClient } from "@tanstack/vue-query";
 import { getCDNImageURL } from "@/utils/images";
-
 import { useRouter } from "vue-router";
 import { useLogoutMutation } from "@/features/auth/service/authPassword";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const props = defineProps<{ user: User }>();
 
@@ -77,19 +78,27 @@ const logoutUser = () => {
       <DropdownMenuGroup>
         <DropdownMenuItem as="a" href="/user/profile">
           <AstronautHelmetIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
-          <span class="text-zinc-800">Profile</span>
+          <span class="text-zinc-800">
+            {{ t("app.cabinet.nav.profile") }}
+          </span>
         </DropdownMenuItem>
         <DropdownMenuItem as="a" href="/user/quests">
           <GameControllerIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
-          <span class="text-zinc-800">Quests</span>
+          <span class="text-zinc-800">
+            {{ t("app.cabinet.nav.quests") }}
+          </span>
         </DropdownMenuItem>
         <DropdownMenuItem as="a" href="/user/daily-comment">
           <CommentIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
-          <span class="text-zinc-800">Comments</span>
+          <span class="text-zinc-800">
+            {{ t("app.cabinet.nav.dailyComment") }}
+          </span>
         </DropdownMenuItem>
         <DropdownMenuItem as="a" href="/user/matrix">
           <MatrixIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
-          <span class="text-zinc-800">Matrix & Domain</span>
+          <span class="text-zinc-800">
+            {{ t("app.cabinet.nav.matrixAndDomains") }}
+          </span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <template v-if="user.isAdmin">
@@ -105,7 +114,9 @@ const logoutUser = () => {
       <DropdownMenuGroup>
         <DropdownMenuItem as="a" href="/user/settings">
           <SettingsIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
-          <span class="text-zinc-800">Settings</span>
+          <span class="text-zinc-800">
+            {{ t("app.cabinet.nav.settings") }}
+          </span>
         </DropdownMenuItem>
         <DropdownMenuItem @select.prevent="logoutUser()">
           <LoaderIcon
@@ -113,7 +124,9 @@ const logoutUser = () => {
             v-if="isPending"
           />
           <LogoutIcon v-else class="mr-2 size-4 stroke-[1.5] text-red-700" />
-          <span class="text-red-700">Logout</span>
+          <span class="text-red-700">
+            {{ t("app.cabinet.nav.logout") }}
+          </span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
     </DropdownMenuContent>

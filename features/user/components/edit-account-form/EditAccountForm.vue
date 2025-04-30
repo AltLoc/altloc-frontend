@@ -69,7 +69,7 @@ const onSubmit = handleSubmit((data) => {
 <template>
   <form class="flex w-auto flex-col gap-6 px-6 py-5" @submit.prevent="onSubmit">
     <h3 class="text-2xl font-bold tracking-tight">
-      {{ t("cabinet.settings.account.title") }}
+      {{ t("app.cabinet.settings.account.title") }}
     </h3>
     <div class="flex flex-col gap-6 md:flex-row">
       <Field
@@ -133,7 +133,7 @@ const onSubmit = handleSubmit((data) => {
       <div class="flex flex-1 flex-col gap-3">
         <Field name="username" v-slot="{ field }">
           <TextField
-            :label="t('cabinet.settings.account.name')"
+            :label="t('app.cabinet.settings.account.name')"
             :name="field.name"
           />
         </Field>
@@ -144,7 +144,7 @@ const onSubmit = handleSubmit((data) => {
         type="submit"
         :disabled="(!meta.valid && meta.dirty) || isPending"
       >
-        {{ t("cabinet.settings.account.save") }}
+        {{ t("app.cabinet.settings.account.save") }}
       </Button>
     </div>
   </form>

@@ -1,25 +1,9 @@
-<!-- <script setup lang="ts">
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-const props = defineProps<{
-  dayPart: string;
-}>();
-</script>
-
-<template>
-  <Tabs default-value="account" class="w-auto">
-    <TabsList class="flex w-full justify-between p-1">
-      <TabsTrigger value="MORNING">Morning</TabsTrigger>
-      <TabsTrigger value="AFTERNOON">Afternoon</TabsTrigger>
-      <TabsTrigger value="EVENING">Evening</TabsTrigger>
-      <TabsTrigger value="NIGHT">Night</TabsTrigger>
-    </TabsList>
-  </Tabs>
-</template> -->
-
 <script setup lang="ts">
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ref, watch } from "vue";
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const props = defineProps<{
   dayPart: string;
@@ -31,41 +15,27 @@ const emit = defineEmits<{
 
 const currentTab = ref(props.dayPart);
 
-console.log("Current tab 77:", currentTab.value);
-
-// watch(
-//   () => props.dayPart,
-//   (newVal) => {
-//     currentTab.value = newVal;
-//   }
-// );
-
 function updateTab(part: "MORNING" | "AFTERNOON" | "EVENING" | "NIGHT") {
   console.log("Current tab:", part);
   currentTab.value = part;
   emit("update:dayPart", part);
 }
-
-// function setDayPart(part: "MORNING" | "AFTERNOON" | "EVENING" | "NIGHT") {
-//   console.log(`Emitting: ${part}`);
-//   emit("update:dayPart", part);
-// }
 </script>
 
 <template>
   <Tabs :default-value="currentTab" class="w-auto">
     <TabsList class="flex w-full justify-between p-1">
       <TabsTrigger value="MORNING" @click="updateTab('MORNING')">
-        Morning
+        {{ t("app.habit.dayPart.morning") }}
       </TabsTrigger>
       <TabsTrigger value="AFTERNOON" @click="updateTab('AFTERNOON')">
-        Afternoon
+        {{ t("app.habit.dayPart.afternoon") }}
       </TabsTrigger>
       <TabsTrigger value="EVENING" @click="updateTab('EVENING')">
-        Evening
+        {{ t("app.habit.dayPart.evening") }}
       </TabsTrigger>
       <TabsTrigger value="NIGHT" @click="updateTab('NIGHT')">
-        Night
+        {{ t("app.habit.dayPart.night") }}
       </TabsTrigger>
     </TabsList>
   </Tabs>

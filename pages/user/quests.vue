@@ -10,6 +10,9 @@ import SunsetIcon from "@/assets/icons/sunset.svg?component";
 import SunHighIcon from "@/assets/icons/sun-high.svg?component";
 import SunriseIcon from "@/assets/icons/sunrise.svg?component";
 import MoonIcon from "@/assets/icons/moon.svg?component";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const { data: user } = useQuery(getMeQueryOptions);
 
@@ -48,7 +51,9 @@ const dayPartIcon = computed(() => {
       <div class="container mx-auto flex flex-col gap-4">
         <GamificationProgressBar v-if="user" :user="user" />
         <div class="flex gap-1.5 items-center">
-          <h2 class="text-xl font-bold text-zinc-700">Daily quests</h2>
+          <h2 class="text-xl font-bold text-zinc-700">
+            {{ t("app.habit.dailyQuests") }}
+          </h2>
           <component :is="dayPartIcon" class="size-8 stroke-2 text-zinc-700" />
         </div>
 

@@ -17,7 +17,7 @@ import LoginFormIsland from "@/features/auth/components/LoginFormIsland.vue";
         <span class="text-sm text-zinc-500">or</span>
         <a
           type="button"
-          href="/api/auth/google"
+          href="/api/oauth2/authorization/google"
           class="flex h-11 w-full items-center justify-center rounded-full bg-blue-100 px-5 transition-colors hover:border-zinc-200 hover:bg-blue-200"
         >
           <GoogleIcon class="mr-2 size-4" />

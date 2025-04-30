@@ -98,7 +98,53 @@
       "editing": "Editing habit...",
       "delete": "Delete habit",
       "targetNumberOfCompletions": "Target number of completions",
-      "numberOfCompletions": "Number of completions"
+      "numberOfCompletions": "Number of completions",
+      "completed": "Completed",
+      "start": "Start",
+      "thereStill": "There's still: ",
+      "dayPart": {
+        "morning": "Morning",
+        "afternoon": "Afternoon",
+        "evening": "Evening",
+        "night": "Night"
+      },
+      "dailyQuests": "Daily quests"
+    },
+    "dailyComment": {
+      "title": "Daily comment",
+      "description": "A daily comment is a short reflection on your day. It can be a way to express gratitude, set intentions, or simply document your thoughts and feelings. By writing daily comments, you can gain insight into your emotions and experiences, and track your progress over time.",
+      "create": "Create daily comment",
+      "creating": "Creating daily comment...",
+      "edit": "Edit daily comment",
+      "editing": "Editing daily comment...",
+      "delete": "Delete daily comment",
+      "mood": "Mood",
+      "rateFromTo": "Rate from 😞 to 😍",
+      "moodName": {
+        "veryBad": "Very bad 😭",
+        "bad": "Bad 😞",
+        "neutral": "Neutral 😐",
+        "good": "Good 😊",
+        "veryGood": "Very good 😍"
+      }
+    },
+    "cabinet": {
+      "nav": {
+        "profile": "Profile",
+        "quests": "Quests",
+        "matrixAndDomains": "Matrix and Domain",
+        "dailyComment": "Comments",
+        "settings": "Settings",
+        "logout": "Logout"
+      },
+      "settings": {
+        "title": "Account",
+        "account": {
+          "title": "Edit account",
+          "name": "Full name",
+          "save": "Save"
+        }
+      }
     }
   }
 }

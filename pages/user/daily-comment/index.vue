@@ -16,7 +16,7 @@ const { data: dailyCommets } = useQuery({
       <div class="container mx-auto flex flex-col gap-4">
         <div class="flex justify-between items-center">
           <h2 class="text-lg font-semibold flex items-center gap-2">
-            Daily Comment
+            {{ $t("dailyComment.title") }}
           </h2>
           <NuxtLink
             to="/user/daily-comment/create"

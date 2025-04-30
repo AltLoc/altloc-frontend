@@ -21,7 +21,7 @@ const progress = computed(() => {
 
 <template>
   <div
-    class="bg-white rounded-2xl border border-zinc-200 flex flex-col gap-4 shadow-sm hover:shadow-md transition-all p-4"
+    class="bg-white rounded-2xl border border-zinc-200 flex flex-col gap-4 shadow-sm hover:shadow-md transition-all p-4 w-auto"
   >
     <div class="flex justify-between items-center">
       <div class="flex flex-col gap-4 bg-blue-50 p-2 rounded-xl">

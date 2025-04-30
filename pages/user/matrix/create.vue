@@ -16,6 +16,7 @@ definePageMeta({
           <BackButton />
         </div>
         <h2 class="text-2xl font-bold">Create identity matrix</h2>
+
         <IdentityMatrixForm />
       </div>
     </section>

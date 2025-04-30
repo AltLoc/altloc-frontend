@@ -4,6 +4,9 @@ import type { Habit } from "@/features/habit/model";
 import { Button } from "@/components/ui/button";
 import { useCompletedHabitkMutation } from "@/features/habit/service/index";
 import { convertSecondsToMinutes } from "@/utils/time";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const props = defineProps<{ habit: Habit }>();
 
@@ -71,10 +74,11 @@ watch(
     >
       {{
         habit.isRunning
-          ? `There's still: ${convertSecondsToMinutes(habit.remainingTime)}`
+          ? t("app.habit.thereStill") +
+            `${convertSecondsToMinutes(habit.remainingTime)}`
           : habit.isCompleted
-            ? "Completed"
-            : "Start"
+            ? t("app.habit.completed")
+            : t("app.habit.start")
       }}
     </Button>
 

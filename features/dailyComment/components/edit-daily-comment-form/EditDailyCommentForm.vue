@@ -96,7 +96,7 @@ const onSubmit = handleSubmit((values) => {
     <div class="flex flex-col gap-y-3">
       <TextArea
         name="content"
-        :label="t('app.domain.title')"
+        :label="t('app.dailyComment.title')"
         type="text"
         placeholder=""
         autocomplete="off"
@@ -108,7 +108,7 @@ const onSubmit = handleSubmit((values) => {
         name="mood"
         v-slot="{ field, errorMessage }"
       >
-        <Label for="mood">Mood</Label>
+        <Label for="mood">{{ t("app.dailyComment.mood") }}</Label>
         <Select
           :name="field.name"
           :model-value="field.value"
@@ -144,7 +144,9 @@ const onSubmit = handleSubmit((values) => {
         class="mr-2 size-5 animate-spin stroke-[1.5] text-white"
         v-if="isPending"
       />
-      {{ isPending ? t("app.domain.creating") : t("app.domain.create") }}
+      {{
+        isPending ? t("app.dailyComment.editing") : t("app.dailyComment.edit")
+      }}
     </Button>
   </form>
 </template>

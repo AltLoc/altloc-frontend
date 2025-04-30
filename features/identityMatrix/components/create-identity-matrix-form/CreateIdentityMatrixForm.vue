@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/file-upload";
 import { AvatarImage, AvatarRoot, AvatarFallback } from "radix-vue";
 import { PLACEHOLDER_AVATAR } from "@/utils/images";
+import EditIcon from "@/assets/icons/edit.svg?component";
 
 const { t } = useI18n();
 
@@ -83,7 +84,7 @@ const onSubmit = handleSubmit((values) => {
     <div class="flex flex-col gap-y-3">
       <Field
         name="banner"
-        class="l flex shrink-0 flex-col gap-6"
+        class="flex shrink-0 flex-col gap-4"
         v-slot="{ field }"
       >
         <FileUpload
@@ -153,21 +154,22 @@ const onSubmit = handleSubmit((values) => {
       />
 
       <span v-if="error" class="text-red-500">{{ error }}</span>
+
+      <Button
+        type="submit"
+        :disabled="isPending"
+        class="mt-6 flex h-11 w-full items-center justify-center rounded-full bg-blue-500 px-5 font-medium text-zinc-100 transition-colors hover:bg-blue-600/90 disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        <LoaderIcon
+          class="mr-2 size-5 animate-spin stroke-[1.5] text-white"
+          v-if="isPending"
+        />
+        {{
+          isPending
+            ? t("app.identityMatrix.creating")
+            : t("app.identityMatrix.create")
+        }}
+      </Button>
     </div>
-    <Button
-      type="submit"
-      :disabled="isPending"
-      class="mt-6 flex h-11 w-full items-center justify-center rounded-full bg-blue-500 px-5 font-medium text-zinc-100 transition-colors hover:bg-blue-600/90 disabled:cursor-not-allowed disabled:opacity-50"
-    >
-      <LoaderIcon
-        class="mr-2 size-5 animate-spin stroke-[1.5] text-white"
-        v-if="isPending"
-      />
-      {{
-        isPending
-          ? t("app.identityMatrix.creating")
-          : t("app.identityMatrix.create")
-      }}
-    </Button>
   </form>
 </template>
