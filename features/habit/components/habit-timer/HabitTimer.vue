@@ -68,7 +68,7 @@ watch(
   <div class="flex flex-col items-center justify-between habit-timer gap-3">
     <Button
       size="md"
-      variant="tertiary"
+      :variant="habit.isRunning ? 'continue' : 'accepted'"
       @click="startTimer"
       :disabled="habit.isRunning || habit.isCompleted"
     >
@@ -85,3 +85,29 @@ watch(
     <span v-if="error" class="text-red-500">{{ error.message }}</span>
   </div>
 </template>
+<!-- 
+<template>
+  <div class="flex flex-col items-center justify-between habit-timer gap-3">
+    <Button
+      size="md"
+      :variant="habit.isRunning ? 'accepted' : 'continue'"
+      @click="startTimer"
+      :disabled="habit.isRunning || habit.isCompleted"
+    >
+      <template v-if="habit.isRunning">
+        {{
+          t("app.habit.thereStill") +
+          convertSecondsToMinutes(habit.remainingTime)
+        }}
+      </template>
+      <template v-else-if="habit.isCompleted">
+        <span class="text-green-500">{{ t("app.habit.completed") }}</span>
+      </template>
+      <template v-else>
+        <span class="text-yellow-500">{{ t("app.habit.start") }}</span>
+      </template>
+    </Button>
+
+    <span v-if="error" class="text-red-500">{{ error.message }}</span>
+  </div>
+</template> -->

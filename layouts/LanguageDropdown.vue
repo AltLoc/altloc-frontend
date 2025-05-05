@@ -9,11 +9,11 @@ import {
 import Cookies from "universal-cookie";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import { getCurrentLocale } from "@/i18n/handlerI18n";
 
 const { locale, locales, setLocale } = useI18n();
 const cookies = new Cookies();
-const currentLocale = getCurrentLocale();
+
+const currentLocale = computed(() => locale.value);
 
 const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value);
@@ -33,7 +33,7 @@ const changeLocale = (newLocale: typeof locale.value) => {
     <DropdownMenuTrigger
       class="mx-1 flex items-center justify-start gap-x-1.5 whitespace-nowrap border-none bg-transparent px-2.5 py-2 transition-colors xs:justify-end"
     >
-      <span class="text-sm font-medium tracking-wide">
+      <span class="text-sm font-medium tracking-wide text-zinc-300">
         {{ currentLocale.toUpperCase() }}
       </span>
       <GlobeIcon
@@ -41,6 +41,7 @@ const changeLocale = (newLocale: typeof locale.value) => {
         class="size-6 shrink-0 stroke-[1.25] text-zinc-300"
       />
     </DropdownMenuTrigger>
+
     <DropdownMenuContent align="end">
       <DropdownMenuCheckboxItem
         v-for="loc in availableLocales"

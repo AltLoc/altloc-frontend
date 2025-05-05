@@ -22,6 +22,7 @@ import { useQueryClient } from "@tanstack/vue-query";
 import { getCDNImageURL } from "@/utils/images";
 import { useRouter } from "vue-router";
 import { useLogoutMutation } from "@/features/auth/service/authPassword";
+
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
@@ -42,11 +43,10 @@ const logoutUser = () => {
   });
 };
 
-// const avatar = computed(() => {
-//   return props.user.avatarKey
-//     ? getCDNImageURL(props.user.avatarKey)
-//     : "/images/placeholder_image.webp";
-// });
+const normalize = (path: string) => (path.endsWith("/") ? path : path + "/");
+const isActive = (path: string) => {
+  return normalize(path) === normalize(path) ? "" : undefined;
+};
 </script>
 
 <template>
@@ -76,25 +76,45 @@ const logoutUser = () => {
       </DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
-        <DropdownMenuItem as="a" href="/user/profile">
+        <DropdownMenuItem
+          as="a"
+          href="/user/profile"
+          :data-active="isActive('/user/profile')"
+          class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
+        >
           <AstronautHelmetIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">
             {{ t("app.cabinet.nav.profile") }}
           </span>
         </DropdownMenuItem>
-        <DropdownMenuItem as="a" href="/user/quests">
+        <DropdownMenuItem
+          as="a"
+          href="/user/quests"
+          :data-active="isActive('/user/quests')"
+          class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
+        >
           <GameControllerIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">
             {{ t("app.cabinet.nav.quests") }}
           </span>
         </DropdownMenuItem>
-        <DropdownMenuItem as="a" href="/user/daily-comment">
+        <DropdownMenuItem
+          as="a"
+          href="/user/daily-comment"
+          :data-active="isActive('/user/daily-comment')"
+          class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
+        >
           <CommentIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">
             {{ t("app.cabinet.nav.dailyComment") }}
           </span>
         </DropdownMenuItem>
-        <DropdownMenuItem as="a" href="/user/matrix">
+        <DropdownMenuItem
+          as="a"
+          href="/user/matrix"
+          :data-active="isActive('/user/matrix')"
+          class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
+        >
           <MatrixIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">
             {{ t("app.cabinet.nav.matrixAndDomains") }}
@@ -104,7 +124,12 @@ const logoutUser = () => {
       <template v-if="user.isAdmin">
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem as="a" href="/admin/users/">
+          <DropdownMenuItem
+            as="a"
+            href="/admin/users/"
+            :data-active="isActive('/admin/users')"
+            class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
+          >
             <PeopleIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
             <span class="text-zinc-800">Users</span>
           </DropdownMenuItem>
@@ -112,13 +137,21 @@ const logoutUser = () => {
       </template>
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
-        <DropdownMenuItem as="a" href="/user/settings">
+        <DropdownMenuItem
+          as="a"
+          href="/user/settings"
+          :data-active="isActive('/user/settings')"
+          class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
+        >
           <SettingsIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">
             {{ t("app.cabinet.nav.settings") }}
           </span>
         </DropdownMenuItem>
-        <DropdownMenuItem @select.prevent="logoutUser()">
+        <DropdownMenuItem
+          @select.prevent="logoutUser()"
+          class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-red-50"
+        >
           <LoaderIcon
             class="mr-2 size-4 animate-spin stroke-[1.5]"
             v-if="isPending"

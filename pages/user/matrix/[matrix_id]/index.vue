@@ -33,35 +33,55 @@ const { data: domain } = useQuery({
 <template>
   <AppLayout>
     <section class="relative mt-6 px-3 md:px-10">
-      <div class="container mx-auto flex flex-col gap-10">
-        <div class="flex">
+      <div class="mx-auto max-w-5xl flex flex-col gap-6">
+        <!-- Назад и заголовок -->
+        <div class="flex items-center justify-between">
           <BackButton />
+          <div
+            class="flex gap-2 items-center bg-blue-200 rounded-md px-4 py-2 shadow-sm"
+          >
+            <h2 class="text-lg text-zinc-700 font-medium">Matrix:</h2>
+            <span class="font-semibold text-zinc-800">
+              {{ identityMatrix?.name || "..." }}
+            </span>
+          </div>
         </div>
 
-        <div class="flex-col items-center gap-3">
-          <div v-if="isLoading" class="text-gray-500">Loading...</div>
-
-          <div v-else-if="isError" class="text-red-500">
-            Error: {{ error?.message || "Failed to load data" }}
-          </div>
-
+        <!-- Карточка с матрицей -->
+        <div
+          v-if="identityMatrix"
+          class="bg-white shadow-md rounded-xl p-3 flex flex-col gap-4"
+        >
           <IdentityMatrixCard
             v-if="identityMatrix"
             :identityMatrix="identityMatrix"
           />
-
-          <div v-else class="text-gray-500">No data found</div>
         </div>
 
-        <span class="text-sm text-zinc-500/70">
-          Lists of domains for IdentityMatrix
-        </span>
-        <DomainTable v-if="domain" :domains="domain ?? []" />
+        <!-- Карточка с таблицей -->
+        <div class="bg-white shadow-md rounded-xl p-3 flex flex-col gap-4">
+          <h3 class="text-base font-semibold text-zinc-700">
+            Domains in this matrix
+          </h3>
+          <div v-if="isLoading" class="text-gray-500 text-sm">Loading...</div>
+          <div v-else-if="isError" class="text-red-500 text-sm">
+            Error: {{ error?.message || "Failed to load data" }}
+          </div>
+          <div v-else-if="domain">
+            <DomainTable :domains="domain ?? []" />
+          </div>
+          <div v-else class="text-gray-500 text-sm italic">
+            No domains found.
+          </div>
+        </div>
 
-        <span class="text-sm text-zinc-500/70">
-          Create new domain for IdentityMatrix
-        </span>
-        <CreateDomainForm :identityMatrixId="matrixId" />
+        <!-- Карточка с формой -->
+        <div class="bg-white shadow-md rounded-xl p-3 flex flex-col gap-4">
+          <h3 class="text-base font-semibold text-zinc-700">
+            Create a new domain
+          </h3>
+          <CreateDomainForm :identityMatrixId="matrixId" />
+        </div>
       </div>
     </section>
   </AppLayout>

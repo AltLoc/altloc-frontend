@@ -57,17 +57,17 @@ useSeoMeta({
       isScrolled ? 'bg-blue-700 bg-opacity-80' : 'bg-blue-700',
     ]"
   >
-    <div class="container flex items-center justify-between gap-6">
+    <div class="container flex items-center justify-between">
       <div class="flex gap-2 items-center">
         <AstronautIcon class="size-10 stroke-[4] text-zinc-100" />
         <span class="font-semibold text-xl text-zinc-100">ALTLOC</span>
       </div>
 
-      <div class="flex gap-6 justify-center md:justify-end">
+      <div class="flex gap-1.5 justify-center md:justify-end">
         <a
           :class="
             buttonVariant({
-              size: 'md',
+              size: 'sm',
               class: 'shrink-0',
               variant: 'secondary',
             })

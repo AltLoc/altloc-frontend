@@ -78,7 +78,8 @@
       "creating": "Creating identity matrix...",
       "edit": "Edit matrix",
       "editing": "Editing matrix...",
-      "delete": "Delete matrix"
+      "delete": "Delete matrix",
+      "label": "Manage Identity Matrices"
     },
     "domain": {
       "title": "Domain",

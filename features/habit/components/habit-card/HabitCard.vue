@@ -24,8 +24,8 @@ const progress = computed(() => {
     class="bg-white rounded-2xl border border-zinc-200 flex flex-col gap-4 shadow-sm hover:shadow-md transition-all p-4 w-auto"
   >
     <div class="flex justify-between items-center">
-      <div class="flex flex-col gap-4 bg-blue-50 p-2 rounded-xl">
-        <div class="flex gap-1.5 items-center">
+      <div class="flex flex-col gap-4 bg-blue-50 p-3 rounded-xl">
+        <div class="flex gap-1.5 items-center bg-bottom bg-teal-100">
           <TargetIcons
             class="size-4 stroke-[1.7] text-zinc-700"
             title="Habit"

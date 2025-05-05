@@ -16,9 +16,14 @@ export const buttonVariants = cva(
       },
       variant: {
         primary:
-          "bg-blue-500 text-zinc-50 hover:bg-blue-600 disabled:bg-zinc-400",
+          "bg-blue-500 text-white hover:bg-blue-600 disabled:bg-zinc-400",
         secondary: "text-zinc-100  disabled:bg-zinc-400 border border-zinc-100",
         tertiary: "text-blue-500 disabled:bg-zinc-200 border border-blue-300",
+        accepted:
+          "bg-green-400 text-white hover:bg-green-500 disabled:bg-green-400",
+        rejected: "bg-red-500 text-white hover:bg-red-600 disabled:bg-zinc-400",
+        continue:
+          "bg-yellow-500 text-white hover:bg-yellow-600 disabled:bg-yellow-500",
       },
     },
     defaultVariants: {

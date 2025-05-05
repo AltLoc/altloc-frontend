@@ -78,7 +78,8 @@
       "creating": "Tworzenie macierzy...",
       "edit": "Edytuj macierz",
       "editing": "Edycja macierzy...",
-      "delete": "Usuń macierz"
+      "delete": "Usuń macierz",
+      "label": "Zarządzaj macierzami tożsamości"
     },
     "domain": {
       "title": "Dziedzina",

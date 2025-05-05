@@ -22,6 +22,7 @@ import {
 } from "@/features/user/service/user.client";
 import { getCDNImageURL, PLACEHOLDER_AVATAR } from "@/utils/images";
 import { useI18n } from "vue-i18n";
+import LanguageDropdown from "@/layouts/LanguageDropdown.vue";
 
 const { t } = useI18n();
 
@@ -68,9 +69,14 @@ const onSubmit = handleSubmit((data) => {
 
 <template>
   <form class="flex w-auto flex-col gap-6 px-6 py-5" @submit.prevent="onSubmit">
-    <h3 class="text-2xl font-bold tracking-tight">
-      {{ t("app.cabinet.settings.account.title") }}
-    </h3>
+    <div class="flex items-center justify-between">
+      <h3 class="text-2xl font-bold tracking-tight">
+        {{ t("app.cabinet.settings.account.title") }}
+      </h3>
+      <div class="bg-blue-600 rounded-full px-2 py-1 text-sm opacity-100">
+        <LanguageDropdown />
+      </div>
+    </div>
     <div class="flex flex-col gap-6 md:flex-row">
       <Field
         name="avatar"

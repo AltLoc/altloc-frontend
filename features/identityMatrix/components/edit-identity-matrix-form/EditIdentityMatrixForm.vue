@@ -21,7 +21,7 @@ import {
   FileUploadItemImagePreview,
 } from "@/components/ui/file-upload";
 import { AvatarImage, AvatarRoot, AvatarFallback } from "radix-vue";
-import { PLACEHOLDER_IMAGE } from "@/utils/images";
+import { PLACEHOLDER_AVATAR } from "@/utils/images";
 
 const { t } = useI18n();
 
@@ -137,7 +137,7 @@ const onSubmit = handleSubmit((values) => {
                   :src="
                     identityMatrix?.bannerKey
                       ? getCDNImageURL(identityMatrix.bannerKey)
-                      : PLACEHOLDER_IMAGE
+                      : PLACEHOLDER_AVATAR
                   "
                 />
                 <AvatarFallback
