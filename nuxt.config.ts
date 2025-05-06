@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       PUBLIC_CDN_URL: process.env.PUBLIC_CDN_URL,
+      API_BASE_URL: process.env.API_BASE_URL || "/api",
     },
   },
   vite: {

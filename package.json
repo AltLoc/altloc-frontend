@@ -7,7 +7,10 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "docker:build:frontend": "docker build . --target frontend --tag altloc-frontend:latest",
+    "docker:up:prod": "docker compose -f docker-compose.yml --env-file .env up -d",
+    "docker:down:prod": "docker compose -f docker-compose.yml down"
   },
   "dependencies": {
     "@tanstack/vue-query": "^5.67.2",

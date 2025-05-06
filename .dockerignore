@@ -1,0 +1,12 @@
+node_modules
+dist
+certbot
+.env
+.env.example
+.prettierrc.js
+.editorconfig
+.gitignore
+README.md
+.vscode
+.astro
+.DS_Store
