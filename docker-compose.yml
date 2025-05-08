@@ -29,18 +29,18 @@ services:
     networks:
       - dev
 
-  certbot:
-    image: certbot/certbot
-    volumes:
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/letsencrypt
-    command: >
-      certonly --webroot --webroot-path=/var/www/certbot
-      --email progof031@gmail.com --agree-tos --no-eff-email --force-renewal
-      -d altloc.com -d www.altloc.com
-      -d mydarkhobby.com -d www.mydarkhobby.com
-    networks:
-      - dev
+  # certbot:
+  #   image: certbot/certbot
+  #   volumes:
+  #     - ./certbot/www:/var/www/certbot
+  #     - ./certbot/conf:/etc/letsencrypt
+  #   command: >
+  #     certonly --webroot --webroot-path=/var/www/certbot
+  #     --email progof031@gmail.com --agree-tos --no-eff-email --force-renewal
+  #     -d altloc.com -d www.altloc.com
+  #     -d mydarkhobby.com -d www.mydarkhobby.com
+  #   networks:
+  #     - dev
 
 networks:
   dev:
