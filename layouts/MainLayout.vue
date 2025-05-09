@@ -64,7 +64,9 @@ useHead({
           "
           href="/auth/register"
         >
-          {{ t("getStarted") }}
+          <span class="text-xs font-semibold text-zinc-100">
+            {{ t("landing.getStartedButton") }}
+          </span>
         </a>
         <LanguageDropdown />
         <MobileMenu />

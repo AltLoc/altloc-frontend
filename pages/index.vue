@@ -2,12 +2,15 @@
 import MainLayout from "@/layouts/MainLayout.vue";
 import GameControllerIcon from "@/assets/icons/game-controller.svg?component";
 import CommentIcon from "@/assets/icons/comment.svg?component";
-import AstronautIcon from "@/assets/icons/astronaut.svg?component";
+import AstronautHelmetIcon from "@/assets/icons/astronaut-helmet.svg?component";
 import TargetIcon from "@/assets/icons/target.svg?component";
 import CategoriesIcon from "@/assets/icons/categories.svg?component";
 import ClipboardListIcon from "@/assets/icons/clipboard-list.svg?component";
 import RankingIcon from "@/assets/icons/ranking.svg?component";
 import SpaceStarIcon from "@/assets/icons/space-star.svg?component";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 useSeoMeta({
   title: "AltLoc – habit builder for identity-based growth",
@@ -37,14 +40,10 @@ useSeoMeta({
         >
           <div class="flex-col gap-3">
             <h1 class="relative text-3xl font-bold text-zinc-700 bottom-8">
-              Switch to gamification mode.
+              {{ t("landing.title") }}
             </h1>
             <span class="text-zinc-500">
-              Gamification can help you reach your goals by turning daily tasks
-              <br />into fun, engaging quests. Adding game elements to your
-              routine<br />
-              boosts motivation, productivity, and well-being. <br />Start
-              gamifying today and level up your life!
+              {{ t("landing.description") }}
             </span>
 
             <div class="mt-6 flex items-center">
@@ -52,14 +51,14 @@ useSeoMeta({
                 class="inline-flex items-center rounded-full border transition-colors bg-blue-500 text-white px-6 py-2 hover:bg-blue-600"
                 href="/auth/register"
               >
-                Get started
+                {{ t("landing.getStarted") }}
               </a>
             </div>
           </div>
           <div
             class="rounded-2xl bg-blue-500 w-[256px] h-[256px] p-3 flex flex-col items-center justify-center gpa-6"
           >
-            <AstronautIcon class="size-40 stroke-[4] text-white z-10" />
+            <AstronautHelmetIcon class="size-40 stroke-[4] text-white z-10" />
             <span class="text-zinc-50 font-semibold">Alteranive Locus</span>
           </div>
         </div>

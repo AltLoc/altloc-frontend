@@ -1,6 +1,11 @@
 {
   "website": "AltLoc",
-  "getStarted": "Rozpocznij",
+  "landing": {
+    "title": "Rozwijaj życie jak w grze",
+    "description": "AltLoc to platforma rozwoju osobistego w stylu RPG. Ustalaj cele, śledź postępy i zostań najlepszą wersją siebie.",
+    "getStarted": "Rozpocznij swoją drogę",
+    "getStartedButton": "Rozpocznij"
+  },
   "common": {
     "save": "Zapisz",
     "cancel": "Anuluj",

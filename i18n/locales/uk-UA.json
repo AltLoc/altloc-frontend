@@ -1,6 +1,12 @@
 {
   "website": "AltLoc",
-  "getStarted": "Почати",
+  "landing": {
+    "title": "Прокачай життя як гру",
+    "description": "AltLoc — це платформа саморозвитку у стилі RPG. Став цілі, відстежуй прогрес і стань найкращою версією себе.",
+    "getStarted": "Почати шлях",
+    "getStartedButton": "Почати"
+  },
+
   "common": {
     "save": "Зберегти",
     "cancel": "Скасувати",

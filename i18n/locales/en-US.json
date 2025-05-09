@@ -1,6 +1,11 @@
 {
   "website": "AltLoc",
-  "getStarted": "Get started",
+  "landing": {
+    "title": "Level up your life like a game",
+    "description": "AltLoc is a personal development platform in RPG style. Set goals, track progress, and become your best self.",
+    "getStarted": "Start your journey",
+    "getStartedButton": "Get started"
+  },
   "common": {
     "save": "Save",
     "cancel": "Cancel",

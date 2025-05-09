@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ProfileDropdownMenu from "@/layouts/ProfileDropdownMenu.vue";
 import { getMeQueryOptions as originalGetMeQueryOptions } from "@/features/user/service/user.client";
-import AstronautIcon from "@/assets/icons/astronaut.svg?component";
+import AstronautHelmetIcon from "@/assets/icons/astronaut-helmet.svg?component";
 import LoaderIcon from "@/assets/icons/loader.svg?component";
 import { useQuery } from "@tanstack/vue-query";
 import MobileIslandMenu from "@/layouts/MobileIslandMenu.vue";
@@ -27,7 +27,7 @@ definePageMeta({
   >
     <div class="flex justify-between items-center flex-1">
       <div class="flex gap-2 items-center">
-        <AstronautIcon class="size-10 stroke-[4] text-zinc-100" />
+        <AstronautHelmetIcon class="size-10 stroke-[4] text-zinc-100" />
         <span class="font-semibold text-xl text-zinc-100">ALTLOC</span>
       </div>
 
