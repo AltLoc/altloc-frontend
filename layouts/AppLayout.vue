@@ -42,9 +42,12 @@ definePageMeta({
       <span v-else-if="isError">Error: {{ error?.message }}</span>
     </div>
   </header>
-  <div class="relative flex flex-1 flex-col bg-stone-50 h-screen">
-    <!-- <div class="relative flex flex-1 flex-col bg-stone-50 h-full pb-20"> -->
+  <div
+    class="relative flex flex-1 flex-col bg-stone-50 min-h-screen"
+    style="padding-bottom: calc(4rem + env(safe-area-inset-bottom))"
+  >
     <slot />
   </div>
+
   <MobileIslandMenu />
 </template>
