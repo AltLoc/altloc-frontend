@@ -8,6 +8,24 @@ import CategoriesIcon from "@/assets/icons/categories.svg?component";
 import ClipboardListIcon from "@/assets/icons/clipboard-list.svg?component";
 import RankingIcon from "@/assets/icons/ranking.svg?component";
 import SpaceStarIcon from "@/assets/icons/space-star.svg?component";
+
+useSeoMeta({
+  title: "AltLoc – habit builder for identity-based growth",
+  description:
+    "AltLoc is a gamified habit tracker inspired by Atomic Habits. Build identity, structure your goals, and grow through daily actions.",
+  ogTitle: "AltLoc – habit tracker for personal growth",
+  ogDescription:
+    "Turn self-development into a game. Build your identity, gain levels, earn rewards, and track your progress with AltLoc.",
+  ogImageUrl: "https://altloc.com/images/space-place.jpg",
+  ogUrl: "https://altloc.com",
+  ogType: "website",
+  ogSiteName: "AltLoc",
+  twitterCard: "summary_large_image",
+  twitterTitle: "AltLoc – gamified habit tracker",
+  twitterDescription:
+    "AltLoc helps you create identity-driven habits with a structured, visual matrix. Grow daily, playfully.",
+  twitterImage: "https://altloc.com/images/space-place.jpg",
+});
 </script>
 
 <template>

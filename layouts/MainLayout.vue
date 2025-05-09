@@ -35,19 +35,6 @@ useHead({
     },
   ],
 });
-
-useSeoMeta({
-  title: "ALTLOC",
-  description: "ALTLOC - your best event platform",
-  ogImage: "/images/bg.webp",
-  ogSiteName: "ALTLOC",
-  ogLocale: "en_US",
-  ogTitle: "ALTLOC",
-  ogDescription: "ALTLOC - your best event platform",
-  ogImageUrl: "/images/og-image.png",
-  ogUrl: "https://altloc.com",
-  ogType: "website",
-});
 </script>
 
 <template>
@@ -60,7 +47,7 @@ useSeoMeta({
     <div class="container flex items-center justify-between">
       <div class="flex gap-2 items-center">
         <AstronautIcon class="size-10 stroke-[4] text-zinc-100" />
-        <span class="font-semibold text-xl text-zinc-100">ALTLOC</span>
+        <span class="font-semibold text-lg text-zinc-100">ALTLOC</span>
       </div>
 
       <div class="flex gap-1.5 justify-center md:justify-end">
@@ -132,7 +119,7 @@ useSeoMeta({
         </div>
         <div class="flex flex-row justify-center gap-1 md:justify-end">
           <a
-            :href="getSoialMediaURL('telegram')"
+            href="https://t.me/altlocapp"
             target="_blank"
             class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
           >
@@ -153,7 +140,7 @@ useSeoMeta({
             <FacebookIcon class="size-5" />
           </a>
           <a
-            :href="getSoialMediaURL('twitter')"
+            href="https://x.com/progofcom"
             target="_blank"
             class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
           >
@@ -173,11 +160,17 @@ useSeoMeta({
           <span class="text-xs">All Rights Reserved</span>
         </div>
         <div class="inline-flex gap-1.5 text-zinc-100/75">
-          <a href="#" class="text-xs underline-offset-2 hover:underline">
+          <a
+            href="/legal/privacy-policy"
+            class="text-xs underline-offset-2 hover:underline"
+          >
             Privacy Policy
           </a>
           <span class="text-xs">&bull;</span>
-          <a href="#" class="text-xs underline-offset-2 hover:underline">
+          <a
+            href="/legal/terms-of-service"
+            class="text-xs underline-offset-2 hover:underline"
+          >
             Terms of Service
           </a>
         </div>
