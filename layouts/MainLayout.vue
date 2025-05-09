@@ -4,12 +4,15 @@ import TelegramIcon from "@/assets/icons/telegram.svg?component";
 import InstagramIcon from "@/assets/icons/instagram.svg?component";
 import FacebookIcon from "@/assets/icons/facebook.svg?component";
 import XIcon from "@/assets/icons/x.svg?component";
-import AstronautIcon from "@/assets/icons/astronaut.svg?component";
+import AstronautHelmetIcon from "@/assets/icons/astronaut-helmet.svg?component";
 import GithubIcon from "@/assets/icons/github.svg?component";
 import { buttonVariant } from "@/components/ui/button";
 import { getSoialMediaURL } from "@/utils";
 import MobileMenu from "./MobileMenu.vue";
 import LanguageDropdown from "./LanguageDropdown.vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const isScrolled = ref(false);
 
@@ -44,11 +47,11 @@ useHead({
       isScrolled ? 'bg-blue-700 bg-opacity-80' : 'bg-blue-700',
     ]"
   >
-    <div class="container flex items-center justify-between">
-      <div class="flex gap-2 items-center">
-        <AstronautIcon class="size-10 stroke-[4] text-zinc-100" />
+    <div class="container flex items-center justify-between gap-5 md:gap-6">
+      <a href="/" class="flex gap-2 items-center">
+        <AstronautHelmetIcon class="size-6 stroke-[4] text-zinc-100 shrink-0" />
         <span class="font-semibold text-lg text-zinc-100">ALTLOC</span>
-      </div>
+      </a>
 
       <div class="flex gap-1.5 justify-center md:justify-end">
         <a
@@ -61,7 +64,7 @@ useHead({
           "
           href="/auth/register"
         >
-          Get started
+          {{ t("getStarted") }}
         </a>
         <LanguageDropdown />
         <MobileMenu />
@@ -81,7 +84,7 @@ useHead({
         >
           <div class="flex gap-6 justify-between">
             <div class="flex gap-2 items-center">
-              <AstronautIcon class="size-10 stroke-[4] text-zinc-100" />
+              <AstronautHelmetIcon class="size-6 stroke-[4] text-zinc-100" />
               <span class="font-semibold text-xl text-zinc-100">ALTLOC</span>
             </div>
 
@@ -98,10 +101,7 @@ useHead({
             class="flex flex-wrap items-start justify-start gap-x-5 gap-y-2 md:justify-between"
           >
             <li>
-              <a
-                href="/organizers"
-                class="text-sm text-zinc-100/75 hover:text-zinc-100"
-              >
+              <a href="#" class="text-sm text-zinc-100/75 hover:text-zinc-100">
                 To organizers
               </a>
             </li>

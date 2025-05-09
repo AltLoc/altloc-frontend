@@ -7,7 +7,7 @@ useSeoMeta({
     "Read the Terms of Service for AltLoc and understand the rules governing your use of our platform.",
   ogTitle: "Terms of Service | AltLoc",
   ogDescription: "Terms and conditions for using the AltLoc platform",
-  ogUrl: "https://altloc.com/terms",
+  ogUrl: "https://altloc.com/legal/terms-of-service",
   ogType: "website",
 });
 </script>
