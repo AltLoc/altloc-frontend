@@ -5,29 +5,29 @@ services:
       dockerfile: Dockerfile
       target: frontend
       args:
-        VITE_PUBLIC_CDN_URL: ${VITE_PUBLIC_CDN_URL}
-        VITE_API_BASE_URL: ${VITE_API_BASE_URL}
+        PUBLIC_CDN_URL: ${PUBLIC_CDN_URL}
+        API_BASE_URL: ${API_BASE_URL}
     environment:
-      - VITE_PUBLIC_CDN_URL=${VITE_PUBLIC_CDN_URL}
-      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+      - PUBLIC_CDN_URL=${PUBLIC_CDN_URL}
+      - API_BASE_URL=${API_BASE_URL}
     ports:
       - "3000:3000"
     networks:
-      - dev
+      - platforma_dev
 
-  nginx:
-    image: nginx:alpine
-    depends_on:
-      - frontend
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/letsencrypt
-    networks:
-      - dev
+  #nginx:
+  #  image: nginx:alpine
+  #  depends_on:
+  #    - frontend
+  #  ports:
+  #    - "80:80"
+  #    - "443:443"
+  #  volumes:
+  #    - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #    - ./certbot/www:/var/www/certbot
+  #    - ./certbot/conf:/etc/letsencrypt
+  #  networks:
+  #   - platforma_dev
 
   # certbot:
   #   image: certbot/certbot
@@ -43,5 +43,5 @@ services:
   #     - dev
 
 networks:
-  dev:
+  platforma_dev:
     external: true
