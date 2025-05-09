@@ -6,6 +6,24 @@
     "getStarted": "Rozpocznij swoją drogę",
     "getStartedButton": "Rozpocznij"
   },
+  "gettingStarted": {
+    "title": "Aby rozpocząć korzystanie z aplikacji, wykonaj te kroki:",
+    "steps": {
+      "step1": {
+        "title": "Krok 1:",
+        "description": "Stwórz swoją Matrycę Tożsamości, która określi twoje cele rozwoju i obszary, na których chcesz się skupić.",
+        "link": "Stwórz swoją Matrycę"
+      },
+      "step2": {
+        "title": "Krok 2:",
+        "description": "Stwórz domenę dla wybranej matrycy, aby zorganizować swoje nawyki według różnych tematów lub kategorii."
+      },
+      "step3": {
+        "title": "Krok 3:",
+        "description": "W każdej domenie twórz nawyki, które pomogą ci rozwijać niezbędne umiejętności i osiągać cele."
+      }
+    }
+  },
   "common": {
     "save": "Zapisz",
     "cancel": "Anuluj",

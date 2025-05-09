@@ -6,6 +6,24 @@
     "getStarted": "Start your journey",
     "getStartedButton": "Get started"
   },
+  "gettingStarted": {
+    "title": "To get started with the app, follow these steps:",
+    "steps": {
+      "step1": {
+        "title": "Step 1:",
+        "description": "Create your Identity Matrix, which will outline your development goals and areas of focus.",
+        "link": "Create your Matrix"
+      },
+      "step2": {
+        "title": "Step 2:",
+        "description": "Create a domain for your selected matrix to organize your habits by different themes or categories."
+      },
+      "step3": {
+        "title": "Step 3:",
+        "description": "Within each domain, create habits that will help you build the necessary skills and achieve your goals."
+      }
+    }
+  },
   "common": {
     "save": "Save",
     "cancel": "Cancel",

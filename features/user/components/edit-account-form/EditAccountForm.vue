@@ -73,11 +73,11 @@ const onSubmit = handleSubmit((data) => {
       <h3 class="text-2xl font-bold tracking-tight">
         {{ t("app.cabinet.settings.account.title") }}
       </h3>
-      <div class="bg-blue-600 rounded-full px-2 py-1 text-sm opacity-100">
+      <div class="bg-blue-500 rounded-full px-2 py-1 text-sm opacity-100">
         <LanguageDropdown />
       </div>
     </div>
-    <div class="flex flex-col gap-6 md:flex-row">
+    <div class="flex flex-col gap-6">
       <Field
         name="avatar"
         class="flex shrink-0 flex-col gap-6"
@@ -92,7 +92,7 @@ const onSubmit = handleSubmit((data) => {
         >
           <FileUploadDropZone as-child>
             <FileUploadTrigger
-              class="group relative flex size-24 shrink-0 overflow-hidden rounded-full shadow-lg"
+              class="group relative flex size-14 shrink-0 overflow-hidden rounded-full shadow-lg"
             >
               <div
                 class="absolute left-0 right-0 flex h-full items-center justify-center rounded-3xl bg-black/50 opacity-0 ring-1 ring-inset ring-white/5 backdrop-blur-sm transition-opacity duration-100 ease-out group-hover:opacity-100 group-data-[drag-over=true]:opacity-100"
@@ -110,8 +110,8 @@ const onSubmit = handleSubmit((data) => {
                     <AvatarImage
                       v-if="url"
                       :src="url"
-                      height="128"
-                      width="128"
+                      height="64"
+                      width="64"
                       class="size-full object-cover"
                     />
                   </FileUploadItemImagePreview>

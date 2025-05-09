@@ -11,6 +11,9 @@ import { Field, useForm } from "vee-validate";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Id } from "@/components/ui/id";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const { t } = useI18n();
 
@@ -48,6 +51,9 @@ const onSubmit = handleSubmit((values) => {
       if (error instanceof FetchError && error.response.status === 409) {
         setFieldError("email", t("register.emailTaken"));
       }
+    },
+    onSuccess: () => {
+      router.push("/auth/login");
     },
   });
 });
