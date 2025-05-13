@@ -49,7 +49,11 @@
     "copyright": "Prawa autorskie",
     "allRightsReserved": "Wszelkie prawa zastrzeżone",
     "logIn": "Zaloguj się",
-    "register": "Zarejestruj się"
+    "register": "Zarejestruj się",
+    "success": {
+      "title": "Konto zostało pomyślnie utworzone",
+      "description": "Sprawdź swoją skrzynkę e-mail, aby zweryfikować konto. Jeśli nie widzisz wiadomości, sprawdź folder spam."
+    }
   },
   "login": {
     "title": "Zaloguj się na swoje konto",
