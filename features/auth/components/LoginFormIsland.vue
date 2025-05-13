@@ -29,9 +29,25 @@ const onSubmit = handleSubmit((values) => {
     onSuccess: () => {
       router.push("/user/quests");
     },
+    // onError: async (error: any) => {
+    //   if (error instanceof FetchError && error.response.status === 400) {
+    //     setFieldError("password", await error.response.text());
+    //   }
+    // },
     onError: async (error: any) => {
-      if (error instanceof FetchError && error.response.status === 400) {
-        setFieldError("password", await error.response.text());
+      if (error instanceof FetchError) {
+        let detail = error.problemDetails?.description;
+        if (!detail) {
+          try {
+            const json = await error.response.json();
+            detail = json?.detail ?? json?.message ?? error.response.statusText;
+          } catch {
+            detail = error.response.statusText;
+          }
+        }
+        setFieldError("password", detail || t("errors.unknownError"));
+      } else {
+        setFieldError("password", error.message);
       }
     },
   });
@@ -50,7 +66,7 @@ const onSubmit = handleSubmit((values) => {
       />
 
       <!-- <PasswordField name="password" label="Password" /> -->
-      <span v-if="error" class="text-red-500">{{ error }}</span>
+      <!-- <span v-if="error" class="text-red-500">{{ error }}</span> -->
       <div class="flex flex-col gap-1.5">
         <PasswordField name="password" :label="t('login.password')" />
         <div class="w-full text-end text-xs font-medium">

@@ -25,6 +25,11 @@ onMounted(() => {
     console.error("Invalid query parameters", err);
   }
 });
+
+useSeoMeta({
+  title: "Email Verification | Altloc",
+  description: "Verify your email address",
+});
 </script>
 
 <template>

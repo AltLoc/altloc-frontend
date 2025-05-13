@@ -44,9 +44,9 @@ const props = defineProps<{
           {{ t("gettingStarted.steps.step2.description") }}
         </li>
         <li class="text-lg">
-          <strong class="font-medium text-blue-600">{{
-            t("gettingStarted.steps.step3.title")
-          }}</strong>
+          <strong class="font-medium text-blue-600">
+            {{ t("gettingStarted.steps.step3.title") }}
+          </strong>
           {{ t("gettingStarted.steps.step3.description") }}
         </li>
       </ol>

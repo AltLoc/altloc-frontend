@@ -79,7 +79,11 @@
     "acceptTerms": "By pressing the registration button, I accept the",
     "and": "and",
     "creating": "Creating account...",
-    "register": "Register"
+    "register": "Register",
+    "success": {
+      "title": "Account created successfully",
+      "description": "Please check your email to verify your account. If you don't see the email, please check your spam folder."
+    }
   },
   "recovery": {
     "forgotYourPassword": "Forgot your password?",

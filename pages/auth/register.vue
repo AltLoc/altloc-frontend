@@ -2,6 +2,11 @@
 import RegisterFormIsland from "@/features/auth/components/RegisterFormIsland.vue";
 import AuthLayout from "@/layouts/AuthLayout.vue";
 import GoogleIcon from "@/assets/icons/google.svg?component";
+
+useSeoMeta({
+  title: "Register | Altloc",
+  description: "Create an account on Altloc",
+});
 </script>
 
 <template>

@@ -18,28 +18,12 @@ import {
 import { AvatarImage, AvatarRoot, AvatarFallback } from "radix-vue";
 import { PLACEHOLDER_AVATAR } from "@/utils/images";
 import EditIcon from "@/assets/icons/edit.svg?component";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const { t } = useI18n();
 
-// const IdentityMatrixSchema = z.object({
-//   name: z.string().min(6).max(32),
-//   description: z.string().min(6).max(255),
-//   banner: z
-//     .instanceof(File)
-//     .refine((file) => file.size < 4 * 1024 * 1024, {
-//       message: "The image is too large, max size is 4 MB",
-//     })
-//     .refine((file) => file.type.startsWith("image/"), {
-//       message: "The file must be an image",
-//     })
-//     .optional(),
-// });
-
-// const { handleSubmit } = useForm({
-//   validationSchema: toTypedSchema(IdentityMatrixSchema),
-//   validateOnMount: false,
-// });
-
+// Banner image of the identity matrix no optional
 const { handleSubmit, meta, resetForm } = useForm({
   validationSchema: toTypedSchema(
     z.object({
@@ -52,8 +36,7 @@ const { handleSubmit, meta, resetForm } = useForm({
         })
         .refine((file) => file.type.startsWith("image/"), {
           message: "The file must be an image",
-        })
-        .optional(),
+        }),
     })
   ),
   validateOnMount: false,
@@ -67,14 +50,9 @@ const {
 
 const onSubmit = handleSubmit((values) => {
   createIdentityMatrix(values, {
-    // onSuccess: () => {
-    //   router.push("/user/dayQuest");
-    // },
-    // onError: async (error) => {
-    //   if (error instanceof FetchError && error.response.status === 400) {
-    //     setFieldError("password", await error.response.text());
-    //   }
-    // },
+    onSuccess: () => {
+      router.push("/user/matrix");
+    },
   });
 });
 </script>

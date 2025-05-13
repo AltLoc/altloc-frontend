@@ -19,6 +19,10 @@ const { data: user, isLoading, isError, error } = useQuery(getMeQueryOptions);
 definePageMeta({
   middleware: "auth",
 });
+
+useSeoMeta({
+  title: "App | Altloc",
+});
 </script>
 
 <template>

@@ -2,6 +2,11 @@
 import AuthLayout from "@/layouts/AuthLayout.vue";
 import GoogleIcon from "@/assets/icons/google.svg?component";
 import LoginFormIsland from "@/features/auth/components/LoginFormIsland.vue";
+
+useSeoMeta({
+  title: "Login | Altloc",
+  description: "Login to your Altloc account",
+});
 </script>
 
 <template>
