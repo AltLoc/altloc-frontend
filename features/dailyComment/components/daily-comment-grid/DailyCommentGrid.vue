@@ -11,7 +11,10 @@ import {
 import DotsHorizontalIcon from "@/assets/icons/dots-horizontal.svg?component";
 import { DailyCommentActionDropDownMenu } from "@/features/dailyComment/components/daily-comment-action-dropdown-menu/";
 import { moodOptions } from "@/features/dailyComment/service";
+import NotFoundIcon from "@/assets/icons/not-found.svg?component";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const props = defineProps<{
   dailyComment: DailyComment[];
 }>();
@@ -32,6 +35,18 @@ function handleOpenModal(
 </script>
 
 <template>
+  <div
+    v-if="props.dailyComment.length === 0"
+    class="flex flex-col items-center py-8 text-center lg:pl-8"
+  >
+    <NotFoundIcon class="mb-3 size-10 stroke-[2] text-zinc-400" />
+    <span class="font-semibold text-zinc-600">
+      {{ t("app.dailyComment.notFound") }}
+    </span>
+    <p class="mt-1 text-sm font-medium text-zinc-500">
+      {{ t("app.dailyComment.notFoundDescription") }}
+    </p>
+  </div>
   <div
     class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2 mt-5"
   >

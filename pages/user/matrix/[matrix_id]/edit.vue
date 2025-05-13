@@ -4,17 +4,14 @@ import { useRoute } from "vue-router";
 import { EditIdentityMatrixForm } from "@/features/identityMatrix/components/edit-identity-matrix-form/";
 import { useQuery } from "@tanstack/vue-query";
 import { getIdentityMatrixQuery } from "@/features/identityMatrix/service/index";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const route = useRoute();
 
 const matrixId: string = Array.isArray(route.params.matrix_id)
   ? route.params.matrix_id[0]
   : route.params.matrix_id;
-
-// const { data: identityMatrix } = useQuery({
-//   ...getIdentityMatrixQuery(matrixId),
-//   enabled: !!matrixId,
-// });
 
 const {
   data: identityMatrix,
@@ -37,7 +34,9 @@ const {
 
         <div class="flex items-center gap-2">
           <PencilIcon class="w-6 h-6 text-blue-600" />
-          <h2 class="text-2xl font-bold text-zinc-800">Edit Identity Matrix</h2>
+          <h2 class="text-2xl font-bold text-zinc-800">
+            {{ $t("app.identityMatrix.edit") }}
+          </h2>
         </div>
 
         <div v-if="isLoading" class="flex items-center gap-2 text-zinc-500">

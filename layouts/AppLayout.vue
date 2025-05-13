@@ -27,7 +27,7 @@ useSeoMeta({
 
 <template>
   <header
-    class="pointer-events-auto flex bg-blue-700 md:justify-center items-center p-3 px-6 md:px-10"
+    class="pointer-events-auto flex bg-blue-800 md:justify-center items-center p-3 px-6 md:px-10"
   >
     <div class="flex justify-between items-center flex-1">
       <div class="flex gap-2 items-center">
@@ -47,7 +47,7 @@ useSeoMeta({
     </div>
   </header>
   <div
-    class="relative flex flex-1 flex-col bg-stone-50 min-h-screen"
+    class="relative flex flex-1 flex-col bg-neutral-100 min-h-screen"
     style="padding-bottom: calc(4rem + env(safe-area-inset-bottom))"
   >
     <slot />

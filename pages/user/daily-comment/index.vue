@@ -4,6 +4,11 @@ import PlusIcon from "@/assets/icons/plus.svg?component";
 import { DailyCommentGrid } from "@/features/dailyComment/components/daily-comment-grid";
 import { useQuery } from "@tanstack/vue-query";
 import { fetchDailyComments } from "@/features/dailyComment/service/index";
+import NotFoundIcon from "@/assets/icons/not-found.svg?component";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
 const { data: dailyCommets } = useQuery({
   ...fetchDailyComments,
   enabled: true,
@@ -16,7 +21,7 @@ const { data: dailyCommets } = useQuery({
       <div class="container mx-auto flex flex-col gap-4">
         <div class="flex justify-between items-center">
           <h2 class="text-lg font-semibold flex items-center gap-2">
-            {{ $t("dailyComment.title") }}
+            {{ $t("app.dailyComment.title") }}
           </h2>
           <NuxtLink
             to="/user/daily-comment/create"

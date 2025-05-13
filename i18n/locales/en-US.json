@@ -107,16 +107,21 @@
       "edit": "Edit matrix",
       "editing": "Editing matrix...",
       "delete": "Delete matrix",
-      "label": "Manage Identity Matrices"
+      "label": "Manage Identity Matrices",
+      "notFound": "No identity matrices found",
+      "notFoundDescription": "You haven't created any identity matrices yet. Start by creating one to visualize your goals and values."
     },
     "domain": {
-      "title": "Domain",
+      "title": "Domain:",
       "description": "A domain is a specific area of your life that you want to focus on. It could be a goal, a value, a skill, or anything else that is important to you. By defining your domains, you can create a clear picture of what you want to achieve and how you can get there.",
       "create": "Create domain",
       "creating": "Creating domain...",
       "edit": "Edit domain",
       "editing": "Editing domain...",
-      "delete": "Delete domain"
+      "delete": "Delete domain",
+      "label": "Manage domains",
+      "notFound": "No domains found",
+      "notFoundDescription": "You haven't created any domains yet. Start by creating one to organize your habits and goals."
     },
     "habit": {
       "title": "Habit",
@@ -137,7 +142,8 @@
         "evening": "Evening",
         "night": "Night"
       },
-      "dailyQuests": "Daily quests"
+      "dailyQuests": "Daily quests",
+      "label": "Manage habits"
     },
     "dailyComment": {
       "title": "Daily comment",
@@ -155,7 +161,9 @@
         "neutral": "Neutral 😐",
         "good": "Good 😊",
         "veryGood": "Very good 😍"
-      }
+      },
+      "notFound": "No daily comments found",
+      "notFoundDescription": "You haven't created any daily comments yet. Start by creating one to track your daily reflections and progress."
     },
     "cabinet": {
       "nav": {

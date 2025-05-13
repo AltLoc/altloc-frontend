@@ -74,11 +74,11 @@ useHead({
     </div>
   </header>
 
-  <main class="relative flex flex-1 flex-col bg-zinc-50">
+  <main class="relative flex flex-1 flex-col bg-neutral-100">
     <slot />
   </main>
 
-  <footer class="bg-blue-700 px-6 md:px-10">
+  <!-- <footer class="bg-blue-700 px-6 md:px-10">
     <div class="container flex flex-col">
       <div class="flex flex-col items-start gap-4 py-6 md:gap-2 md:py-4">
         <div
@@ -175,6 +175,81 @@ useHead({
           >
             Terms of Service
           </a>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+  <footer class="bg-blue-950 px-6 md:px-10">
+    <div class="container flex flex-col">
+      <div class="flex flex-col items-start gap-4 py-6">
+        <div
+          class="flex w-full flex-col items-start justify-center gap-3 text-center md:flex-row md:items-center md:justify-between"
+        >
+          <div class="flex items-center gap-1.5">
+            <AstronautHelmetIcon class="size-6 stroke-[4] text-zinc-100" />
+            <span class="font-semibold text-xl text-zinc-100">ALTLOC</span>
+          </div>
+          <ul
+            class="flex flex-wrap items-start justify-start gap-x-5 gap-y-2 md:justify-between"
+          >
+            <li>
+              <a
+                href="/legal/terms-of-service"
+                class="text-sm text-white/75 hover:text-white"
+              >
+                Terms of Service
+              </a>
+            </li>
+            <li>
+              <a
+                href="/legal/privacy-policy"
+                class="text-sm text-white/75 hover:text-white"
+              >
+                Privacy Policy
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex flex-row justify-center gap-1 md:justify-end">
+          <a
+            href="https://t.me/altlocapp"
+            target="_blank"
+            class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
+          >
+            <TelegramIcon class="size-5" />
+          </a>
+          <a
+            :href="getSoialMediaURL('instagram')"
+            target="_blank"
+            class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
+          >
+            <InstagramIcon class="size-5" />
+          </a>
+          <a
+            :href="getSoialMediaURL('facebook')"
+            target="_blank"
+            class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
+          >
+            <FacebookIcon class="size-5" />
+          </a>
+          <a
+            href="https://x.com/progofcom"
+            target="_blank"
+            class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
+          >
+            <XIcon class="size-5" />
+          </a>
+        </div>
+      </div>
+      <div
+        class="flex flex-col justify-center gap-2 border-t border-white/25 py-4 sm:flex-row"
+      >
+        <div class="inline-flex gap-1.5 text-white/75">
+          <span class="text-xs">
+            Copyright &copy; {{ new Date().getFullYear() }}
+          </span>
+          <span class="text-xs">&bull;</span>
+          <span class="text-xs">All rights reserved</span>
         </div>
       </div>
     </div>

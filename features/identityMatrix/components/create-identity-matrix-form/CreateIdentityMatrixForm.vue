@@ -30,7 +30,7 @@ const { handleSubmit, meta, resetForm } = useForm({
       name: z.string().min(1).max(255),
       description: z.string().min(6).max(500),
       banner: z
-        .instanceof(File)
+        .instanceof(File, { message: "The banner is required" })
         .refine((file) => file.size < 4 * 1024 * 1024, {
           message: "The image is too large, max size is 4 MB",
         })
@@ -59,11 +59,12 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form @submit.prevent="onSubmit" class="w-full">
-    <div class="flex flex-col gap-y-3">
+    <div class="flex flex-col gap-2.5 flex-1">
+      <!-- Banner Field -->
       <Field
         name="banner"
         class="flex shrink-0 flex-col gap-4"
-        v-slot="{ field }"
+        v-slot="{ field, errors }"
       >
         <FileUpload
           v-slot="{ file }"
@@ -113,8 +114,14 @@ const onSubmit = handleSubmit((values) => {
           </FileUploadDropZone>
           <FileUploadHiddenInput accept="image/*" />
         </FileUpload>
+
+        <!-- Error message for banner -->
+        <span v-if="errors.length" class="text-xs text-red-500">{{
+          errors[0]
+        }}</span>
       </Field>
 
+      <!-- Name Field -->
       <TextField
         name="name"
         :label="t('app.identityMatrix.title')"
@@ -123,6 +130,7 @@ const onSubmit = handleSubmit((values) => {
         autocomplete="email"
       />
 
+      <!-- Description Field -->
       <TextArea
         name="description"
         :label="t('app.identityMatrix.description')"
@@ -131,8 +139,10 @@ const onSubmit = handleSubmit((values) => {
         autocomplete="off"
       />
 
+      <!-- Global Error -->
       <span v-if="error" class="text-red-500">{{ error }}</span>
 
+      <!-- Submit Button -->
       <Button
         type="submit"
         :disabled="isPending"

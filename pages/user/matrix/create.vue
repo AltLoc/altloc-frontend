@@ -16,10 +16,10 @@ definePageMeta({
           <BackButton />
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 justify-start">
           <SparklesIcon class="w-6 h-6 text-blue-500" />
           <h2 class="text-2xl font-bold text-zinc-800">
-            Create Identity Matrix
+            {{ $t("app.identityMatrix.create") }}
           </h2>
         </div>
 

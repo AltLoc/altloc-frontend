@@ -5,6 +5,7 @@ import { fetchIdentityMatrices } from "@/features/identityMatrix/service/index";
 import { IdentityMatrixGrid } from "@/features/identityMatrix/components/identity-matrix-grid/";
 import PlusIcon from "@/assets/icons/plus.svg?component";
 import LoaderIcon from "@/assets/icons/loader.svg?component";
+import NotFoundIcon from "@/assets/icons/not-found.svg?component";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
@@ -58,9 +59,15 @@ const {
         <!-- No Data -->
         <div
           v-else-if="identityMatrices?.length === 0"
-          class="text-zinc-400 italic"
+          class="flex flex-col items-center py-8 text-center lg:pl-8"
         >
-          No identity matrices found. Create one to get started.
+          <NotFoundIcon class="mb-3 size-10 stroke-[2] text-zinc-400" />
+          <span class="font-semibold text-zinc-600">
+            {{ t("app.identityMatrix.notFound") }}
+          </span>
+          <p class="mt-1 text-sm font-medium text-zinc-500">
+            {{ t("app.identityMatrix.notFoundDescription") }}
+          </p>
         </div>
 
         <!-- Grid -->

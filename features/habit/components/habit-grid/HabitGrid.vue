@@ -19,13 +19,13 @@ const props = defineProps<{
       v-if="props.habit.length === 0"
       class="text-center mt-10 text-gray-700 px-4"
     >
-      <p class="mb-6 text-xl font-semibold">
+      <p class="mb-6 text-lg font-semibold">
         {{ t("gettingStarted.title") }}
       </p>
       <ol
         class="list-decimal list-inside text-left space-y-4 max-w-2xl mx-auto"
       >
-        <li class="text-lg">
+        <li class="text-sm">
           <strong class="font-medium text-blue-600">
             {{ t("gettingStarted.steps.step1.title") }}
           </strong>
@@ -37,13 +37,13 @@ const props = defineProps<{
             {{ t("gettingStarted.steps.step1.link") }}
           </a>
         </li>
-        <li class="text-lg">
+        <li class="text-sm">
           <strong class="font-medium text-blue-600">
             {{ t("gettingStarted.steps.step2.title") }}
           </strong>
           {{ t("gettingStarted.steps.step2.description") }}
         </li>
-        <li class="text-lg">
+        <li class="text-sm">
           <strong class="font-medium text-blue-600">
             {{ t("gettingStarted.steps.step3.title") }}
           </strong>

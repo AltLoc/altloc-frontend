@@ -5,6 +5,9 @@ import { useQuery } from "@tanstack/vue-query";
 import { getDomainQuery } from "@/features/domain/service/index";
 import { HabitTable } from "@/features/habit/components/habit-table";
 import { CreateHabitForm } from "@/features/habit/components/create-habit-form/";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const route = useRoute();
 
@@ -28,7 +31,9 @@ const { data: domain } = useQuery({
           <div
             class="flex gap-2 items-center bg-blue-100 rounded-md px-4 py-2 shadow-sm"
           >
-            <h2 class="text-lg text-zinc-600 font-medium">Domain:</h2>
+            <h2 class="text-lg text-zinc-600 font-medium">
+              {{ t("app.domain.title") }}
+            </h2>
             <span class="font-semibold text-blue-800">{{ domain?.name }}</span>
           </div>
         </div>
@@ -36,7 +41,7 @@ const { data: domain } = useQuery({
         <!-- Карточка с таблицей -->
         <div class="bg-white shadow-md rounded-xl p-6 flex flex-col gap-4">
           <h3 class="text-base font-semibold text-zinc-700">
-            Habits in this domain
+            {{ t("app.habit.label") }}
           </h3>
           <div class="overflow-x-auto">
             <HabitTable v-if="domain" :domain="domain" />
@@ -46,7 +51,7 @@ const { data: domain } = useQuery({
         <!-- Карточка с формой -->
         <div class="bg-white shadow-md rounded-xl p-6 flex flex-col gap-4">
           <h3 class="text-base font-semibold text-zinc-700">
-            Create a new habit
+            {{ t("app.habit.create") }}
           </h3>
           <CreateHabitForm v-if="domain" :domain="domain" />
         </div>

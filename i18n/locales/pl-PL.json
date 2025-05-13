@@ -107,16 +107,21 @@
       "edit": "Edytuj macierz",
       "editing": "Edycja macierzy...",
       "delete": "Usuń macierz",
-      "label": "Zarządzaj macierzami tożsamości"
+      "label": "Zarządzaj macierzami tożsamości",
+      "notFound": "Brak macierzy tożsamości",
+      "notFoundDescription": "Nie utworzyłeś jeszcze żadnej macierzy tożsamości. Zacznij od stworzenia jednej, aby zwizualizować swoje cele i wartości."
     },
     "domain": {
-      "title": "Dziedzina",
+      "title": "Dziedzina:",
       "description": "Dziedzina to konkretny obszar Twojego życia, na którym chcesz się skupić. Może to być cel, wartość, umiejętność lub coś innego, co jest dla Ciebie ważne. Określając swoje dziedziny, tworzysz jasny obraz tego, co chcesz osiągnąć i jak do tego dojść.",
       "create": "Utwórz dziedzinę",
       "creating": "Tworzenie dziedziny...",
       "edit": "Edytuj dziedzinę",
       "editing": "Edycja dziedziny...",
-      "delete": "Usuń dziedzinę"
+      "delete": "Usuń dziedzinę",
+      "label": "Zarządzaj dziedzinami",
+      "notFound": "Brak dziedzin",
+      "notFoundDescription": "Nie utworzyłeś jeszcze żadnych dziedzin. Zacznij od stworzenia jednej, aby zorganizować swoje cele i nawyki."
     },
     "habit": {
       "title": "Nawyk",
@@ -137,7 +142,8 @@
         "evening": "Wieczór",
         "night": "Noc"
       },
-      "dailyQuests": "Codzienne zadania"
+      "dailyQuests": "Codzienne zadania",
+      "label": "Zarządzaj nawykami"
     },
     "dailyComment": {
       "title": "Codzienny komentarz",
@@ -155,7 +161,9 @@
         "neutral": "Neutralnie 😐",
         "good": "Dobrze 😊",
         "veryGood": "Bardzo dobrze 😍"
-      }
+      },
+      "notFound": "Brak dziennych komentarzy",
+      "notFoundDescription": "Nie utworzyłeś jeszcze żadnych dziennych komentarzy. Zacznij od stworzenia jednego, aby śledzić swoje codzienne refleksje i postępy."
     },
     "cabinet": {
       "nav": {

@@ -15,35 +15,37 @@ import InstagramIcon from "@/assets/icons/instagram.svg?component";
 import FacebookIcon from "@/assets/icons/facebook.svg?component";
 import XIcon from "@/assets/icons/x.svg?component";
 import BurgerToggle from "./BurgerToggle.vue";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const isOpen = ref(false);
 
-const menuItems: {
-  label: string;
-  href: string;
-}[] = [
-  {
-    label: "To organizers",
-    href: "#",
-  },
-  {
-    label: "For partners",
-    href: "#",
-  },
-  {
-    label: "User agreement",
-    href: "#",
-  },
-];
+// const menuItems: {
+//   label: string;
+//   href: string;
+// }[] = [
+//   {
+//     label: "To organizers",
+//     href: "#",
+//   },
+//   {
+//     label: "For partners",
+//     href: "#",
+//   },
+//   {
+//     label: "User agreement",
+//     href: "#",
+//   },
+// ];
 
 const legalMenuItems = [
   {
     label: "Privacy Policy",
-    href: "#",
+    href: "/legal/privacy-policy",
   },
   {
     label: "Terms of Service",
-    href: "#",
+    href: "/legal/terms-of-service",
   },
 ];
 
@@ -96,7 +98,7 @@ const socialItems = [
               :class="buttonVariant({ variant: 'primary', class: 'flex-1' })"
               href="/auth/register"
             >
-              Sign up
+              {{ t("layout.register") }}
             </a>
 
             <a
@@ -109,19 +111,19 @@ const socialItems = [
               "
               href="/auth/login"
             >
-              Log in
+              {{ t("layout.logIn") }}
             </a>
           </div>
 
           <Separator class="my-2 h-px w-full bg-zinc-300" />
-          <a
+          <!-- <a
             v-for="item of menuItems"
             :href="item.href"
             class="py-3 font-medium text-zinc-200"
           >
             {{ item.label }}
           </a>
-          <Separator class="my-2 h-px w-full bg-zinc-300" />
+          <Separator class="my-2 h-px w-full bg-zinc-300" /> -->
           <a
             v-for="item of legalMenuItems"
             :href="item.href"

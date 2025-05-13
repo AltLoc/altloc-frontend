@@ -61,7 +61,7 @@ const { data: domain } = useQuery({
         <!-- Карточка с таблицей -->
         <div class="bg-white shadow-md rounded-xl p-3 flex flex-col gap-4">
           <h3 class="text-base font-semibold text-zinc-700">
-            Domains in this matrix
+            {{ $t("app.domain.label") }}
           </h3>
           <div v-if="isLoading" class="text-gray-500 text-sm">Loading...</div>
           <div v-else-if="isError" class="text-red-500 text-sm">
@@ -78,7 +78,7 @@ const { data: domain } = useQuery({
         <!-- Карточка с формой -->
         <div class="bg-white shadow-md rounded-xl p-3 flex flex-col gap-4">
           <h3 class="text-base font-semibold text-zinc-700">
-            Create a new domain
+            {{ $t("app.domain.create") }}
           </h3>
           <CreateDomainForm :identityMatrixId="matrixId" />
         </div>

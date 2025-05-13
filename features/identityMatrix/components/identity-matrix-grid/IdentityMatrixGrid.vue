@@ -12,6 +12,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { IdentityMatrixDropDownMenu } from "@/features/identityMatrix/components/identity-matrix-dropdown-menu/";
 import { getCDNImageURL } from "@/utils/images";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const props = defineProps<{
   identityMatrix: IdentityMatrix[];
@@ -78,16 +81,23 @@ const props = defineProps<{
         </template>
 
         <template v-else>
-          <div class="flex flex-col items-start gap-2">
-            <span class="text-sm text-zinc-500 italic"> No domains yet. </span>
+          <div class="flex flex-col items-start gap-4">
+            <span class="text-sm text-zinc-500 italic">
+              {{ t("app.domain.notFound") }}
+            </span>
+
             <router-link
               :to="`/user/matrix/${matrix.id}`"
               title="Create Domain"
-              class="flex items-center text-sm text-blue-500 hover:underline"
+              class="flex items-center text-sm text-blue-500 hover:underline space-x-1"
             >
               <PlusIcon class="mr-1 size-4 stroke-[1.7]" />
-              Add domain
+              <span>{{ t("app.domain.create") }}</span>
             </router-link>
+
+            <span class="text-sm text-zinc-500 italic mt-2">
+              {{ t("app.domain.notFoundDescription") }}
+            </span>
           </div>
         </template>
       </div>
