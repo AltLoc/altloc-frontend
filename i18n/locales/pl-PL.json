@@ -171,7 +171,8 @@
         "night": "Noc"
       },
       "dailyQuests": "Codzienne zadania",
-      "label": "Zarządzaj nawykami"
+      "label": "Zarządzaj nawykami",
+      "cooldown": "Czas odnowienia"
     },
     "dailyComment": {
       "title": "Codzienny komentarz",

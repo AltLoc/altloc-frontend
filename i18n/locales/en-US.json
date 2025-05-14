@@ -171,7 +171,8 @@
         "night": "Night"
       },
       "dailyQuests": "Daily quests",
-      "label": "Manage habits"
+      "label": "Manage habits",
+      "cooldown": "Cooldown"
     },
     "dailyComment": {
       "title": "Daily comment",

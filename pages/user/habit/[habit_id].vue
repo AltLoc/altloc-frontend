@@ -45,8 +45,6 @@ const completedDates = computed(() => {
 function isCompletedDate(date: Date) {
   return completedDates.value.some((d) => d.isSame(dayjs(date), "day"));
 }
-
-const orderedWeekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 </script>
 
 <template>
@@ -75,7 +73,11 @@ const orderedWeekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
           </span>
         </div>
 
-        <RangeCalendarRoot v-slot="{ weekDays, grid }" fixed-weeks>
+        <RangeCalendarRoot
+          v-slot="{ weekDays, grid }"
+          fixed-weeks
+          week-start="1"
+        >
           <RangeCalendarHeader class="flex items-center justify-between">
             <RangeCalendarPrev
               class="text-black w-8 h-8 rounded hover:bg-gray-300 flex items-center justify-center"
@@ -102,12 +104,9 @@ const orderedWeekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
             >
               <RangeCalendarGridHead>
                 <RangeCalendarGridRow
-                  class="grid grid-cols-7 gap-1 text-center text-sm text-gray-500"
+                  class="grid grid-cols-7 gap-1 item-center text-sm text-gray-500"
                 >
-                  <RangeCalendarHeadCell
-                    v-for="day in orderedWeekDays"
-                    :key="day"
-                  >
+                  <RangeCalendarHeadCell v-for="day in weekDays" :key="day">
                     {{ day }}
                   </RangeCalendarHeadCell>
                 </RangeCalendarGridRow>
@@ -128,7 +127,7 @@ const orderedWeekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
                       :day="weekDate"
                       :month="month.value"
                       :class="[
-                        'w-9 h-9 flex items-center justify-center rounded-md text-sm font-medium',
+                        'w-9 h-9 flex item-center justify-center rounded-md text-sm font-medium align-center',
                         isCompletedDate(new Date(weekDate.toString()))
                           ? 'bg-green-400 text-white'
                           : 'hover:bg-gray-100 text-gray-800',
