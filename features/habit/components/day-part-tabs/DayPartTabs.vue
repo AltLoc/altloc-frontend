@@ -24,9 +24,7 @@ function updateTab(part: "MORNING" | "AFTERNOON" | "EVENING" | "NIGHT") {
 
 <template>
   <Tabs :default-value="currentTab" class="w-auto">
-    <TabsList
-      class="flex w-full justify-between p-2 bg-blue-50 rounded-lg opacity-40"
-    >
+    <TabsList class="flex w-full justify-between p-2 bg-blue-100 rounded-lg">
       <TabsTrigger value="MORNING" @click="updateTab('MORNING')">
         {{ t("app.habit.dayPart.morning") }}
       </TabsTrigger>

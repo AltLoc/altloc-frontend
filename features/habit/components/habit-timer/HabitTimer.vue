@@ -7,6 +7,7 @@ import { convertSecondsToMinutes } from "@/utils/time";
 import { useI18n } from "vue-i18n";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
+import Timer24hIcon from "@/assets/icons/timer24h.svg?component";
 
 // Extend dayjs with duration plugin
 dayjs.extend(duration);
@@ -35,53 +36,62 @@ let cooldownInterval: ReturnType<typeof setInterval> | null = null;
 const updateCooldownRemaining = () => {
   const lastDate = habit.value.completedDates?.at(-1);
   if (!lastDate) return 0;
-
   const diff = dayjs(lastDate).add(24, "hour").diff(dayjs(), "second");
   return diff > 0 ? diff : 0;
 };
 
 /**
  * Start cooldown countdown checker.
+ * If cooldown ends, habit will automatically be marked as not completed.
  */
 const startCooldownChecker = () => {
-  cooldownRemaining.value = updateCooldownRemaining();
+  if (cooldownInterval) return; // Prevent multiple intervals
 
-  if (cooldownRemaining.value > 0) {
-    cooldownInterval = setInterval(() => {
-      cooldownRemaining.value = updateCooldownRemaining();
+  cooldownInterval = setInterval(() => {
+    cooldownRemaining.value = updateCooldownRemaining();
 
-      // When cooldown ends, reset habit status
-      if (cooldownRemaining.value <= 0) {
-        habit.value.isCompleted = false;
-        stopCooldownChecker();
-      }
-    }, 1000);
-  }
+    if (cooldownRemaining.value <= 0) {
+      habit.value.isCompleted = false;
+      stopCooldownChecker();
+    }
+  }, 1000);
 };
 
 /**
- * Stop cooldown checker.
+ * Stop the cooldown checker.
  */
 const stopCooldownChecker = () => {
   if (cooldownInterval) clearInterval(cooldownInterval);
   cooldownInterval = null;
 };
 
-// Lifecycle hooks
+/**
+ * Lifecycle hook on component mount.
+ * Initializes the cooldown timer if needed.
+ */
 onMounted(() => {
-  if (habit.value.isCompleted) startCooldownChecker();
+  cooldownRemaining.value = updateCooldownRemaining();
+  if (cooldownRemaining.value > 0) {
+    startCooldownChecker();
+  }
 });
 
+/**
+ * Cleanup on component unmount.
+ */
 onUnmounted(() => {
   if (interval) clearInterval(interval);
   if (cooldownInterval) clearInterval(cooldownInterval);
 });
 
-// Mutation to mark habit as completed
+/**
+ * Mutation to mark habit as completed on the backend.
+ */
 const { mutate: completeHabitMutation, error } = useCompletedHabitkMutation();
 
 /**
  * Complete the habit.
+ * Marks the habit as completed and starts the cooldown timer.
  */
 const completeHabit = () => {
   habit.value.isRunning = false;
@@ -93,15 +103,14 @@ const completeHabit = () => {
     { onSuccess: () => console.log("Habit completed successfully") }
   );
 
-  // Start cooldown timer after completing the habit
   startCooldownChecker();
 };
 
 /**
- * Start the habit timer.
+ * Start the habit countdown timer.
  */
 const startTimer = () => {
-  if (habit.value.isRunning || habit.value.isCompleted) return;
+  if (habit.value.isRunning || isCompleted.value) return;
 
   habit.value.isRunning = true;
   interval = setInterval(() => {
@@ -113,17 +122,22 @@ const startTimer = () => {
   }, 1000);
 };
 
-// Watch remaining time and auto-complete when it reaches 0
-watch(
-  () => habit.value.remainingTime,
-  (newVal) => {
-    if (newVal <= 0 && habit.value.isRunning && !habit.value.isCompleted) {
-      completeHabit();
-    }
-  }
+/**
+ * Computed whether habit is currently under cooldown.
+ */
+const isInCooldown = computed(() => cooldownRemaining.value > 0);
+
+/**
+ * Computed whether habit is completed.
+ * It will be true either if habit is explicitly completed or if it's under cooldown.
+ */
+const isCompleted = computed(
+  () => habit.value.isCompleted || isInCooldown.value
 );
 
-// Computed formatted cooldown string (HH:mm:ss)
+/**
+ * Computed formatted cooldown string (HH:mm:ss).
+ */
 const formattedCooldown = computed(() => {
   const dur = dayjs.duration(cooldownRemaining.value * 1000);
   return `${String(dur.hours()).padStart(2, "0")}:${String(dur.minutes()).padStart(2, "0")}:${String(dur.seconds()).padStart(2, "0")}`;
@@ -136,24 +150,30 @@ const formattedCooldown = computed(() => {
       size="md"
       :variant="habit.isRunning ? 'continue' : 'accepted'"
       @click="startTimer"
-      :disabled="habit.isRunning || habit.isCompleted"
+      :disabled="habit.isRunning || isCompleted"
     >
       {{
         habit.isRunning
           ? t("app.habit.thereStill") +
             convertSecondsToMinutes(habit.remainingTime)
-          : habit.isCompleted
+          : isCompleted
             ? t("app.habit.completed")
             : t("app.habit.start")
       }}
     </Button>
 
     <!-- Cooldown countdown display -->
-    <div
-      v-if="habit.isCompleted && cooldownRemaining > 0"
-      class="text-sm text-gray-500"
-    >
-      {{ t("app.habit.cooldown") }}: {{ formattedCooldown }}
+    <div v-if="isInCooldown" class="flex-col items-center gap-1">
+      <div class="text-xs">
+        {{ t("app.habit.cooldown") }}
+      </div>
+
+      <div class="flex gap-1 items-center">
+        <Timer24hIcon class="size-4 stroke-[1] text-zinc-700" />
+        <div class="font-semibold text-zinc-500">
+          {{ formattedCooldown }}
+        </div>
+      </div>
     </div>
 
     <span v-if="error" class="text-red-500">{{ error.message }}</span>
