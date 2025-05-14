@@ -54,7 +54,7 @@ useHead({
       </a>
 
       <div class="flex gap-1.5 justify-center md:justify-end">
-        <a
+        <!-- <a
           :class="
             buttonVariant({
               size: 'sm',
@@ -67,7 +67,7 @@ useHead({
           <span class="text-xs font-semibold text-zinc-100">
             {{ t("landing.getStartedButton") }}
           </span>
-        </a>
+        </a> -->
         <LanguageDropdown />
         <MobileMenu />
       </div>
@@ -179,7 +179,7 @@ useHead({
           <!-- <span class="text-xs">&bull;</span> -->
           <span class="px-0.5" role="separator">|</span>
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdNcSIbZlqbvO2NBWSMKW5QrBsl4NuhlFuaB2Sz0Rbxr3Fb9A/viewform?usp=header"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdNcSIbZlqbvO2NBWSMKW5QrBsl4NuhlFuaB2Sz0Rbxr3Fb9A/viewform?usp=dialog"
             target="_blank"
             class="text-xs underline-offset-2 hover:underline"
           >
