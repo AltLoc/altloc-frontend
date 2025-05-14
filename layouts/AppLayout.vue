@@ -31,7 +31,7 @@ useSeoMeta({
   >
     <div class="flex justify-between items-center flex-1">
       <div class="flex gap-2 items-center">
-        <AstronautHelmetIcon class="size-10 stroke-[4] text-zinc-100" />
+        <AstronautHelmetIcon class="size-6 stroke-[4] text-zinc-100" />
         <span class="font-semibold text-xl text-zinc-100">ALTLOC</span>
       </div>
 
@@ -42,7 +42,6 @@ useSeoMeta({
           class="mr-2 size-5 animate-spin stroke-[1.5] text-zinc-400"
         />
       </span>
-
       <span v-else-if="isError">Error: {{ error?.message }}</span>
     </div>
   </header>

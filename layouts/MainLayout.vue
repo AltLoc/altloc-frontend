@@ -78,7 +78,7 @@ useHead({
     <slot />
   </main>
 
-  <!-- <footer class="bg-blue-700 px-6 md:px-10">
+  <footer class="bg-blue-950 px-6 md:px-10">
     <div class="container flex flex-col">
       <div class="flex flex-col items-start gap-4 py-6 md:gap-2 md:py-4">
         <div
@@ -99,7 +99,7 @@ useHead({
               by PROGOF
             </a>
           </div>
-          <ul
+          <!-- <ul
             class="flex flex-wrap items-start justify-start gap-x-5 gap-y-2 md:justify-between"
           >
             <li>
@@ -117,7 +117,7 @@ useHead({
                 User agreement
               </a>
             </li>
-          </ul>
+          </ul> -->
         </div>
         <div class="flex flex-row justify-center gap-1 md:justify-end">
           <a
@@ -152,104 +152,39 @@ useHead({
       </div>
 
       <div
-        class="flex flex-col justify-between gap-2 border-t border-zinc-100/25 py-4 sm:flex-row"
+        class="flex flex-col-reverse justify-between gap-2 border-t border-zinc-100/25 py-4 sm:flex-row"
       >
         <div class="inline-flex gap-1.5 text-zinc-100/75">
           <span class="text-xs">
             Copyright &copy; {{ new Date().getFullYear() }}
           </span>
-          <span class="text-xs">&bull;</span>
+          <!-- <span class="text-xs">&bull;</span> -->
           <span class="text-xs">All Rights Reserved</span>
         </div>
-        <div class="inline-flex gap-1.5 text-zinc-100/75">
+        <div class="inline-flex gap-1.5 text-zinc-100/75 items-center">
           <a
             href="/legal/privacy-policy"
             class="text-xs underline-offset-2 hover:underline"
           >
             Privacy Policy
           </a>
-          <span class="text-xs">&bull;</span>
+          <!-- <span class="text-xs">&bull;</span> -->
+          <span class="px-0.5" role="separator">|</span>
           <a
             href="/legal/terms-of-service"
             class="text-xs underline-offset-2 hover:underline"
           >
             Terms of Service
           </a>
-        </div>
-      </div>
-    </div>
-  </footer> -->
-  <footer class="bg-blue-950 px-6 md:px-10">
-    <div class="container flex flex-col">
-      <div class="flex flex-col items-start gap-4 py-6">
-        <div
-          class="flex w-full flex-col items-start justify-center gap-3 text-center md:flex-row md:items-center md:justify-between"
-        >
-          <div class="flex items-center gap-1.5">
-            <AstronautHelmetIcon class="size-6 stroke-[4] text-zinc-100" />
-            <span class="font-semibold text-xl text-zinc-100">ALTLOC</span>
-          </div>
-          <ul
-            class="flex flex-wrap items-start justify-start gap-x-5 gap-y-2 md:justify-between"
-          >
-            <li>
-              <a
-                href="/legal/terms-of-service"
-                class="text-sm text-white/75 hover:text-white"
-              >
-                Terms of Service
-              </a>
-            </li>
-            <li>
-              <a
-                href="/legal/privacy-policy"
-                class="text-sm text-white/75 hover:text-white"
-              >
-                Privacy Policy
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="flex flex-row justify-center gap-1 md:justify-end">
+          <!-- <span class="text-xs">&bull;</span> -->
+          <span class="px-0.5" role="separator">|</span>
           <a
-            href="https://t.me/altlocapp"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdNcSIbZlqbvO2NBWSMKW5QrBsl4NuhlFuaB2Sz0Rbxr3Fb9A/viewform?usp=header"
             target="_blank"
-            class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
+            class="text-xs underline-offset-2 hover:underline"
           >
-            <TelegramIcon class="size-5" />
+            Report a violation
           </a>
-          <a
-            :href="getSoialMediaURL('instagram')"
-            target="_blank"
-            class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
-          >
-            <InstagramIcon class="size-5" />
-          </a>
-          <a
-            :href="getSoialMediaURL('facebook')"
-            target="_blank"
-            class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
-          >
-            <FacebookIcon class="size-5" />
-          </a>
-          <a
-            href="https://x.com/progofcom"
-            target="_blank"
-            class="flex p-1 text-zinc-100/75 hover:text-zinc-100/90"
-          >
-            <XIcon class="size-5" />
-          </a>
-        </div>
-      </div>
-      <div
-        class="flex flex-col justify-center gap-2 border-t border-white/25 py-4 sm:flex-row"
-      >
-        <div class="inline-flex gap-1.5 text-white/75">
-          <span class="text-xs">
-            Copyright &copy; {{ new Date().getFullYear() }}
-          </span>
-          <span class="text-xs">&bull;</span>
-          <span class="text-xs">All rights reserved</span>
         </div>
       </div>
     </div>

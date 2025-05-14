@@ -2,9 +2,37 @@
   "website": "AltLoc",
   "landing": {
     "title": "Level up your life like a game",
-    "description": "AltLoc is a personal development platform in RPG style. Set goals, track progress, and become your best self.",
-    "getStarted": "Start your journey",
-    "getStartedButton": "Get started"
+    "description": "AltLoc is a gamified personal growth platform for Gen Z. Build your Identity Matrix, explore Domains, complete Quests, earn XP & crystals — level up your life like a hero.",
+    "getStarted": "Join the adventure",
+    "getStartedButton": "Start leveling up",
+    "stepsTitle": "Level Up Your Life with AltLoc",
+    "stepsDescription": "AltLoc transforms self-improvement into an RPG adventure. Build your Identity Matrix, explore Domains, create Habits, and earn crystals & XP while growing your personal hero.",
+    "steps": {
+      "step1": {
+        "title": "Step 1: Build Your Identity Matrix",
+        "description": "Define who you want to become. Select or create your unique Identity Matrix to guide your quests."
+      },
+      "step2": {
+        "title": "Step 2: Explore Domains",
+        "description": "Choose life Domains like Health, Knowledge, Finances — your personal skill trees to level up."
+      },
+      "step3": {
+        "title": "Step 3: Create Habits & Quests",
+        "description": "Add tasks and habits to each Domain. Assign XP, difficulty, and schedule your grind."
+      },
+      "step4": {
+        "title": "Step 4: Track & Earn Rewards",
+        "description": "Complete quests, earn XP, collect crystals, and unlock levels & achievements in your dashboard."
+      },
+      "step5": {
+        "title": "Step 5: Daily Reflection",
+        "description": "Use Daily Comment to reflect, log your emotions, and track your personal journey."
+      },
+      "step6": {
+        "title": "Step 6: Adapt & Celebrate",
+        "description": "Revise your Matrix as you evolve. Celebrate victories with community badges and flex your progress."
+      }
+    }
   },
   "gettingStarted": {
     "title": "To get started with the app, follow these steps:",

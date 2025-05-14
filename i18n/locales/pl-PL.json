@@ -1,10 +1,38 @@
 {
   "website": "AltLoc",
   "landing": {
-    "title": "Rozwijaj życie jak w grze",
-    "description": "AltLoc to platforma rozwoju osobistego w stylu RPG. Ustalaj cele, śledź postępy i zostań najlepszą wersją siebie.",
-    "getStarted": "Rozpocznij swoją drogę",
-    "getStartedButton": "Rozpocznij"
+    "title": "Rozwijaj swoje życie jak w grze",
+    "description": "AltLoc to platforma rozwoju osobistego w stylu RPG dla pokolenia Z. Zbuduj swoją Matrycę Tożsamości, odkrywaj Domeny, wykonuj Misje, zdobywaj XP i kryształy — rozwijaj swoje życie jak bohater.",
+    "getStarted": "Dołącz do przygody",
+    "getStartedButton": "Rozpocznij levelowanie",
+    "stepsTitle": "Rozwijaj swoje życie z AltLoc",
+    "stepsDescription": "AltLoc zamienia samodoskonalenie w przygodę RPG. Zbuduj swoją Matrycę Tożsamości, odkrywaj Domeny, twórz Nawyk i zadania, zdobywaj kryształy i XP, rozwijając swojego osobistego bohatera.",
+    "steps": {
+      "step1": {
+        "title": "Krok 1: Zbuduj swoją Matrycę Tożsamości",
+        "description": "Zdefiniuj, kim chcesz się stać. Wybierz lub stwórz unikalną Matrycę Tożsamości, która poprowadzi cię przez twoje questy."
+      },
+      "step2": {
+        "title": "Krok 2: Odkrywaj Domeny",
+        "description": "Wybierz Domeny życia jak Zdrowie, Wiedza, Finanse — twoje osobiste drzewka umiejętności do rozwijania."
+      },
+      "step3": {
+        "title": "Krok 3: Twórz Nawyk i Misje",
+        "description": "Dodaj zadania i nawyki do każdej Domeny. Ustal XP, poziom trudności i zaplanuj swoje grindy."
+      },
+      "step4": {
+        "title": "Krok 4: Śledź postępy i zdobywaj nagrody",
+        "description": "Wykonuj misje, zdobywaj XP, kolekcjonuj kryształy i odblokowuj poziomy oraz osiągnięcia w swoim panelu."
+      },
+      "step5": {
+        "title": "Krok 5: Codzienna Refleksja",
+        "description": "Używaj Codziennych Komentarzy, aby reflektować, zapisywać emocje i śledzić swoją osobistą podróż."
+      },
+      "step6": {
+        "title": "Krok 6: Dostosuj i świętuj",
+        "description": "Aktualizuj swoją Matrycę w miarę rozwoju. Świętuj sukcesy z odznakami społeczności i pokaż swoje postępy."
+      }
+    }
   },
   "gettingStarted": {
     "title": "Aby rozpocząć korzystanie z aplikacji, wykonaj te kroki:",
