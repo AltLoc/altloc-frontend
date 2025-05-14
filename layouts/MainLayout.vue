@@ -44,7 +44,7 @@ useHead({
   <header
     :class="[
       'pointer-events-auto sticky top-0 z-20 px-6 py-3 backdrop-blur-[20px] backdrop-saturate-150 md:px-14',
-      isScrolled ? 'bg-blue-700 bg-opacity-80' : 'bg-blue-700',
+      isScrolled ? 'bg-blue-900 bg-opacity-80' : 'bg-blue-900',
     ]"
   >
     <div class="container flex items-center justify-between gap-5 md:gap-6">
@@ -70,6 +70,32 @@ useHead({
         </a> -->
         <LanguageDropdown />
         <MobileMenu />
+        <div class="hidden md:flex gap-4 items-center">
+          <a
+            :class="
+              buttonVariant({
+                variant: 'secondary',
+                size: 'sm',
+                class: 'shrink-0',
+              })
+            "
+            href="/auth/login"
+          >
+            {{ t("layout.logIn") }}
+          </a>
+          <a
+            :class="
+              buttonVariant({
+                variant: 'primary',
+                size: 'sm',
+                class: 'shrink-0',
+              })
+            "
+            href="/auth/register"
+          >
+            {{ t("layout.register") }}
+          </a>
+        </div>
       </div>
     </div>
   </header>

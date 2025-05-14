@@ -33,23 +33,20 @@ useSeoMeta({
 
 <template>
   <MainLayout>
-    <section class="relative mb-12 p-3 px-6 md:px-10">
-      <div class="container flex flex-col gap-12 items-center">
-        <img
-          src="/images/banner-space.jpg"
-          alt="Space place"
-          class="absolute inset-0 size-full object-cover opacity-75 blur-sm bg-blue-200 radio aspect-video"
-        />
+    <section class="relative p-3 px-6 md:px-10">
+      <div
+        class="absolute inset-0 bg-[url('/images/banner-space.jpg')] bg-cover bg-center opacity-75"
+      />
+      <div class="absolute inset-0 backdrop-blur-sm"></div>
 
-        <div class="flex flex-col gap-6 items-center z-10">
+      <div class="container flex flex-col gap-12 items-center relative z-10">
+        <div class="flex flex-col gap-6 items-center">
           <h1
             class="py-10 text-3xl font-bold tracking-tight text-center text-zinc-200"
           >
             {{ t("landing.title") }}
           </h1>
-          <div
-            class="flex flex-col items-center gap-2 relative w-full max-w-max"
-          >
+          <div class="flex flex-col items-center gap-2 w-full max-w-max">
             <span class="text-zinc-200 tracking-tight text-center">
               {{ t("landing.description") }}
             </span>
@@ -66,20 +63,23 @@ useSeoMeta({
         </div>
       </div>
     </section>
-
     <section class="relative group mt-6 p-12 px-6 md:px-10">
+      <!-- <div
+        class="absolute inset-0 bg-[url('/images/blue-grid.webp')] bg-cover bg-center opacity-75"
+      />
+      <div class="absolute inset-0 backdrop-blur-sm"></div> -->
       <div class="container flex flex-col gap-12 items-center">
-        <img
+        <!-- <img
           src="/images/blue-grid.webp"
           alt="Gamification poster"
           class="absolute inset-0 size-full object-cover opacity-65 blur-sm bg-blue-200"
-        />
+        /> -->
 
         <div class="flex flex-col gap-6 items-center z-10">
-          <h2 class="text-2xl font-semibold text-zinc-100 text-center">
+          <h2 class="text-2xl font-semibold text-zinc-700 text-center">
             {{ t("landing.stepsTitle") }}
           </h2>
-          <span class="text-zinc-200 text-center max-w-2xl">
+          <span class="text-zinc-700 text-center max-w-2xl">
             {{ t("landing.stepsDescription") }}
           </span>
         </div>
@@ -90,12 +90,16 @@ useSeoMeta({
           <div
             class="bg-white rounded-lg p-4 gap-3 flex-col flex transition transform hover:scale-105"
           >
-            <div class="flex gap-3 items-center">
-              <h2 class="text-zinc-900 font-semibold">
-                {{ t("landing.steps.step1.title") }}
-              </h2>
-              <TargetIcon class="size-5 stroke-[1.7] text-zinc-800" />
+            <div class="flex gap-3 items-center justify-center">
+              <TargetIcon
+                class="size-6 stroke-[1.7] text-zinc-800 justify-center"
+              />
             </div>
+
+            <h2 class="text-zinc-900 font-semibold">
+              {{ t("landing.steps.step1.title") }}
+            </h2>
+
             <span class="text-zinc-600 text-sm">
               {{ t("landing.steps.step1.description") }}
             </span>
@@ -104,12 +108,16 @@ useSeoMeta({
           <div
             class="bg-white rounded-lg p-4 gap-3 flex-col flex transition transform hover:scale-105"
           >
-            <div class="flex gap-3 items-center">
-              <h2 class="text-zinc-900 font-semibold">
-                {{ t("landing.steps.step2.title") }}
-              </h2>
-              <CategoriesIcon class="size-5 stroke-[1.7] text-zinc-800" />
+            <div class="flex gap-3 items-center justify-center">
+              <CategoriesIcon
+                class="size-6 stroke-[1.7] text-zinc-800 justify-center"
+              />
             </div>
+
+            <h2 class="text-zinc-900 font-semibold">
+              {{ t("landing.steps.step2.title") }}
+            </h2>
+
             <span class="text-zinc-600 text-sm">
               {{ t("landing.steps.step2.description") }}
             </span>
@@ -118,12 +126,16 @@ useSeoMeta({
           <div
             class="bg-white rounded-lg p-4 gap-3 flex-col flex transition transform hover:scale-105"
           >
-            <div class="flex gap-3 items-center">
-              <h2 class="text-zinc-900 font-semibold">
-                {{ t("landing.steps.step3.title") }}
-              </h2>
-              <ClipboardListIcon class="size-5 stroke-[1.7] text-zinc-800" />
+            <div class="flex gap-3 items-center justify-center">
+              <ClipboardListIcon
+                class="size-6 stroke-[1.7] text-zinc-800 justify-center"
+              />
             </div>
+
+            <h2 class="text-zinc-900 font-semibold">
+              {{ t("landing.steps.step3.title") }}
+            </h2>
+
             <span class="text-zinc-600 text-sm">
               {{ t("landing.steps.step3.description") }}
             </span>
@@ -132,12 +144,16 @@ useSeoMeta({
           <div
             class="bg-white rounded-lg p-4 gap-3 flex-col flex transition transform hover:scale-105"
           >
-            <div class="flex gap-3 items-center">
-              <h2 class="text-zinc-900 font-semibold">
-                {{ t("landing.steps.step4.title") }}
-              </h2>
-              <RankingIcon class="size-5 stroke-[1.7] text-zinc-800" />
+            <div class="flex gap-3 items-center justify-center">
+              <RankingIcon
+                class="size-6 stroke-[1.7] text-zinc-800 justify-center"
+              />
             </div>
+
+            <h2 class="text-zinc-900 font-semibold">
+              {{ t("landing.steps.step4.title") }}
+            </h2>
+
             <span class="text-zinc-600 text-sm">
               {{ t("landing.steps.step4.description") }}
             </span>
@@ -146,12 +162,16 @@ useSeoMeta({
           <div
             class="bg-white rounded-lg p-4 gap-3 flex-col flex transition transform hover:scale-105"
           >
-            <div class="flex gap-3 items-center">
-              <h2 class="text-zinc-900 font-semibold">
-                {{ t("landing.steps.step5.title") }}
-              </h2>
-              <CommentIcon class="size-5 stroke-[1.7] text-zinc-800" />
+            <div class="flex gap-3 items-center justify-center">
+              <CommentIcon
+                class="size-6 stroke-[1.7] text-zinc-800 justify-center"
+              />
             </div>
+
+            <h2 class="text-zinc-900 font-semibold">
+              {{ t("landing.steps.step5.title") }}
+            </h2>
+
             <span class="text-zinc-600 text-sm">
               {{ t("landing.steps.step5.description") }}
             </span>
@@ -160,12 +180,16 @@ useSeoMeta({
           <div
             class="bg-white rounded-lg p-4 gap-3 flex-col flex transition transform hover:scale-105"
           >
-            <div class="flex gap-3 items-center">
-              <h2 class="text-zinc-900 font-semibold">
-                {{ t("landing.steps.step5.title") }}
-              </h2>
-              <SpaceStarIcon class="size-5 stroke-[1.7] text-zinc-800" />
+            <div class="flex gap-3 items-center justify-center">
+              <SpaceStarIcon
+                class="size-6 stroke-[1.7] text-zinc-800 justify-center"
+              />
             </div>
+
+            <h2 class="text-zinc-900 font-semibold">
+              {{ t("landing.steps.step5.title") }}
+            </h2>
+
             <span class="text-zinc-600 text-sm">
               {{ t("landing.steps.step6.description") }}
             </span>
