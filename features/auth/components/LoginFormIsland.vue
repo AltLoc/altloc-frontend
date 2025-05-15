@@ -72,8 +72,9 @@ const onSubmit = handleSubmit((values) => {
         <div class="w-full text-end text-xs font-medium">
           {{ t("recovery.forgotYourPassword") }}
           <a
-            class="text-indigo-500 underline-offset-2 hover:underline"
+            class="text-blue-500 underline-offset-2 hover:underline"
             href="/auth/recover-password"
+            disable
           >
             {{ t("recovery.recoverItHere") }}
           </a>
@@ -84,7 +85,7 @@ const onSubmit = handleSubmit((values) => {
       type="submit"
       :disabled="isPending"
       variant="primary"
-      class="mt-6 flex h-11 w-full items-center justify-center rounded-full px-5 font-medium text-zinc-100 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+      class="mt-6 flex h-11 w-full items-center justify-center rounded-full px-5 font-medium text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50"
     >
       <LoaderIcon
         class="mr-2 size-5 animate-spin stroke-[1.5] text-white"
