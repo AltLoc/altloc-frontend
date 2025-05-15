@@ -52,27 +52,29 @@ function handleOpenModal(
   >
     <div v-for="(dailyComment, index) in props.dailyComment" :key="index">
       <div
-        class="bg-white shadow-md rounded-md p-4 flex-1 flex flex-col gap-4 w-auto"
+        class="bg-white shadow-md rounded-md p-2 flex-1 flex flex-col gap-4 w-auto"
       >
         <div class="flex flex-col gap-4">
-          <div class="flex gap-3 items-center justify-between">
+          <div
+            class="flex gap-3 items-center justify-between bg-blue-100 p-1 rounded-xl"
+          >
             <div class="flex gap-3 items-center">
               <div class="flex gap-2 items-center">
-                <CalendarIcon class="size-5 stroke-[1.7] text-zinc-400" />
-                <span class="text-xs text-zinc-400">
+                <CalendarIcon class="size-5 stroke-[1.7] text-zinc-700" />
+                <span class="text-xs text-zinc-700">
                   {{ utcTimestampToDayAndMonth(dailyComment.createdAt) }}
                 </span>
               </div>
 
               <div class="flex items-center gap-2">
-                <span class="text-zinc-400">
+                <span class="text-zinc-700">
                   {{
                     moodOptions.find(
                       (option) => option.score === dailyComment.mood
                     )?.emoji
                   }}
                 </span>
-                <span class="text-zinc-400 text-xs">
+                <span class="text-zinc-700 text-xs">
                   {{
                     moodOptions.find(
                       (option) => option.score === dailyComment.mood

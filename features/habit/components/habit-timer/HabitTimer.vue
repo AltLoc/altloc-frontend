@@ -2,7 +2,7 @@
 import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import type { Habit } from "@/features/habit/model";
 import { Button } from "@/components/ui/button";
-import { useCompletedHabitkMutation } from "@/features/habit/service/index";
+import { useCompletedHabitMutation } from "@/features/habit/service/index";
 import { convertSecondsToMinutes } from "@/utils/time";
 import { useI18n } from "vue-i18n";
 import dayjs from "dayjs";
@@ -87,7 +87,7 @@ onUnmounted(() => {
 /**
  * Mutation to mark habit as completed on the backend.
  */
-const { mutate: completeHabitMutation, error } = useCompletedHabitkMutation();
+const { mutate: completeHabitMutation, error } = useCompletedHabitMutation();
 
 /**
  * Complete the habit.
@@ -99,7 +99,7 @@ const completeHabit = () => {
   if (interval) clearInterval(interval);
 
   completeHabitMutation(
-    { habitId: habit.value.id, dayPart: ref(habit.value.dayPart) },
+    { habitId: habit.value.id, dayPart: habit.value.dayPart },
     { onSuccess: () => console.log("Habit completed successfully") }
   );
 

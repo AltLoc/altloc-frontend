@@ -88,22 +88,6 @@ export const fetchHabit = (habitId: string) =>
     },
   });
 
-// export const fetchHabitsByDayPart = (dayPart: string) =>
-//   queryOptions({
-//     queryKey: ["api", "app", "habits", "daypart", dayPart],
-//     queryFn: async ({ signal }) => {
-//       const res = await fetch(`/api/app/habits/day-part/${dayPart}`, {
-//         signal,
-//       });
-
-//       if (!res.ok) {
-//         throw new FetchError(res);
-//       }
-
-//       return res.json() as Promise<Habit[]>;
-//     },
-//   });
-
 export const fetchHabitsByDayPart = (dayPart: Ref<string>) =>
   queryOptions({
     queryKey: computed(() => [
@@ -139,20 +123,6 @@ export const fetchHabits = queryOptions({
   },
 });
 
-// export const getHabitByIdQuery = (domainId: string) =>
-//   queryOptions({
-//     queryKey: ["api", "app", "domain", domainId],
-//     queryFn: async ({ signal }) => {
-//       const res = await fetch(`/api/app/domain/${domainId}`, {
-//         signal,
-//       });
-//       if (!res.ok) {
-//         throw new FetchError(res);
-//       }
-//       return res.json() as Promise<Habit>;
-//     },
-//   });
-
 export function useDeleteHabitMutation() {
   const queryClient = useQueryClient();
 
@@ -173,15 +143,43 @@ export function useDeleteHabitMutation() {
   });
 }
 
-export function useCompletedHabitkMutation() {
+// export function useCompletedHabitkMutation() {
+//   const queryClient = useQueryClient();
+//   return useMutation({
+//     mutationFn: async ({
+//       habitId,
+//       dayPart,
+//     }: {
+//       habitId: string;
+//       dayPart: Ref<string>;
+//     }) => {
+//       const res = await fetch(`/api/app/habit/${habitId}/completed`, {
+//         method: "PUT",
+//       });
+
+//       if (!res.ok) {
+//         throw new FetchError(res);
+//       }
+
+//       return res.json() as Promise<Habit>;
+//     },
+//     onSuccess: (_, habit) => {
+//       queryClient.invalidateQueries(fetchHabitsByDayPart(habit.dayPart));
+//       queryClient.invalidateQueries(getMeQueryOptions);
+//     },
+//   });
+// }
+
+export function useCompletedHabitMutation() {
   const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: async ({
       habitId,
       dayPart,
     }: {
       habitId: string;
-      dayPart: Ref<string>;
+      dayPart: string; // ⛔ Убрал Ref<string>
     }) => {
       const res = await fetch(`/api/app/habit/${habitId}/completed`, {
         method: "PUT",
@@ -193,55 +191,11 @@ export function useCompletedHabitkMutation() {
 
       return res.json() as Promise<Habit>;
     },
-    onSuccess: (_, habit) => {
-      queryClient.invalidateQueries(fetchHabitsByDayPart(habit.dayPart));
-      queryClient.invalidateQueries(getMeQueryOptions);
+    onSuccess: async (_, habit) => {
+      await Promise.all([
+        queryClient.invalidateQueries(fetchHabits),
+        queryClient.invalidateQueries(fetchHabitsByDayPart(ref(habit.dayPart))), // Wrapped in ref()
+      ]);
     },
   });
 }
-
-// export function useCompletedHabitkMutation() {
-//   const queryClient = useQueryClient();
-
-//   return useMutation({
-//     mutationFn: async (habitId: string) => {
-//       console.log(
-//         "useCompletedHabitMutation: Sending request to complete habit with ID:",
-//         habitId
-//       );
-
-//       const res = await fetchWithErrorHandling(
-//         `/api/app/habit/${habitId}/completed`,
-//         {
-//           method: "PUT",
-//         }
-//       );
-
-//       console.log("Habit completed successfully!");
-//       return res.json() as Promise<Habit>;
-//     },
-
-//     onSuccess: (habit) => {
-//       queryClient.invalidateQueries(fetchHabitsByDomain(habit.domainId));
-//       queryClient.invalidateQueries(fetchHabits);
-//     },
-
-//     onError: (err) => {
-//       if (err instanceof FetchError) {
-//         const detail = err.problemDetails?.detail;
-//         // if (detail === "Habit already completed today.") {
-//         //   alert("Ты уже выполнил привычку сегодня ✨");
-//         // } else {
-//         //   console.error(
-//         //     "Ошибка при завершении привычки:",
-//         //     detail || err.message
-//         //   );
-//         //   alert(detail || "Произошла ошибка при завершении привычки.");
-//         // }
-//       } else {
-//         console.error("Неизвестная ошибка:", err);
-//         // alert("Произошла непредвиденная ошибка.");
-//       }
-//     },
-//   });
-// }
