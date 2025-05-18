@@ -185,7 +185,8 @@
       "runFromTo": "Czas od 5 minut do 2 godzin",
       "placeholder": "Przykład: Przeczytaj książkę, ćwicz, medytuj",
       "target": "Cel",
-      "completions": "Ukończenia"
+      "completions": "Ukończenia",
+      "stats": "Statystyki"
     },
     "dailyComment": {
       "title": "Codzienny komentarz",

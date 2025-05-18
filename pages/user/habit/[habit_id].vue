@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import AppLayout from "@/layouts/AppLayout.vue";
 import { useRoute } from "vue-router";
 import { BackButton } from "@/components/ui/button";
@@ -9,24 +9,34 @@ import dayjs from "dayjs";
 import isoWeek from "dayjs/plugin/isoWeek";
 dayjs.extend(isoWeek);
 
+import { useI18n } from "vue-i18n";
+
 import {
-  RangeCalendarCell,
-  RangeCalendarCellTrigger,
-  RangeCalendarGrid,
-  RangeCalendarGridBody,
-  RangeCalendarGridHead,
-  RangeCalendarGridRow,
-  RangeCalendarHeadCell,
-  RangeCalendarHeader,
-  RangeCalendarHeading,
-  RangeCalendarNext,
-  RangeCalendarPrev,
-  RangeCalendarRoot,
-} from "radix-vue";
+  CalendarRoot,
+  type CalendarRootProps,
+  type CalendarRootEmits,
+  useForwardPropsEmits,
+  CalendarHeading,
+  CalendarGrid,
+  CalendarGridHead,
+  CalendarGridRow,
+  CalendarHeadCell,
+  CalendarGridBody,
+  CalendarCell,
+  CalendarCellTrigger,
+  CalendarHeader,
+  CalendarPrev,
+  CalendarNext,
+} from "reka-ui";
 import ArrowRightIcon from "@/assets/icons/arrowRight.svg?component";
 import ArrowLeftIcon from "@/assets/icons/arrowLeft.svg?component";
+import { reactiveOmit } from "@vueuse/core";
+import type { HTMLAttributes } from "vue";
+import { cn } from "@/utils";
 
+const { t } = useI18n();
 const route = useRoute();
+
 const habitId: string = Array.isArray(route.params.habit_id)
   ? route.params.habit_id[0]
   : route.params.habit_id;
@@ -45,6 +55,14 @@ const completedDates = computed(() => {
 function isCompletedDate(date: Date) {
   return completedDates.value.some((d) => d.isSame(dayjs(date), "day"));
 }
+
+// Props and emits to forward to CalendarRoot
+const props = defineProps<
+  CalendarRootProps & { class?: HTMLAttributes["class"] }
+>();
+const emits = defineEmits<CalendarRootEmits>();
+const delegatedProps = reactiveOmit(props, "class");
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>
@@ -54,6 +72,7 @@ function isCompletedDate(date: Date) {
         <div class="flex">
           <BackButton />
         </div>
+
         <div class="flex gap-3 items-center bg-blue-100 rounded-md p-3 w-fit">
           <h2 class="text-lg text-zinc-500">Habit:</h2>
           <span class="font-semibold">
@@ -63,82 +82,78 @@ function isCompletedDate(date: Date) {
 
         <div class="flex gap-3 items-center">
           <span class="text-sm font-semibold">
-            Completed: {{ habit?.numberOfCompletions }}
+            {{ t("app.habit.completed") }}: {{ habit?.numberOfCompletions }}
           </span>
           <span class="text-sm font-semibold">
-            Target: {{ habit?.targetNumberOfCompletions }}
+            {{ t("app.habit.target") }}: {{ habit?.targetNumberOfCompletions }}
           </span>
           <span class="text-sm font-semibold">
-            Day part: {{ habit?.dayPart.toLowerCase() }}
+            {{ t("app.habit.dayPart.title") }}:
+            {{ habit?.dayPart.toLowerCase() }}
           </span>
         </div>
 
-        <RangeCalendarRoot
-          v-slot="{ weekDays, grid }"
-          fixed-weeks
+        <CalendarRoot
+          v-slot="{ grid, weekDays }"
+          :class="cn('p-3', props.class)"
+          v-bind="forwarded"
           week-start="1"
+          class="flex flex-col gap-4 bg-white shadow-lg rounded-xl p-6 border border-zinc-100 transition-all duration-300 hover:shadow-xl"
         >
-          <RangeCalendarHeader class="flex items-center justify-between">
-            <RangeCalendarPrev
-              class="text-black w-8 h-8 rounded hover:bg-gray-300 flex items-center justify-center"
-            >
+          <CalendarHeader class="flex items-center justify-between">
+            <CalendarPrev class="rounded hover:bg-blue-100 p-1">
               <ArrowLeftIcon class="size-5 stroke-[2] ml-1" />
-            </RangeCalendarPrev>
-            <RangeCalendarHeading
-              class="text-[15px] font-semibold text-black"
-            />
-            <RangeCalendarNext
-              class="text-black w-8 h-8 rounded hover:bg-gray-300 flex items-center justify-center"
-            >
+            </CalendarPrev>
+            <CalendarHeading />
+            <CalendarNext class="rounded hover:bg-blue-100 p-1">
               <ArrowRightIcon class="size-5 stroke-[2] ml-1" />
-            </RangeCalendarNext>
-          </RangeCalendarHeader>
+            </CalendarNext>
+          </CalendarHeader>
 
           <div
-            class="pt-4 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0"
+            class="flex flex-col gap-y-4 mt-4 sm:flex-row sm:flex-wrap sm:gap-x-4 sm:gap-y-4"
           >
-            <RangeCalendarGrid
+            <CalendarGrid
               v-for="month in grid"
               :key="month.value.toString()"
-              class="w-full space-y-1"
+              class="flex-1"
             >
-              <RangeCalendarGridHead>
-                <RangeCalendarGridRow
-                  class="grid grid-cols-7 gap-1 item-center text-sm text-gray-500"
-                >
-                  <RangeCalendarHeadCell v-for="day in weekDays" :key="day">
+              <CalendarGridHead>
+                <CalendarGridRow>
+                  <CalendarHeadCell v-for="day in weekDays" :key="day">
                     {{ day }}
-                  </RangeCalendarHeadCell>
-                </RangeCalendarGridRow>
-              </RangeCalendarGridHead>
+                  </CalendarHeadCell>
+                </CalendarGridRow>
+              </CalendarGridHead>
 
-              <RangeCalendarGridBody>
-                <RangeCalendarGridRow
-                  v-for="(weekDates, i) in month.rows"
-                  :key="`week-${i}`"
-                  class="grid grid-cols-7 gap-1"
+              <CalendarGridBody>
+                <CalendarGridRow
+                  v-for="(weekDates, index) in month.rows"
+                  :key="`weekDate-${index}`"
+                  class="mt-2 w-full"
                 >
-                  <RangeCalendarCell
+                  <CalendarCell
                     v-for="weekDate in weekDates"
                     :key="weekDate.toString()"
                     :date="weekDate"
                   >
-                    <RangeCalendarCellTrigger
+                    <CalendarCellTrigger
                       :day="weekDate"
                       :month="month.value"
                       :class="[
-                        'w-9 h-9 flex item-center justify-center rounded-md text-sm font-medium align-center',
+                        'flex items-center justify-center rounded-md text-sm font-medium w-full h-8',
                         isCompletedDate(new Date(weekDate.toString()))
-                          ? 'bg-green-400 text-white'
+                          ? 'bg-blue-400 text-white'
                           : 'hover:bg-gray-100 text-gray-800',
                       ]"
+                      class="data-[outside-view]:text-gray-400"
                     />
-                  </RangeCalendarCell>
-                </RangeCalendarGridRow>
-              </RangeCalendarGridBody>
-            </RangeCalendarGrid>
+                  </CalendarCell>
+                </CalendarGridRow>
+              </CalendarGridBody>
+            </CalendarGrid>
           </div>
-        </RangeCalendarRoot>
+        </CalendarRoot>
       </div>
     </section>
   </AppLayout>

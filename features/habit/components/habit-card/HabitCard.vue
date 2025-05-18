@@ -4,10 +4,11 @@ import type { Habit } from "@/features/habit/model";
 import { HabitTimer } from "@/features/habit/components/habit-timer";
 import { Progress } from "@/components/ui/progress";
 import ChartIcon from "@/assets/icons/chart.svg?component";
-
 import TargetIcons from "@/assets/icons/target.svg?component";
 import CategoryIcon from "@/assets/icons/category.svg?component";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const props = defineProps<{ habit: Habit }>();
 
 const progress = computed(() => {
@@ -49,7 +50,9 @@ const progress = computed(() => {
             class="flex items-center gap-1 text-sm text-blue-600 hover:underline"
           >
             <ChartIcon class="size-4 stroke-[1.7] text-zinc-700" />
-            <span class="text-zinc-700 text-xs">Stats</span>
+            <span class="text-zinc-700 text-xs">
+              {{ t("app.habit.stats") }}
+            </span>
           </a>
         </div>
       </div>
