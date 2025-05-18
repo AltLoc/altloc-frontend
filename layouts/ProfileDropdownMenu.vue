@@ -14,8 +14,8 @@ import SettingsIcon from "@/assets/icons/settings.svg?component";
 import LogoutIcon from "@/assets/icons/logout.svg?component";
 import LoaderIcon from "@/assets/icons/loader.svg?component";
 import PeopleIcon from "@/assets/icons/people.svg?component";
-import MatrixIcon from "@/assets/icons/matrix.svg?component";
 import AstronautHelmetIcon from "@/assets/icons/astronaut-helmet.svg?component";
+import GridOnSharpIcon from "@/assets/icons/grid-on-sharp.svg?component";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
 import type { User } from "@/models";
 import { useQueryClient } from "@tanstack/vue-query";
@@ -115,7 +115,7 @@ const isActive = (path: string) => {
           :data-active="isActive('/user/matrix')"
           class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
         >
-          <MatrixIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
+          <GridOnSharpIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">
             {{ t("app.cabinet.nav.matrixAndDomains") }}
           </span>

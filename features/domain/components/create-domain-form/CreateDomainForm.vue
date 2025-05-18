@@ -57,9 +57,9 @@ const onSubmit = handleSubmit((values) => {
     <div class="flex flex-col gap-y-3">
       <TextArea
         name="name"
-        :label="t('app.domain.title')"
+        :label="t('app.domain.description')"
         type="text"
-        placeholder="Domain sport"
+        :placeholder="t('app.domain.namePlaceholder')"
         autocomplete="off"
       />
 

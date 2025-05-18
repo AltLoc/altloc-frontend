@@ -16,6 +16,9 @@ import {
 import { useQuery } from "@tanstack/vue-query";
 import type { Domain } from "@/features/domain/model";
 import { convertSecondsToMinutes } from "@/utils/time";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const props = defineProps<{
   domain: Domain;
@@ -33,13 +36,12 @@ const { mutate: deleteHabit } = useDeleteHabitMutation();
   <Table>
     <TableHeader>
       <TableRow>
-        <TableHeaderCell>Name</TableHeaderCell>
-
-        <TableHeaderCell>Run time</TableHeaderCell>
-        <TableHeaderCell>Day part</TableHeaderCell>
-        <TableHeaderCell>Target</TableHeaderCell>
-        <TableHeaderCell>Completions</TableHeaderCell>
-        <TableHeaderCell> Created at </TableHeaderCell>
+        <TableHeaderCell>{{ t("common.name") }}</TableHeaderCell>
+        <TableHeaderCell>{{ t("app.habit.runTime") }}</TableHeaderCell>
+        <TableHeaderCell>{{ t("app.habit.dayPart.title") }}</TableHeaderCell>
+        <TableHeaderCell>{{ t("app.habit.target") }}</TableHeaderCell>
+        <TableHeaderCell>{{ t("app.habit.completions") }}</TableHeaderCell>
+        <TableHeaderCell>{{ t("common.createdAt") }}</TableHeaderCell>
         <TableHeaderCell>Action</TableHeaderCell>
       </TableRow>
     </TableHeader>

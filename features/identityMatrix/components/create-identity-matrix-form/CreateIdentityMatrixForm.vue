@@ -59,11 +59,11 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form @submit.prevent="onSubmit" class="w-full">
-    <div class="flex flex-col gap-2.5 flex-1">
+    <div class="flex flex-col gap-6 flex-1">
       <!-- Banner Field -->
       <Field
         name="banner"
-        class="flex shrink-0 flex-col gap-4"
+        class="flex shrink-0 flex-col gap-4 max-w-[400px]"
         v-slot="{ field, errors }"
       >
         <FileUpload
@@ -126,7 +126,7 @@ const onSubmit = handleSubmit((values) => {
         name="name"
         :label="t('app.identityMatrix.title')"
         type="text"
-        placeholder="I identify myself as a businessman."
+        :placeholder="t('app.identityMatrix.namePlaceholder')"
         autocomplete="email"
       />
 
@@ -135,7 +135,7 @@ const onSubmit = handleSubmit((values) => {
         name="description"
         :label="t('app.identityMatrix.description')"
         type="text"
-        placeholder="Short description of your identity matrix."
+        :placeholder="t('app.identityMatrix.descriptionPlaceholder')"
         autocomplete="off"
       />
 

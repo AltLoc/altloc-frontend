@@ -59,7 +59,10 @@
     "delete": "Usuń",
     "add": "Dodaj",
     "close": "Zamknij",
-    "search": "Szukaj"
+    "search": "Szukaj",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "name": "Nazwa"
   },
   "social": {
     "facebook": "Facebook",
@@ -128,8 +131,8 @@
   },
   "app": {
     "identityMatrix": {
-      "title": "Macierz Tożsamości",
-      "description": "Macierz Tożsamości to narzędzie, które pomaga zrozumieć Twoją tożsamość i jej związek z Twoimi celami i wartościami. To wizualna reprezentacja różnych aspektów Twojej tożsamości oraz ich wzajemnych powiązań. Dzięki niej możesz poznać swoje mocne i słabe strony oraz zidentyfikować obszary do rozwoju.",
+      "title": "Wprowadź nazwę swojej matrycy tożsamości",
+      "description": "Krótki opis twojej matrycy tożsamości.",
       "create": "Utwórz macierz tożsamości",
       "creating": "Tworzenie macierzy...",
       "edit": "Edytuj macierz",
@@ -137,11 +140,13 @@
       "delete": "Usuń macierz",
       "label": "Zarządzaj macierzami tożsamości",
       "notFound": "Brak macierzy tożsamości",
-      "notFoundDescription": "Nie utworzyłeś jeszcze żadnej macierzy tożsamości. Zacznij od stworzenia jednej, aby zwizualizować swoje cele i wartości."
+      "notFoundDescription": "Nie utworzyłeś jeszcze żadnej macierzy tożsamości. Zacznij od stworzenia jednej, aby zwizualizować swoje cele i wartości.",
+      "namePlaceholder": "Identyfikuję się jako przedsiębiorca.",
+      "descriptionPlaceholder": "Chcę zostać odnoszącym sukcesy przedsiębiorcą i zbudować własny biznes. Cenię kreatywność, innowacyjność i ciężką pracę. Jestem zaangażowany w ciągłe uczenie się i rozwój osobisty. Chcę inspirować innych do realizowania swoich marzeń i wywierania pozytywnego wpływu na świat."
     },
     "domain": {
       "title": "Dziedzina:",
-      "description": "Dziedzina to konkretny obszar Twojego życia, na którym chcesz się skupić. Może to być cel, wartość, umiejętność lub coś innego, co jest dla Ciebie ważne. Określając swoje dziedziny, tworzysz jasny obraz tego, co chcesz osiągnąć i jak do tego dojść.",
+      "description": "Dziedzina to obszar życia, na którym chcesz się skupić, np. cel, wartość lub umiejętność.",
       "create": "Utwórz dziedzinę",
       "creating": "Tworzenie dziedziny...",
       "edit": "Edytuj dziedzinę",
@@ -149,7 +154,8 @@
       "delete": "Usuń dziedzinę",
       "label": "Zarządzaj dziedzinami",
       "notFound": "Brak dziedzin",
-      "notFoundDescription": "Nie utworzyłeś jeszcze żadnych dziedzin. Zacznij od stworzenia jednej, aby zorganizować swoje cele i nawyki."
+      "notFoundDescription": "Nie utworzyłeś jeszcze żadnych dziedzin. Zacznij od stworzenia jednej, aby zorganizować swoje cele i nawyki.",
+      "namePlaceholder": "Przykład: Zdrowie, Wiedza, Finanse"
     },
     "habit": {
       "title": "Nawyk",
@@ -165,6 +171,8 @@
       "start": "Start",
       "thereStill": "Pozostało: ",
       "dayPart": {
+        "title": "Część dnia",
+        "placeholder": "Wybierz część dnia",
         "morning": "Rano",
         "afternoon": "Popołudnie",
         "evening": "Wieczór",
@@ -172,7 +180,12 @@
       },
       "dailyQuests": "Codzienne zadania",
       "label": "Zarządzaj nawykami",
-      "cooldown": "Czas odnowienia"
+      "cooldown": "Czas odnowienia",
+      "runTime": "Czas działania",
+      "runFromTo": "Czas od 5 minut do 2 godzin",
+      "placeholder": "Przykład: Przeczytaj książkę, ćwicz, medytuj",
+      "target": "Cel",
+      "completions": "Ukończenia"
     },
     "dailyComment": {
       "title": "Codzienny komentarz",

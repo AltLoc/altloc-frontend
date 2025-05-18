@@ -59,7 +59,10 @@
     "delete": "Delete",
     "add": "Add",
     "close": "Close",
-    "search": "Search"
+    "search": "Search",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "name": "Name"
   },
   "social": {
     "facebook": "Facebook",
@@ -128,8 +131,8 @@
   },
   "app": {
     "identityMatrix": {
-      "title": "Identity Matrix",
-      "description": "The Identity Matrix is a tool that helps you understand your identity and how it relates to your goals and values. It is a visual representation of the different aspects of your identity and how they interact with each other. By using the Identity Matrix, you can gain insight into your strengths and weaknesses, and identify areas for growth and development.",
+      "title": "Enter the name of your identity matrix",
+      "description": "Short description of your identity matrix.",
       "create": "Create identity matrix",
       "creating": "Creating identity matrix...",
       "edit": "Edit matrix",
@@ -137,11 +140,13 @@
       "delete": "Delete matrix",
       "label": "Manage Identity Matrices",
       "notFound": "No identity matrices found",
-      "notFoundDescription": "You haven't created any identity matrices yet. Start by creating one to visualize your goals and values."
+      "notFoundDescription": "You haven't created any identity matrices yet. Start by creating one to visualize your goals and values.",
+      "namePlaceholder": "I identify myself as a businessman.",
+      "descriptionPlaceholder": "I want to become a successful entrepreneur and build my own business. I value creativity, innovation, and hard work. I am committed to continuous learning and personal growth. I want to inspire others to pursue their dreams and make a positive impact on the world."
     },
     "domain": {
       "title": "Domain:",
-      "description": "A domain is a specific area of your life that you want to focus on. It could be a goal, a value, a skill, or anything else that is important to you. By defining your domains, you can create a clear picture of what you want to achieve and how you can get there.",
+      "description": "A domain is a life area you want to focus on, like a goal, value, or skill.",
       "create": "Create domain",
       "creating": "Creating domain...",
       "edit": "Edit domain",
@@ -149,7 +154,8 @@
       "delete": "Delete domain",
       "label": "Manage domains",
       "notFound": "No domains found",
-      "notFoundDescription": "You haven't created any domains yet. Start by creating one to organize your habits and goals."
+      "notFoundDescription": "You haven't created any domains yet. Start by creating one to organize your habits and goals.",
+      "namePlaceholder": "Example: Health, Knowledge, Finance"
     },
     "habit": {
       "title": "Habit",
@@ -165,6 +171,8 @@
       "start": "Start",
       "thereStill": "There's still: ",
       "dayPart": {
+        "title": "Part of the day",
+        "placeholder": "Select the part of the day",
         "morning": "Morning",
         "afternoon": "Afternoon",
         "evening": "Evening",
@@ -172,7 +180,12 @@
       },
       "dailyQuests": "Daily quests",
       "label": "Manage habits",
-      "cooldown": "Cooldown"
+      "cooldown": "Cooldown",
+      "runTime": "Run time",
+      "runFromTo": "Rate from 5 min to 2 hours",
+      "placeholder": "Example: Read a book, exercise, meditate",
+      "target": "Target",
+      "completions": "Completions"
     },
     "dailyComment": {
       "title": "Daily comment",

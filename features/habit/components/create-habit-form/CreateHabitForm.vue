@@ -73,7 +73,7 @@ const onSubmit = handleSubmit((values) => {
         name="name"
         :label="t('app.habit.title')"
         type="text"
-        placeholder="Run 5km every morning"
+        :placeholder="t('app.habit.placeholder')"
         autocomplete="off"
       />
       <!-- <Label for="targetNumberOfCompletions">
@@ -93,20 +93,30 @@ const onSubmit = handleSubmit((values) => {
         name="dayPart"
         v-slot="{ field, errorMessage }"
       >
-        <Label for="dayPart">Day part</Label>
+        <Label for="dayPart">
+          {{ t("app.habit.dayPart.title") }}
+        </Label>
         <Select
           :name="field.name"
           :model-value="field.value"
           @update:model-value="(val) => field['onUpdate:modelValue']?.(val)"
         >
           <SelectTrigger :invalid="!!errorMessage">
-            <SelectValue placeholder="Choose day part" />
+            <SelectValue :placeholder="t('app.habit.dayPart.placeholder')" />
           </SelectTrigger>
           <SelectContent class="text-zinc-700">
-            <SelectItem value="MORNING">Morning</SelectItem>
-            <SelectItem value="AFTERNOON">Afternoom</SelectItem>
-            <SelectItem value="EVENING">Evening</SelectItem>
-            <SelectItem value="NIGHT">Night</SelectItem>
+            <SelectItem value="MORNING">
+              {{ t("app.habit.dayPart.morning") }}
+            </SelectItem>
+            <SelectItem value="AFTERNOON">
+              {{ t("app.habit.dayPart.afternoon") }}
+            </SelectItem>
+            <SelectItem value="EVENING">
+              {{ t("app.habit.dayPart.evening") }}
+            </SelectItem>
+            <SelectItem value="NIGHT">
+              {{ t("app.habit.dayPart.night") }}
+            </SelectItem>
           </SelectContent>
         </Select>
         <span v-if="errorMessage" class="text-xs font-medium text-red-600">
@@ -120,7 +130,9 @@ const onSubmit = handleSubmit((values) => {
         name="runtime"
         v-slot="{ field, errorMessage }"
       >
-        <Label for="runtime">Run time</Label>
+        <Label for="runtime">
+          {{ t("app.habit.runTime") }}
+        </Label>
         <Select
           :name="field.name"
           :model-value="field.value"
@@ -129,7 +141,7 @@ const onSubmit = handleSubmit((values) => {
           "
         >
           <SelectTrigger :invalid="!!errorMessage">
-            <SelectValue placeholder="Rate from 5 min to 2 hours" />
+            <SelectValue :placeholder="t('app.habit.runFromTo')" />
           </SelectTrigger>
           <SelectContent class="text-zinc-700">
             <SelectItem :value="'15'">15 sec (for test)</SelectItem>
