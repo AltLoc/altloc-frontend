@@ -11,6 +11,10 @@ import { getSoialMediaURL } from "@/utils";
 import MobileMenu from "./MobileMenu.vue";
 import LanguageDropdown from "./LanguageDropdown.vue";
 import { useI18n } from "vue-i18n";
+import { useCookie } from "#app";
+import CookieBanner from "@/layouts/CookieBanner.vue";
+
+const cookieConsent = useCookie("cookie-consent");
 
 const { t } = useI18n();
 
@@ -215,4 +219,5 @@ useHead({
       </div>
     </div>
   </footer>
+  <CookieBanner v-if="cookieConsent === undefined" />
 </template>

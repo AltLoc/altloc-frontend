@@ -217,7 +217,7 @@
         "dailyComment": "Comments",
         "settings": "Settings",
         "logout": "Logout",
-        "help": "Help"
+        "guide": "Guide"
       },
       "settings": {
         "title": "Account",
@@ -228,5 +228,11 @@
         }
       }
     }
+  },
+  "cookie": {
+    "title": "Accept the use of cookies",
+    "description": "We use cookies to provide you with the best experience on our website. By clicking \"Accept\", you agree to the use of all cookies.",
+    "reject": "Reject",
+    "accept": "Accept"
   }
 }

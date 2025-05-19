@@ -16,6 +16,7 @@ import LoaderIcon from "@/assets/icons/loader.svg?component";
 import PeopleIcon from "@/assets/icons/people.svg?component";
 import AstronautHelmetIcon from "@/assets/icons/astronaut-helmet.svg?component";
 import GridOnSharpIcon from "@/assets/icons/grid-on-sharp.svg?component";
+import QuestionMartIcon from "@/assets/icons/question-mark.svg?component";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
 import type { User } from "@/models";
 import { useQueryClient } from "@tanstack/vue-query";
@@ -135,6 +136,17 @@ const isActive = (path: string) => {
       </template>
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
+        <DropdownMenuItem
+          as="a"
+          href="/user/guide"
+          :data-active="isActive('/user/guide')"
+          class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
+        >
+          <QuestionMartIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
+          <span class="text-zinc-800">
+            {{ t("app.cabinet.nav.guide") }}
+          </span>
+        </DropdownMenuItem>
         <DropdownMenuItem
           as="a"
           href="/user/settings"

@@ -62,13 +62,13 @@ const isActive = (path: string) => {
       <DropdownMenuGroup>
         <DropdownMenuItem
           as="a"
-          href="/user/profile"
-          :data-active="isActive('/user/profile')"
+          href="/user/guide"
+          :data-active="isActive('/user/guide')"
           class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
         >
           <QuestionMartIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
           <span class="text-zinc-800">
-            {{ t("app.cabinet.nav.help") }}
+            {{ t("app.cabinet.nav.guide") }}
           </span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
@@ -76,8 +76,8 @@ const isActive = (path: string) => {
       <DropdownMenuGroup>
         <DropdownMenuItem
           as="a"
-          href="#"
-          :data-active="isActive('#')"
+          href="/user/profile"
+          :data-active="isActive('/user/profile')"
           class="group flex items-center gap-2 rounded-md px-3 py-2 hover:bg-zinc-100 data-[active]:hover:bg-indigo-50"
         >
           <AstronautHelmetIcon class="mr-2 size-4 stroke-[1.5] text-zinc-800" />
