@@ -214,9 +214,11 @@
         "profile": "Профіль",
         "quests": "Квести",
         "matrixAndDomains": "Матриця та домени",
+        "matrices": "Матриці",
         "dailyComment": "Коментарі",
         "settings": "Налаштування",
-        "logout": "Вийти"
+        "logout": "Вийти",
+        "help": "Допомога"
       },
       "settings": {
         "title": "Акаунт",

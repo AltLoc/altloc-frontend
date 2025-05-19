@@ -213,9 +213,11 @@
         "profile": "Profile",
         "quests": "Quests",
         "matrixAndDomains": "Matrix and Domain",
+        "matrices": "Matrices",
         "dailyComment": "Comments",
         "settings": "Settings",
-        "logout": "Logout"
+        "logout": "Logout",
+        "help": "Help"
       },
       "settings": {
         "title": "Account",

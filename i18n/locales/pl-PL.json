@@ -213,9 +213,11 @@
         "profile": "Profil",
         "quests": "Zadania",
         "matrixAndDomains": "Macierz i Dziedziny",
+        "matrices": "Macierze",
         "dailyComment": "Komentarze",
         "settings": "Ustawienia",
-        "logout": "Wyloguj się"
+        "logout": "Wyloguj się",
+        "help": "Pomoc"
       },
       "settings": {
         "title": "Konto",
