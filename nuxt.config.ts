@@ -8,14 +8,16 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "nuxt-gtag"],
   plugins: ["~/plugins/vue-query.ts"],
-  gtag: {
-    id: process.env.GOOGLE_ANALYTICS_ID,
-  },
+
   runtimeConfig: {
     public: {
       PUBLIC_CDN_URL: process.env.PUBLIC_CDN_URL,
-      PUBLIC_API_URL: process.env.PUBLIC_API_URL || "/api",
+      PUBLIC_API_URL: process.env.PUBLIC_API_BASE_URL || "/api",
+      PUBLIC_GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
     },
+  },
+  gtag: {
+    id: process.env.GOOGLE_ANALYTICS_ID,
   },
   vite: {
     plugins: [svgLoader()],
