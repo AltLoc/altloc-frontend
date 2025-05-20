@@ -44,10 +44,12 @@ const progress = computed(() => {
             {{ habit.domainName }}
           </span>
         </div>
-        <div>
+        <div
+          class="bg-zinc-100 rounded-full p-1.5 flex gap-1 items-center hover:bg-zinc-200 justify-center"
+        >
           <a
             :href="`/user/habit/${habit.id}/`"
-            class="flex items-center gap-1 text-sm text-blue-600 hover:underline"
+            class="flex items-center gap-1 text-sm align-middle"
           >
             <ChartIcon class="size-4 stroke-[1.7] text-zinc-700" />
             <span class="text-zinc-700 text-xs">

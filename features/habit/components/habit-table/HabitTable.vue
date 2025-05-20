@@ -48,7 +48,7 @@ const { mutate: deleteHabit } = useDeleteHabitMutation();
     <TableBody>
       <TableRow v-for="(row, index) in habit" :key="index">
         <TableCell>
-          <a :href="`/user/domain/${row.id}/edit`" class="text-blue-500">
+          <a :href="`/user/habit/${row.id}/`" class="text-blue-500">
             {{ row.name }}
           </a>
         </TableCell>

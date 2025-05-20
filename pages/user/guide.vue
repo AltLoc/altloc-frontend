@@ -11,17 +11,17 @@ definePageMeta({
     <section class="relative mt-6 px-3 md:px-10">
       <div class="container mx-auto flex flex-col gap-4">
         <h3
-          class="text-3xl sm:text-4xl font-bold mb-8 text-center sm:text-left flex justify-start"
+          class="text-xl sm:text-4xl font-bold text-center sm:text-left flex justify-start"
         >
           Guide
         </h3>
 
         <div
-          class="flex flex-col space-y-10 gap-6 text-base leading-relaxed text-gray-800 dark:text-gray-200 bg-neutral-300 dark:bg-neutral-800 rounded-lg p-6 shadow-md"
+          class="flex flex-col space-y-10 gap-6 text-base leading-relaxed dark:text-gray-200 bg-neutral-300 dark:bg-neutral-800 rounded-lg p-6 shadow-md text-zinc-700"
           style="background: linear-gradient(180deg, #f0f4f8 0%, #e0e7ff 100%)"
         >
           <!-- Intro -->
-          <section>
+          <section class="text-zinc-700">
             <p>
               <strong>AltLoc</strong> is a gamified self-development platform
               that turns your personal growth into an RPG-like adventure.
@@ -29,7 +29,7 @@ definePageMeta({
           </section>
 
           <!-- Identity Matrix -->
-          <section>
+          <section class="text-zinc-700">
             <h2 class="text-2xl font-semibold mb-2">🧠 Identity Matrix</h2>
             <p>
               Your personal development path. You define what kind of person you
@@ -38,7 +38,7 @@ definePageMeta({
           </section>
 
           <!-- Domains -->
-          <section>
+          <section class="text-zinc-700">
             <h2 class="text-2xl font-semibold mb-2">🌍 Domains</h2>
             <p>
               Life areas you want to improve — like Health, Finance, Education,
@@ -47,7 +47,7 @@ definePageMeta({
           </section>
 
           <!-- Habits -->
-          <section>
+          <section class="text-zinc-700">
             <h2 class="text-2xl font-semibold mb-2">🔁 Habits</h2>
             <p>
               Specific daily actions like reading, working out, or meditating.
@@ -56,7 +56,7 @@ definePageMeta({
           </section>
 
           <!-- Daily Comment -->
-          <section>
+          <section class="text-zinc-700">
             <h2 class="text-2xl font-semibold mb-2">📝 Daily Comment</h2>
             <p>
               A space for daily reflection. Write how your day went, what
@@ -65,10 +65,18 @@ definePageMeta({
           </section>
 
           <!-- How it works -->
-          <section>
+          <section class="text-zinc-700">
             <h2 class="text-2xl font-semibold mb-3">🎮 How it works</h2>
             <ul class="list-disc list-inside space-y-1">
-              <li>Create your Identity Matrix</li>
+              <li>
+                <a
+                  href="/user/matrix/create"
+                  target="_blank"
+                  class="text-blue-500 underline"
+                >
+                  Create your Identity Matrix
+                </a>
+              </li>
               <li>Add Domains (growth areas)</li>
               <li>Create Habits (daily actions)</li>
               <li>Complete tasks, earn XP and crystals</li>
@@ -78,7 +86,7 @@ definePageMeta({
           </section>
 
           <!-- Mission -->
-          <section>
+          <section class="text-zinc-700">
             <h2 class="text-2xl font-semibold mb-2">🎯 Our Mission</h2>
             <p>
               We turn boring self-improvement into an exciting quest. Build

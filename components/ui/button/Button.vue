@@ -20,7 +20,7 @@ export const buttonVariants = cva(
         secondary: "text-zinc-100  disabled:bg-zinc-400 border border-zinc-100",
         tertiary: "text-blue-500 disabled:bg-zinc-200 border border-blue-300",
         accepted:
-          "bg-emerald-500 text-white hover:bg-emerald-500 disabled:bg-emerald-400",
+          "bg-emerald-400 text-white hover:bg-emerald-500 disabled:bg-emerald-300 disabled:text-zinc-600",
         rejected: "bg-red-500 text-white hover:bg-red-600 disabled:bg-zinc-400",
         continue:
           "bg-yellow-500 text-white hover:bg-yellow-600 disabled:bg-yellow-500",
