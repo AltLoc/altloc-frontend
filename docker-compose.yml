@@ -6,10 +6,12 @@ services:
       target: frontend
       args:
         PUBLIC_CDN_URL: ${PUBLIC_CDN_URL}
-        API_BASE_URL: ${API_BASE_URL}
+        PUBLIC_API_BASE_URL: ${PUBLIC_API_BASE_URL}
+        PUBLIC_GOOGLE_ANALYTICS_ID: ${PUBLIC_GOOGLE_ANALYTICS_ID}
     environment:
       - PUBLIC_CDN_URL=${PUBLIC_CDN_URL}
       - API_BASE_URL=${API_BASE_URL}
+      - PUBLIC_GOOGLE_ANALYTICS_ID=${PUBLIC_GOOGLE_ANALYTICS_ID}
     ports:
       - "3000:3000"
     networks:
