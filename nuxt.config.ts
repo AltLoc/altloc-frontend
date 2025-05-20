@@ -13,11 +13,11 @@ export default defineNuxtConfig({
     public: {
       PUBLIC_CDN_URL: process.env.PUBLIC_CDN_URL,
       PUBLIC_API_URL: process.env.PUBLIC_API_BASE_URL || "/api",
-      PUBLIC_GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
+      PUBLIC_GOOGLE_ANALYTICS_ID: process.env.PUBLIC_GOOGLE_ANALYTICS_ID,
     },
   },
   gtag: {
-    id: process.env.GOOGLE_ANALYTICS_ID,
+    id: process.env.PUBLIC_GOOGLE_ANALYTICS_ID,
   },
   vite: {
     plugins: [svgLoader()],
