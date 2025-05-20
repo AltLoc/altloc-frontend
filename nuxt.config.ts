@@ -6,8 +6,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   ssr: true,
   devtools: { enabled: false },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "nuxt-gtag"],
   plugins: ["~/plugins/vue-query.ts"],
+  gtag: {
+    id: process.env.GOOGLE_ANALYTICS_ID,
+  },
   runtimeConfig: {
     public: {
       PUBLIC_CDN_URL: process.env.PUBLIC_CDN_URL,
@@ -46,7 +49,7 @@ export default defineNuxtConfig({
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           name: "description",
-          content: "Nuxt.js project with Vue Query",
+          content: "Altloc gamify your life",
         },
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
