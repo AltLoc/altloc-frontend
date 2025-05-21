@@ -64,17 +64,7 @@ useSeoMeta({
       </div>
     </section>
     <section class="relative group mt-6 p-12 px-6 md:px-10">
-      <!-- <div
-        class="absolute inset-0 bg-[url('/images/blue-grid.webp')] bg-cover bg-center opacity-75"
-      />
-      <div class="absolute inset-0 backdrop-blur-sm"></div> -->
       <div class="container flex flex-col gap-12 items-center">
-        <!-- <img
-          src="/images/blue-grid.webp"
-          alt="Gamification poster"
-          class="absolute inset-0 size-full object-cover opacity-65 blur-sm bg-blue-200"
-        /> -->
-
         <div class="flex flex-col gap-6 items-center z-10">
           <h2 class="text-2xl font-semibold text-zinc-700 text-center">
             {{ t("landing.stepsTitle") }}

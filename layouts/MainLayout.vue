@@ -33,11 +33,12 @@ onUnmounted(() => {
 });
 
 useHead({
-  title: "ALTLOC",
+  title: "AltLoc - your habit avatar",
   meta: [
     {
       name: "description",
-      content: "ALTLOC - your best event platform",
+      content:
+        "AltLoc is a gamified habit tracker that helps you build identity-driven habits.",
       charset: "utf-8",
     },
   ],
@@ -58,20 +59,6 @@ useHead({
       </a>
 
       <div class="flex gap-1.5 justify-center md:justify-end">
-        <!-- <a
-          :class="
-            buttonVariant({
-              size: 'sm',
-              class: 'shrink-0',
-              variant: 'secondary',
-            })
-          "
-          href="/auth/register"
-        >
-          <span class="text-xs font-semibold text-zinc-100">
-            {{ t("landing.getStartedButton") }}
-          </span>
-        </a> -->
         <LanguageDropdown />
         <MobileMenu />
         <div class="hidden md:flex gap-4 items-center">
@@ -129,25 +116,6 @@ useHead({
               by PROGOF
             </a>
           </div>
-          <!-- <ul
-            class="flex flex-wrap items-start justify-start gap-x-5 gap-y-2 md:justify-between"
-          >
-            <li>
-              <a href="#" class="text-sm text-zinc-100/75 hover:text-zinc-100">
-                To organizers
-              </a>
-            </li>
-            <li>
-              <a href="#" class="text-sm text-zinc-100/75 hover:text-zinc-100">
-                For partners
-              </a>
-            </li>
-            <li>
-              <a href="#" class="text-sm text-zinc-100/75 hover:text-zinc-100">
-                User agreement
-              </a>
-            </li>
-          </ul> -->
         </div>
         <div class="flex flex-row justify-center gap-1 md:justify-end">
           <a
@@ -186,34 +154,34 @@ useHead({
       >
         <div class="inline-flex gap-1.5 text-zinc-100/75">
           <span class="text-xs">
-            Copyright &copy; {{ new Date().getFullYear() }}
+            {{ t("layout.copyright") }} &copy;
+            {{ new Date().getFullYear() }}
           </span>
-          <!-- <span class="text-xs">&bull;</span> -->
-          <span class="text-xs">All Rights Reserved</span>
+          <span class="text-xs">
+            {{ t("layout.allRightsReserved") }}
+          </span>
         </div>
         <div class="inline-flex gap-1.5 text-zinc-100/75 items-center">
           <a
             href="/legal/privacy-policy"
             class="text-xs underline-offset-2 hover:underline"
           >
-            Privacy Policy
+            {{ t("layout.privacyPolicy") }}
           </a>
-          <!-- <span class="text-xs">&bull;</span> -->
           <span class="px-0.5" role="separator">|</span>
           <a
             href="/legal/terms-of-service"
             class="text-xs underline-offset-2 hover:underline"
           >
-            Terms of Service
+            {{ t("layout.terms") }}
           </a>
-          <!-- <span class="text-xs">&bull;</span> -->
           <span class="px-0.5" role="separator">|</span>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSdNcSIbZlqbvO2NBWSMKW5QrBsl4NuhlFuaB2Sz0Rbxr3Fb9A/viewform?usp=dialog"
             target="_blank"
             class="text-xs underline-offset-2 hover:underline"
           >
-            Report a violation
+            {{ t("layout.report") }}
           </a>
         </div>
       </div>

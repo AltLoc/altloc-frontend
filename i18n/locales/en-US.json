@@ -80,7 +80,8 @@
     "copyright": "Copyright",
     "allRightsReserved": "All Rights Reserved",
     "logIn": "Log in",
-    "register": "Register"
+    "register": "Register",
+    "report": "Report a violation"
   },
   "login": {
     "title": "Login to your account",

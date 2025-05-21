@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import AppLayout from "@/layouts/AppLayout.vue";
 import { CreateDailyCommentForm } from "@/features/dailyComment/components/create-daily-comment-form";
-
-// const { data: identityMatrices } = useQuery({
-//   ...fetchIdentityMatrices,
-//   enabled: true,
-// });
 </script>
 
 <template>

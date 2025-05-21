@@ -84,7 +84,8 @@
     "success": {
       "title": "Konto zostało pomyślnie utworzone",
       "description": "Sprawdź swoją skrzynkę e-mail, aby zweryfikować konto. Jeśli nie widzisz wiadomości, sprawdź folder spam."
-    }
+    },
+    "report": "Zgłoś naruszenie"
   },
   "login": {
     "title": "Zaloguj się na swoje konto",
