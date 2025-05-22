@@ -2,7 +2,7 @@
 import AppLayout from "@/layouts/AppLayout.vue";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
 import { useQuery } from "@tanstack/vue-query";
-import UserCard from "~/features/user/components/user-card/UserCard.vue";
+import UserCard from "@/features/user/components/user-card/UserCard.vue";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();

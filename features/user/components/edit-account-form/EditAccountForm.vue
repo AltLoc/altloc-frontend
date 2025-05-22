@@ -73,7 +73,7 @@ const onSubmit = handleSubmit((data) => {
       <h3 class="text-2xl font-bold tracking-tight">
         {{ t("app.cabinet.settings.account.title") }}
       </h3>
-      <div class="bg-blue-500 rounded-full px-2 py-1 text-sm opacity-100">
+      <div class="bg-blue-400 flex rounded-full px-2 py-1 text-sm opacity-100">
         <LanguageDropdown />
       </div>
     </div>

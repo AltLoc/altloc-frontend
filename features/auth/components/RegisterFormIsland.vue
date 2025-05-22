@@ -69,7 +69,8 @@ const onSubmit = handleSubmit((values) => {
         description: t("register.success.description", {
           email: values.email,
         }),
-        variant: "default",
+        variant: "success",
+        duration: 15000,
       });
     },
   });

@@ -19,8 +19,10 @@ defineProps<{
 
 <template>
   <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-    <div class="flex-1">
-      <AvatarRoot class="block size-full shrink-0 select-none">
+    <div class="justify-center items-center flex">
+      <AvatarRoot
+        class="flex justify-center items-center w-32 h-32 shrink-0 select-none rounded-3xl overflow-hidden bg-zinc-100"
+      >
         <AvatarImage
           height="264"
           width="264"
@@ -35,12 +37,12 @@ defineProps<{
       </AvatarRoot>
     </div>
 
-    <div class="flex flex-col flex-1 gap-4">
-      <h3
+    <div class="flex flex-col gap-4">
+      <span
         class="text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl md:leading-tight"
       >
         {{ user.username }}
-      </h3>
+      </span>
 
       <div class="flex gap-1.5 items-center">
         <div class="flex gap-1.5 items-center">
