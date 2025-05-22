@@ -1,0 +1,239 @@
+{
+  "website": "AltLoc",
+  "landing": {
+    "title": "Werte dein Leben auf wie ein Spiel",
+    "description": "AltLoc ist eine spielerische Plattform für persönliche Weiterentwicklung für die Gen Z. Baue deine Identitätsmatrix auf, erkunde Domänen, erfülle Quests, verdiene XP & Kristalle – werte dein Leben wie ein Held auf.",
+    "getStarted": "Begib dich ins Abenteuer",
+    "getStartedButton": "Beginne mit dem Levelaufstieg",
+    "stepsTitle": "Werte dein Leben mit AltLoc auf",
+    "stepsDescription": "AltLoc verwandelt Selbstverbesserung in ein RPG-Abenteuer. Baue deine Identitätsmatrix auf, erkunde Domänen, schaffe Gewohnheiten und verdiene Kristalle & XP, während du deinen persönlichen Helden entwickelst.",
+    "steps": {
+      "step1": {
+        "title": "Schritt 1: Baue deine Identitätsmatrix auf",
+        "description": "Definiere, wer du werden möchtest. Wähle oder erstelle deine einzigartige Identitätsmatrix, um deine Quests zu leiten."
+      },
+      "step2": {
+        "title": "Schritt 2: Domänen erkunden",
+        "description": "Wähle Lebensbereiche wie Gesundheit, Wissen, Finanzen – deine persönlichen Skill-Trees zum Aufleveln."
+      },
+      "step3": {
+        "title": "Schritt 3: Gewohnheiten & Quests erstellen",
+        "description": "Füge Aufgaben und Gewohnheiten zu jeder Domäne hinzu. Weise XP, Schwierigkeitsgrad zu und plane dein Training."
+      },
+      "step4": {
+        "title": "Schritt 4: Verfolge & verdiene Belohnungen",
+        "description": "Schließe Quests ab, verdiene XP, sammle Kristalle und schalte Level & Errungenschaften in deinem Dashboard frei."
+      },
+      "step5": {
+        "title": "Schritt 5: Tägliche Reflexion",
+        "description": "Nutze den täglichen Kommentar, um zu reflektieren, deine Emotionen zu protokollieren und deine persönliche Reise zu verfolgen."
+      },
+      "step6": {
+        "title": "Schritt 6: Anpassen & Feiern",
+        "description": "Überarbeite deine Matrix, während du dich entwickelst. Feiere Siege mit Community-Badges und zeige deinen Fortschritt."
+      }
+    }
+  },
+  "gettingStarted": {
+    "title": "Um mit der App zu beginnen, befolge diese Schritte:",
+    "steps": {
+      "step1": {
+        "title": "Schritt 1:",
+        "description": "Erstelle deine Identitätsmatrix, die deine Entwicklungsziele und Schwerpunkte festlegt.",
+        "link": "Erstelle deine Matrix"
+      },
+      "step2": {
+        "title": "Schritt 2:",
+        "description": "Erstelle eine Domäne für deine ausgewählte Matrix, um deine Gewohnheiten nach verschiedenen Themen oder Kategorien zu ordnen."
+      },
+      "step3": {
+        "title": "Schritt 3:",
+        "description": "Erstelle innerhalb jeder Domäne Gewohnheiten, die dir helfen, die notwendigen Fähigkeiten aufzubauen und deine Ziele zu erreichen."
+      }
+    }
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "add": "Hinzufügen",
+    "close": "Schließen",
+    "search": "Suchen",
+    "createdAt": "Erstellt am",
+    "updatedAt": "Zuletzt aktualisiert am",
+    "name": "Name"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "twitter": "X",
+    "linkedin": "LinkedIn"
+  },
+  "layout": {
+    "tasks": "Aufgaben",
+    "dentityMatrix": "Identitätsmatrix",
+    "categories": "Kategorien",
+    "privacyPolicy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen",
+    "userAgreement": "Benutzervereinbarung",
+    "copyright": "Urheberrecht",
+    "allRightsReserved": "Alle Rechte vorbehalten",
+    "logIn": "Anmelden",
+    "register": "Registrieren",
+    "report": "Verstoß melden"
+  },
+  "login": {
+    "title": "Melde dich bei deinem Konto an",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "loggingIn": "Anmelden...",
+    "login": "Anmelden",
+    "or": "oder",
+    "withGoogle": "Mit Google anmelden",
+    "dontHaveAccount": "Du hast kein Konto?",
+    "register": "Registrieren"
+  },
+  "register": {
+    "title": "Konto erstellen",
+    "description": "Gamifiziere dein Leben mit AltLoc",
+    "or": "oder",
+    "withGoogle": "Mit Google registrieren",
+    "alreadyHave": "Du hast bereits ein Konto?",
+    "login": "Anmelden",
+    "passwordNotMatch": "Passwörter stimmen nicht überein",
+    "needToAccept": "Du kannst ohne Annahme der Allgemeinen Geschäftsbedingungen nicht fortfahren",
+    "emailTaken": "Ein Benutzer mit dieser E-Mail existiert bereits. Bitte melde dich stattdessen an oder verwende eine andere E-Mail-Adresse",
+    "name": "Vollständiger Name",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "acceptTerms": "Durch Klicken auf den Registrierungsbutton akzeptiere ich die",
+    "and": "und",
+    "creating": "Konto wird erstellt...",
+    "register": "Registrieren",
+    "success": {
+      "title": "Konto erfolgreich erstellt",
+      "description": "Bitte überprüfe deine E-Mails, um dein Konto zu verifizieren. Wenn du die E-Mail nicht siehst, überprüfe bitte deinen Spam-Ordner."
+    }
+  },
+  "recovery": {
+    "forgotYourPassword": "Passwort vergessen?",
+    "recoverItHere": "Hier wiederherstellen",
+    "init": {
+      "title": "Passwortwiederherstellung",
+      "description": "Gib deine E-Mail-Adresse ein und wir senden dir einen Link zum Zurücksetzen deines Passworts.",
+      "send": "Wiederherstellungs-E-Mail senden",
+      "success": {
+        "title": "Wiederherstellungs-E-Mail erfolgreich gesendet",
+        "description": "Überprüfe deine E-Mails auf einen Link zum Zurücksetzen deines Passworts. Wenn er nicht innerhalb weniger Minuten erscheint, überprüfe deinen Spam-Ordner."
+      }
+    }
+  },
+  "app": {
+    "identityMatrix": {
+      "title": "Gib den Namen deiner Identitätsmatrix ein",
+      "description": "Kurzbeschreibung deiner Identitätsmatrix.",
+      "create": "Identitätsmatrix erstellen",
+      "creating": "Identitätsmatrix wird erstellt...",
+      "edit": "Matrix bearbeiten",
+      "editing": "Matrix wird bearbeitet...",
+      "delete": "Matrix löschen",
+      "label": "Identitätsmatrizen verwalten",
+      "notFound": "Keine Identitätsmatrizen gefunden",
+      "notFoundDescription": "Du hast noch keine Identitätsmatrizen erstellt. Beginne mit der Erstellung einer, um deine Ziele und Werte zu visualisieren.",
+      "namePlaceholder": "Ich identifiziere mich als Geschäftsmann.",
+      "descriptionPlaceholder": "Ich möchte ein erfolgreicher Unternehmer werden und mein eigenes Geschäft aufbauen. Ich schätze Kreativität, Innovation und harte Arbeit. Ich bin der kontinuierlichen Weiterbildung und dem persönlichen Wachstum verpflichtet. Ich möchte andere dazu inspirieren, ihre Träume zu verfolgen und einen positiven Einfluss auf die Welt zu nehmen."
+    },
+    "domain": {
+      "title": "Domäne:",
+      "description": "Eine Domäne ist ein Lebensbereich, auf den du dich konzentrieren möchtest, wie ein Ziel, ein Wert oder eine Fähigkeit.",
+      "create": "Domäne erstellen",
+      "creating": "Domäne wird erstellt...",
+      "edit": "Domäne bearbeiten",
+      "editing": "Domäne wird bearbeitet...",
+      "delete": "Domäne löschen",
+      "label": "Domänen verwalten",
+      "notFound": "Keine Domänen gefunden",
+      "notFoundDescription": "Du hast noch keine Domänen erstellt. Beginne mit der Erstellung einer, um deine Gewohnheiten und Ziele zu organisieren.",
+      "namePlaceholder": "Beispiel: Gesundheit, Wissen, Finanzen"
+    },
+    "habit": {
+      "title": "Gewohnheit",
+      "description": "Eine Gewohnheit ist ein Verhalten, das du regelmäßig ausführst, oft ohne darüber nachzudenken. Gewohnheiten können positiv oder negativ sein und einen großen Einfluss auf dein Leben haben. Indem du deine Gewohnheiten identifizierst und daran arbeitest, sie zu ändern, kannst du deine Gesundheit, dein Glück und deine Produktivität verbessern.",
+      "create": "Gewohnheit erstellen",
+      "creating": "Gewohnheit wird erstellt...",
+      "edit": "Gewohnheit bearbeiten",
+      "editing": "Gewohnheit wird bearbeitet...",
+      "delete": "Gewohnheit löschen",
+      "targetNumberOfCompletions": "Zielanzahl der Abschlüsse",
+      "numberOfCompletions": "Anzahl der Abschlüsse",
+      "completed": "Abgeschlossen",
+      "start": "Start",
+      "thereStill": "Es verbleiben noch: ",
+      "dayPart": {
+        "title": "Tageszeit",
+        "placeholder": "Wähle die Tageszeit",
+        "morning": "Morgen",
+        "afternoon": "Nachmittag",
+        "evening": "Abend",
+        "night": "Nacht"
+      },
+      "dailyQuests": "Tägliche Quests",
+      "label": "Gewohnheiten verwalten",
+      "cooldown": "Abklingzeit",
+      "runTime": "Laufzeit",
+      "runFromTo": "Dauer von 5 Min. bis 2 Stunden",
+      "placeholder": "Beispiel: Ein Buch lesen, Sport treiben, meditieren",
+      "target": "Ziel",
+      "completions": "Abschlüsse",
+      "stats": "Statistiken"
+    },
+    "dailyComment": {
+      "title": "Täglicher Kommentar",
+      "description": "Ein täglicher Kommentar ist eine kurze Reflexion über deinen Tag. Es kann eine Möglichkeit sein, Dankbarkeit auszudrücken, Absichten festzulegen oder einfach deine Gedanken und Gefühle zu dokumentieren. Durch das Schreiben täglicher Kommentare kannst du Einblick in deine Emotionen und Erfahrungen gewinnen und deinen Fortschritt im Laufe der Zeit verfolgen.",
+      "create": "Täglichen Kommentar erstellen",
+      "creating": "Täglicher Kommentar wird erstellt...",
+      "edit": "Täglichen Kommentar bearbeiten",
+      "editing": "Täglicher Kommentar wird bearbeitet...",
+      "delete": "Täglichen Kommentar löschen",
+      "mood": "Stimmung",
+      "rateFromTo": "Bewertung von 😞 bis 😍",
+      "moodName": {
+        "veryBad": "Sehr schlecht 😭",
+        "bad": "Schlecht 😞",
+        "neutral": "Neutral 😐",
+        "good": "Gut 😊",
+        "veryGood": "Sehr gut 😍"
+      },
+      "notFound": "Keine täglichen Kommentare gefunden",
+      "notFoundDescription": "Du hast noch keine täglichen Kommentare erstellt. Beginne mit der Erstellung eines, um deine täglichen Reflexionen und Fortschritte zu verfolgen."
+    },
+    "cabinet": {
+      "nav": {
+        "profile": "Profil",
+        "quests": "Quests",
+        "matrixAndDomains": "Matrix und Domäne",
+        "matrices": "Matrizen",
+        "dailyComment": "Kommentare",
+        "settings": "Einstellungen",
+        "logout": "Abmelden",
+        "guide": "Anleitung"
+      },
+      "settings": {
+        "title": "Konto",
+        "account": {
+          "title": "Konto bearbeiten",
+          "name": "Vollständiger Name",
+          "save": "Speichern"
+        }
+      }
+    }
+  },
+  "cookie": {
+    "title": "Akzeptiere die Verwendung von Cookies",
+    "description": "Wir verwenden Cookies, um dir das beste Erlebnis auf unserer Website zu bieten. Durch Klicken auf „Akzeptieren“ stimmst du der Verwendung aller Cookies zu.",
+    "reject": "Ablehnen",
+    "accept": "Akzeptieren"
+  }
+}

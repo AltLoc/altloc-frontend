@@ -88,6 +88,27 @@ export default defineNuxtConfig({
         file: "pl-PL.json",
         flag: "pl.svg",
       },
+      {
+        code: "de",
+        iso: "de-DE",
+        name: "German",
+        file: "de-DE.json",
+        flag: "de.svg",
+      },
+      {
+        code: "fr",
+        iso: "fr-FR",
+        name: "French",
+        file: "fr-FR.json",
+        flag: "fr.svg",
+      },
+      {
+        code: "es",
+        iso: "es-ES",
+        name: "Spanish",
+        file: "es-ES.json",
+        flag: "es.svg",
+      },
     ],
 
     defaultLocale: "en",

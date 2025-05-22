@@ -17,7 +17,7 @@ const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value);
 });
 
-const changeLocale = (newLocale: "en" | "uk" | "pl") => {
+const changeLocale = (newLocale: "en" | "uk" | "pl" | "de" | "fr" | "es") => {
   setLocale(newLocale);
   cookies.set("locale", newLocale, {
     path: "/",

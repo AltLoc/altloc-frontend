@@ -1,0 +1,239 @@
+{
+  "website": "AltLoc",
+  "landing": {
+    "title": "Sube de nivel tu vida como en un juego",
+    "description": "AltLoc es una plataforma de crecimiento personal gamificada para la Generación Z. Construye tu Matriz de Identidad, explora Dominios, completa Misiones, gana XP y cristales: sube de nivel tu vida como un héroe.",
+    "getStarted": "Únete a la aventura",
+    "getStartedButton": "Empieza a subir de nivel",
+    "stepsTitle": "Sube de nivel tu vida con AltLoc",
+    "stepsDescription": "AltLoc transforma la mejora personal en una aventura de rol. Construye tu Matriz de Identidad, explora Dominios, crea Hábitos y gana cristales y XP mientras desarrollas a tu héroe personal.",
+    "steps": {
+      "step1": {
+        "title": "Paso 1: Construye tu Matriz de Identidad",
+        "description": "Define quién quieres llegar a ser. Selecciona o crea tu Matriz de Identidad única para guiar tus misiones."
+      },
+      "step2": {
+        "title": "Paso 2: Explora Dominios",
+        "description": "Elige Dominios de vida como Salud, Conocimiento, Finanzas: tus árboles de habilidades personales para subir de nivel."
+      },
+      "step3": {
+        "title": "Paso 3: Crea Hábitos y Misiones",
+        "description": "Añade tareas y hábitos a cada Dominio. Asigna XP, dificultad y programa tu entrenamiento."
+      },
+      "step4": {
+        "title": "Paso 4: Rastrea y Gana Recompensas",
+        "description": "Completa misiones, gana XP, recolecta cristales y desbloquea niveles y logros en tu panel de control."
+      },
+      "step5": {
+        "title": "Paso 5: Reflexión Diaria",
+        "description": "Usa el Comentario Diario para reflexionar, registrar tus emociones y seguir tu viaje personal."
+      },
+      "step6": {
+        "title": "Paso 6: Adapta y Celebra",
+        "description": "Revisa tu Matriz a medida que evolucionas. Celebra las victorias con insignias de la comunidad y presume de tu progreso."
+      }
+    }
+  },
+  "gettingStarted": {
+    "title": "Para empezar con la aplicación, sigue estos pasos:",
+    "steps": {
+      "step1": {
+        "title": "Paso 1:",
+        "description": "Crea tu Matriz de Identidad, que describirá tus objetivos de desarrollo y áreas de enfoque.",
+        "link": "Crea tu Matriz"
+      },
+      "step2": {
+        "title": "Paso 2:",
+        "description": "Crea un dominio para tu matriz seleccionada para organizar tus hábitos por diferentes temas o categorías."
+      },
+      "step3": {
+        "title": "Paso 3:",
+        "description": "Dentro de cada dominio, crea hábitos que te ayudarán a construir las habilidades necesarias y alcanzar tus metas."
+      }
+    }
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "add": "Añadir",
+    "close": "Cerrar",
+    "search": "Buscar",
+    "createdAt": "Creado el",
+    "updatedAt": "Actualizado el",
+    "name": "Nombre"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "twitter": "X",
+    "linkedin": "LinkedIn"
+  },
+  "layout": {
+    "tasks": "Tareas",
+    "dentityMatrix": "Matriz de Identidad",
+    "categories": "Categorías",
+    "privacyPolicy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "userAgreement": "Acuerdo de usuario",
+    "copyright": "Derechos de autor",
+    "allRightsReserved": "Todos los derechos reservados",
+    "logIn": "Iniciar sesión",
+    "register": "Registrarse",
+    "report": "Reportar una violación"
+  },
+  "login": {
+    "title": "Inicia sesión en tu cuenta",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "loggingIn": "Iniciando sesión...",
+    "login": "Iniciar sesión",
+    "or": "o",
+    "withGoogle": "Iniciar sesión con Google",
+    "dontHaveAccount": "¿No tienes una cuenta?",
+    "register": "Registrarse"
+  },
+  "register": {
+    "title": "Crear una cuenta",
+    "description": "Gamifica tu vida con AltLoc",
+    "or": "o",
+    "withGoogle": "Registrarse con Google",
+    "alreadyHave": "¿Ya tienes una cuenta?",
+    "login": "Iniciar sesión",
+    "passwordNotMatch": "Las contraseñas no coinciden",
+    "needToAccept": "No puedes continuar sin aceptar los términos y condiciones",
+    "emailTaken": "Ya existe un usuario con este correo electrónico, inicia sesión o usa un correo electrónico diferente",
+    "name": "Nombre completo",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "acceptTerms": "Al presionar el botón de registro, acepto los",
+    "and": "y",
+    "creating": "Creando cuenta...",
+    "register": "Registrarse",
+    "success": {
+      "title": "Cuenta creada con éxito",
+      "description": "Por favor, revisa tu correo electrónico para verificar tu cuenta. Si no ves el correo, revisa tu carpeta de spam."
+    }
+  },
+  "recovery": {
+    "forgotYourPassword": "¿Olvidaste tu contraseña?",
+    "recoverItHere": "Recuperarla aquí",
+    "init": {
+      "title": "Recuperación de contraseña",
+      "description": "Ingresa tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña.",
+      "send": "Enviar correo de recuperación",
+      "success": {
+        "title": "Correo de recuperación enviado con éxito",
+        "description": "Revisa tu correo electrónico para un enlace para restablecer tu contraseña. Si no aparece en unos minutos, revisa tu carpeta de spam."
+      }
+    }
+  },
+  "app": {
+    "identityMatrix": {
+      "title": "Introduce el nombre de tu matriz de identidad",
+      "description": "Breve descripción de tu matriz de identidad.",
+      "create": "Crear matriz de identidad",
+      "creating": "Creando matriz de identidad...",
+      "edit": "Editar matriz",
+      "editing": "Editando matriz...",
+      "delete": "Eliminar matriz",
+      "label": "Administrar Matrices de Identidad",
+      "notFound": "No se encontraron matrices de identidad",
+      "notFoundDescription": "Aún no has creado ninguna matriz de identidad. Comienza creando una para visualizar tus metas y valores.",
+      "namePlaceholder": "Me identifico como un empresario.",
+      "descriptionPlaceholder": "Quiero convertirme en un emprendedor exitoso y construir mi propio negocio. Valoro la creatividad, la innovación y el trabajo duro. Estoy comprometido con el aprendizaje continuo y el crecimiento personal. Quiero inspirar a otros a perseguir sus sueños y tener un impacto positivo en el mundo."
+    },
+    "domain": {
+      "title": "Dominio:",
+      "description": "Un dominio es un área de la vida en la que quieres enfocarte, como un objetivo, un valor o una habilidad.",
+      "create": "Crear dominio",
+      "creating": "Creando dominio...",
+      "edit": "Editar dominio",
+      "editing": "Editando dominio...",
+      "delete": "Eliminar dominio",
+      "label": "Administrar dominios",
+      "notFound": "No se encontraron dominios",
+      "notFoundDescription": "Aún no has creado ningún dominio. Comienza creando uno para organizar tus hábitos y metas.",
+      "namePlaceholder": "Ejemplo: Salud, Conocimiento, Finanzas"
+    },
+    "habit": {
+      "title": "Hábito",
+      "description": "Un hábito es un comportamiento que realizas regularmente, a menudo sin pensarlo. Los hábitos pueden ser positivos o negativos, y pueden tener un gran impacto en tu vida. Al identificar tus hábitos y trabajar para cambiarlos, puedes mejorar tu salud, felicidad y productividad.",
+      "create": "Crear hábito",
+      "creating": "Creando hábito...",
+      "edit": "Editar hábito",
+      "editing": "Editando hábito...",
+      "delete": "Eliminar hábito",
+      "targetNumberOfCompletions": "Número objetivo de finalizaciones",
+      "numberOfCompletions": "Número de finalizaciones",
+      "completed": "Completado",
+      "start": "Iniciar",
+      "thereStill": "Todavía queda: ",
+      "dayPart": {
+        "title": "Parte del día",
+        "placeholder": "Selecciona la parte del día",
+        "morning": "Mañana",
+        "afternoon": "Tarde",
+        "evening": "Noche",
+        "night": "Madrugada"
+      },
+      "dailyQuests": "Misiones diarias",
+      "label": "Administrar hábitos",
+      "cooldown": "Tiempo de enfriamiento",
+      "runTime": "Tiempo de ejecución",
+      "runFromTo": "Duración de 5 min a 2 horas",
+      "placeholder": "Ejemplo: Leer un libro, hacer ejercicio, meditar",
+      "target": "Meta",
+      "completions": "Finalizaciones",
+      "stats": "Estadísticas"
+    },
+    "dailyComment": {
+      "title": "Comentario diario",
+      "description": "Un comentario diario es una breve reflexión sobre tu día. Puede ser una forma de expresar gratitud, establecer intenciones o simplemente documentar tus pensamientos y sentimientos. Al escribir comentarios diarios, puedes obtener información sobre tus emociones y experiencias, y seguir tu progreso a lo largo del tiempo.",
+      "create": "Crear comentario diario",
+      "creating": "Creando comentario diario...",
+      "edit": "Editar comentario diario",
+      "editing": "Editando comentario diario...",
+      "delete": "Eliminar comentario diario",
+      "mood": "Estado de ánimo",
+      "rateFromTo": "Calificación de 😞 a 😍",
+      "moodName": {
+        "veryBad": "Muy mal 😭",
+        "bad": "Mal 😞",
+        "neutral": "Neutral 😐",
+        "good": "Bien 😊",
+        "veryGood": "Muy bien 😍"
+      },
+      "notFound": "No se encontraron comentarios diarios",
+      "notFoundDescription": "Aún no has creado ningún comentario diario. Comienza creando uno para rastrear tus reflexiones y progreso diarios."
+    },
+    "cabinet": {
+      "nav": {
+        "profile": "Perfil",
+        "quests": "Misiones",
+        "matrixAndDomains": "Matriz y Dominio",
+        "matrices": "Matrices",
+        "dailyComment": "Comentarios",
+        "settings": "Configuración",
+        "logout": "Cerrar sesión",
+        "guide": "Guía"
+      },
+      "settings": {
+        "title": "Cuenta",
+        "account": {
+          "title": "Editar cuenta",
+          "name": "Nombre completo",
+          "save": "Guardar"
+        }
+      }
+    }
+  },
+  "cookie": {
+    "title": "Aceptar el uso de cookies",
+    "description": "Utilizamos cookies para ofrecerte la mejor experiencia en nuestro sitio web. Al hacer clic en \"Aceptar\", aceptas el uso de todas las cookies.",
+    "reject": "Rechazar",
+    "accept": "Aceptar"
+  }
+}

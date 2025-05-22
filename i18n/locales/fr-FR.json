@@ -1,0 +1,239 @@
+{
+  "website": "AltLoc",
+  "landing": {
+    "title": "Améliorez votre vie comme un jeu",
+    "description": "AltLoc est une plateforme de développement personnel gamifiée pour la Génération Z. Construisez votre Matrice d'Identité, explorez des Domaines, accomplissez des Quêtes, gagnez de l'XP et des cristaux – améliorez votre vie comme un héros.",
+    "getStarted": "Rejoignez l'aventure",
+    "getStartedButton": "Commencez à monter de niveau",
+    "stepsTitle": "Améliorez votre vie avec AltLoc",
+    "stepsDescription": "AltLoc transforme l'amélioration de soi en une aventure RPG. Construisez votre Matrice d'Identité, explorez des Domaines, créez des Habitudes et gagnez des cristaux et de l'XP tout en développant votre héros personnel.",
+    "steps": {
+      "step1": {
+        "title": "Étape 1 : Construisez votre Matrice d'Identité",
+        "description": "Définissez qui vous voulez devenir. Sélectionnez ou créez votre Matrice d'Identité unique pour guider vos quêtes."
+      },
+      "step2": {
+        "title": "Étape 2 : Explorez les Domaines",
+        "description": "Choisissez des Domaines de vie comme la Santé, la Connaissance, les Finances – vos arbres de compétences personnels à monter de niveau."
+      },
+      "step3": {
+        "title": "Étape 3 : Créez des Habitudes et des Quêtes",
+        "description": "Ajoutez des tâches et des habitudes à chaque Domaine. Attribuez de l'XP, une difficulté et planifiez votre entraînement."
+      },
+      "step4": {
+        "title": "Étape 4 : Suivez et Gagnez des Récompenses",
+        "description": "Accomplissez des quêtes, gagnez de l'XP, collectez des cristaux et débloquez des niveaux et des succès dans votre tableau de bord."
+      },
+      "step5": {
+        "title": "Étape 5 : Réflexion Quotidienne",
+        "description": "Utilisez le commentaire quotidien pour réfléchir, enregistrer vos émotions et suivre votre parcours personnel."
+      },
+      "step6": {
+        "title": "Étape 6 : Adaptez-vous et Célébrez",
+        "description": "Réviser votre Matrice à mesure que vous évoluez. Célébrez les victoires avec les badges de la communauté et montrez vos progrès."
+      }
+    }
+  },
+  "gettingStarted": {
+    "title": "Pour commencer avec l'application, suivez ces étapes :",
+    "steps": {
+      "step1": {
+        "title": "Étape 1 :",
+        "description": "Créez votre Matrice d'Identité, qui définira vos objectifs de développement et vos domaines d'intérêt.",
+        "link": "Créez votre Matrice"
+      },
+      "step2": {
+        "title": "Étape 2 :",
+        "description": "Créez un domaine pour votre matrice sélectionnée afin d'organiser vos habitudes par thèmes ou catégories différentes."
+      },
+      "step3": {
+        "title": "Étape 3 :",
+        "description": "Dans chaque domaine, créez des habitudes qui vous aideront à développer les compétences nécessaires et à atteindre vos objectifs."
+      }
+    }
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "add": "Ajouter",
+    "close": "Fermer",
+    "search": "Rechercher",
+    "createdAt": "Créé le",
+    "updatedAt": "Mis à jour le",
+    "name": "Nom"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "twitter": "X",
+    "linkedin": "LinkedIn"
+  },
+  "layout": {
+    "tasks": "Tâches",
+    "dentityMatrix": "Matrice d'Identité",
+    "categories": "Catégories",
+    "privacyPolicy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "userAgreement": "Accord d'utilisateur",
+    "copyright": "Droits d'auteur",
+    "allRightsReserved": "Tous droits réservés",
+    "logIn": "Se connecter",
+    "register": "S'inscrire",
+    "report": "Signaler une violation"
+  },
+  "login": {
+    "title": "Connectez-vous à votre compte",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "loggingIn": "Connexion en cours...",
+    "login": "Se connecter",
+    "or": "ou",
+    "withGoogle": "Se connecter avec Google",
+    "dontHaveAccount": "Vous n'avez pas de compte ?",
+    "register": "S'inscrire"
+  },
+  "register": {
+    "title": "Créer un compte",
+    "description": "Gamifiez votre vie avec AltLoc",
+    "or": "ou",
+    "withGoogle": "S'inscrire avec Google",
+    "alreadyHave": "Vous avez déjà un compte ?",
+    "login": "Se connecter",
+    "passwordNotMatch": "Les mots de passe ne correspondent pas",
+    "needToAccept": "Vous ne pouvez pas continuer sans accepter les termes et conditions",
+    "emailTaken": "Un utilisateur avec cet e-mail existe déjà, veuillez vous connecter ou utiliser un e-mail différent",
+    "name": "Nom complet",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "acceptTerms": "En appuyant sur le bouton d'inscription, j'accepte les",
+    "and": "et",
+    "creating": "Création du compte...",
+    "register": "S'inscrire",
+    "success": {
+      "title": "Compte créé avec succès",
+      "description": "Veuillez vérifier votre e-mail pour vérifier votre compte. Si vous ne voyez pas l'e-mail, veuillez vérifier votre dossier de courrier indésirable."
+    }
+  },
+  "recovery": {
+    "forgotYourPassword": "Mot de passe oublié ?",
+    "recoverItHere": "Récupérez-le ici",
+    "init": {
+      "title": "Récupération du mot de passe",
+      "description": "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+      "send": "Envoyer l'e-mail de récupération",
+      "success": {
+        "title": "E-mail de récupération envoyé avec succès",
+        "description": "Vérifiez votre e-mail pour un lien permettant de réinitialiser votre mot de passe. S'il n'apparaît pas dans quelques minutes, vérifiez votre dossier de courrier indésirable."
+      }
+    }
+  },
+  "app": {
+    "identityMatrix": {
+      "title": "Entrez le nom de votre matrice d'identité",
+      "description": "Brève description de votre matrice d'identité.",
+      "create": "Créer une matrice d'identité",
+      "creating": "Création de la matrice d'identité...",
+      "edit": "Modifier la matrice",
+      "editing": "Modification de la matrice...",
+      "delete": "Supprimer la matrice",
+      "label": "Gérer les matrices d'identité",
+      "notFound": "Aucune matrice d'identité trouvée",
+      "notFoundDescription": "Vous n'avez pas encore créé de matrices d'identité. Commencez par en créer une pour visualiser vos objectifs et vos valeurs.",
+      "namePlaceholder": "Je m'identifie comme un homme d'affaires.",
+      "descriptionPlaceholder": "Je veux devenir un entrepreneur prospère et créer ma propre entreprise. J'apprécie la créativité, l'innovation et le travail acharné. Je suis engagé dans l'apprentissage continu et la croissance personnelle. Je veux inspirer les autres à poursuivre leurs rêves et à avoir un impact positif sur le monde."
+    },
+    "domain": {
+      "title": "Domaine :",
+      "description": "Un domaine est un domaine de vie sur lequel vous souhaitez vous concentrer, comme un objectif, une valeur ou une compétence.",
+      "create": "Créer un domaine",
+      "creating": "Création du domaine...",
+      "edit": "Modifier le domaine",
+      "editing": "Modification du domaine...",
+      "delete": "Supprimer le domaine",
+      "label": "Gérer les domaines",
+      "notFound": "Aucun domaine trouvé",
+      "notFoundDescription": "Vous n'avez pas encore créé de domaines. Commencez par en créer un pour organiser vos habitudes et vos objectifs.",
+      "namePlaceholder": "Exemple : Santé, Connaissance, Finance"
+    },
+    "habit": {
+      "title": "Habitude",
+      "description": "Une habitude est un comportement que vous effectuez régulièrement, souvent sans y penser. Les habitudes peuvent être positives ou négatives, et elles peuvent avoir un grand impact sur votre vie. En identifiant vos habitudes et en travaillant à les changer, vous pouvez améliorer votre santé, votre bonheur et votre productivité.",
+      "create": "Créer une habitude",
+      "creating": "Création de l'habitude...",
+      "edit": "Modifier l'habitude",
+      "editing": "Modification de l'habitude...",
+      "delete": "Supprimer l'habitude",
+      "targetNumberOfCompletions": "Nombre cible de réalisations",
+      "numberOfCompletions": "Nombre de réalisations",
+      "completed": "Terminé",
+      "start": "Commencer",
+      "thereStill": "Il reste encore : ",
+      "dayPart": {
+        "title": "Partie de la journée",
+        "placeholder": "Sélectionnez la partie de la journée",
+        "morning": "Matin",
+        "afternoon": "Après-midi",
+        "evening": "Soir",
+        "night": "Nuit"
+      },
+      "dailyQuests": "Quêtes quotidiennes",
+      "label": "Gérer les habitudes",
+      "cooldown": "Temps de recharge",
+      "runTime": "Temps d'exécution",
+      "runFromTo": "Durée de 5 min à 2 heures",
+      "placeholder": "Exemple : Lire un livre, faire de l'exercice, méditer",
+      "target": "Cible",
+      "completions": "Réalisations",
+      "stats": "Statistiques"
+    },
+    "dailyComment": {
+      "title": "Commentaire quotidien",
+      "description": "Un commentaire quotidien est une brève réflexion sur votre journée. Cela peut être un moyen d'exprimer votre gratitude, de définir des intentions ou simplement de documenter vos pensées et vos sentiments. En écrivant des commentaires quotidiens, vous pouvez mieux comprendre vos émotions et vos expériences, et suivre vos progrès au fil du temps.",
+      "create": "Créer un commentaire quotidien",
+      "creating": "Création du commentaire quotidien...",
+      "edit": "Modifier le commentaire quotidien",
+      "editing": "Modification du commentaire quotidien...",
+      "delete": "Supprimer le commentaire quotidien",
+      "mood": "Humeur",
+      "rateFromTo": "Évaluer de 😞 à 😍",
+      "moodName": {
+        "veryBad": "Très mauvais 😭",
+        "bad": "Mauvais 😞",
+        "neutral": "Neutre 😐",
+        "good": "Bon 😊",
+        "veryGood": "Très bon 😍"
+      },
+      "notFound": "Aucun commentaire quotidien trouvé",
+      "notFoundDescription": "Vous n'avez pas encore créé de commentaires quotidiens. Commencez par en créer un pour suivre vos réflexions et vos progrès quotidiens."
+    },
+    "cabinet": {
+      "nav": {
+        "profile": "Profil",
+        "quests": "Quêtes",
+        "matrixAndDomains": "Matrice et Domaine",
+        "matrices": "Matrices",
+        "dailyComment": "Commentaires",
+        "settings": "Paramètres",
+        "logout": "Se déconnecter",
+        "guide": "Guide"
+      },
+      "settings": {
+        "title": "Compte",
+        "account": {
+          "title": "Modifier le compte",
+          "name": "Nom complet",
+          "save": "Enregistrer"
+        }
+      }
+    }
+  },
+  "cookie": {
+    "title": "Accepter l'utilisation des cookies",
+    "description": "Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site web. En cliquant sur \"Accepter\", vous acceptez l'utilisation de tous les cookies.",
+    "reject": "Rejeter",
+    "accept": "Accepter"
+  }
+}
