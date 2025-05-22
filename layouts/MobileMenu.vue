@@ -40,11 +40,11 @@ const isOpen = ref(false);
 
 const legalMenuItems = [
   {
-    label: "Privacy Policy",
+    label: t("layout.privacyPolicy"),
     href: "/legal/privacy-policy",
   },
   {
-    label: "Terms of Service",
+    label: t("layout.terms"),
     href: "/legal/terms-of-service",
   },
 ];
@@ -63,12 +63,12 @@ const socialItems = [
   {
     label: "Telegram",
     icon: TelegramIcon,
-    href: "#",
+    href: "https://t.me/altlocapp",
   },
   {
     label: "X",
     icon: XIcon,
-    href: "#",
+    href: "https://x.com/progofcom",
   },
 ];
 </script>
@@ -90,7 +90,7 @@ const socialItems = [
         @interact-outside.prevent
         @focus-outside.prevent
         @pointer-down-outside.prevent
-        class="fixed inset-y-0 left-0 top-[65px] z-10 w-screen gap-4 bg-blue-700 bg-opacity-80 px-6 backdrop-blur ease-out data-[state=closed]:duration-300 data-[state=open]:duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:slide-out-to-bottom-2 data-[state=open]:slide-in-from-bottom-2 md:px-10"
+        class="fixed inset-y-0 left-0 top-[65px] z-10 w-screen gap-4 bg-blue-900 bg-opacity-80 px-6 backdrop-blur ease-out data-[state=closed]:duration-300 data-[state=open]:duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:slide-out-to-bottom-2 data-[state=open]:slide-in-from-bottom-2 md:px-10"
       >
         <div class="flex flex-col">
           <div class="flex justify-center gap-6 p-6">

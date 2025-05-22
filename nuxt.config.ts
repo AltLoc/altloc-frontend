@@ -67,10 +67,29 @@ export default defineNuxtConfig({
     langDir: "locales",
     strategy: "prefix",
     locales: [
-      { code: "en", iso: "en-US", name: "English", file: "en-US.json" },
-      { code: "uk", iso: "uk-UA", name: "Ukrainian", file: "uk-UA.json" },
-      { code: "pl", iso: "pl-PL", name: "Polish", file: "pl-PL.json" },
+      {
+        code: "en",
+        iso: "en-US",
+        name: "English",
+        file: "en-US.json",
+        flag: "en.svg",
+      },
+      {
+        code: "uk",
+        iso: "uk-UA",
+        name: "Ukrainian",
+        file: "uk-UA.json",
+        flag: "uk.svg",
+      },
+      {
+        code: "pl",
+        iso: "pl-PL",
+        name: "Polish",
+        file: "pl-PL.json",
+        flag: "pl.svg",
+      },
     ],
+
     defaultLocale: "en",
   },
 });
