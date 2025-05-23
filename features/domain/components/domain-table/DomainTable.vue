@@ -7,15 +7,18 @@ import {
   TableHeaderCell,
   TableRow,
 } from "@/components/ui/table";
-import dayjs from "dayjs";
-import { useDeleteDomainMutation } from "@/features/domain/service/index";
 import type { Domain } from "@/features/domain/model";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import DotsHorizontalIcon from "@/assets/icons/dots-horizontal.svg?component";
+import { DomainDropDownMenu } from "@/features/domain/components/domain-dropdown-menu/";
 
 const props = defineProps<{
   domains: Domain[];
 }>();
-
-const { mutate: deleteDomain } = useDeleteDomainMutation();
 </script>
 
 <template>
@@ -37,28 +40,22 @@ const { mutate: deleteDomain } = useDeleteDomainMutation();
           </TableCell>
 
           <TableCell>
-            {{
-              dayjs(
-                utcTimestampToDate(String(dayjs(row.createdAt).valueOf()))
-              ).format("MMMM D YYYY, h:mm A")
-            }}
+            {{ utcTimestampToDate(row.createdAt) }}
           </TableCell>
           <TableCell>
-            <div class="flex gap-3">
-              <a :href="`/user/domain/${row.id}/`" class="text-zinc-400">
-                Edit
-              </a>
-              <span
-                @click="
-                  () => {
-                    deleteDomain(row.id);
-                  }
-                "
-                class="text-zinc-400"
+            <DropdownMenu :modal="false">
+              <DropdownMenuTrigger
+                class="p-1 hover:bg-black/5 rounded data-[state=open]:bg-black/5"
+                aria-label="Actions"
               >
-                Delete
-              </span>
-            </div>
+                <DotsHorizontalIcon
+                  class="size-5 stroke-[1.75] text-zinc-600"
+                />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" class="min-w-40">
+                <DomainDropDownMenu :domain="row" />
+              </DropdownMenuContent>
+            </DropdownMenu>
           </TableCell>
         </TableRow>
       </TableBody>

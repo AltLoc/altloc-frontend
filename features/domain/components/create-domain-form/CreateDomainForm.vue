@@ -10,8 +10,6 @@ import { TextArea } from "@/components/ui/text-area/";
 
 const { t } = useI18n();
 
-const router = useRouter();
-
 const props = defineProps<{
   identityMatrixId: string;
 }>();
@@ -41,9 +39,6 @@ const onSubmit = handleSubmit((values) => {
       },
     },
     {
-      onSuccess: () => {
-        router.push("/user/matrix");
-      },
       onError: (err) => {
         setFieldError("name", err.message);
       },

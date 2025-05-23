@@ -1,4 +1,9 @@
-import { queryOptions, useMutation, useQueryClient } from "@tanstack/vue-query";
+import {
+  queryOptions,
+  useMutation,
+  useQueryClient,
+  type UseMutationReturnType,
+} from "@tanstack/vue-query";
 import { z } from "zod";
 import type { Domain } from "@/features/domain/model";
 import { FetchError } from "@/utils/fetch";
@@ -18,26 +23,6 @@ export const updateDomainBodySchema = z.object({
 });
 
 export type UpdateDomainBody = z.infer<typeof updateDomainBodySchema>;
-
-export const useDomainMutation = () =>
-  useMutation({
-    mutationFn: async (options: { body: UpdateDomainBody }) => {
-      const res = await fetch("/api/app/identity-matrix/domain", {
-        method: "PUT",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        // body: JSON.stringify(data),
-        body: JSON.stringify(options.body),
-      });
-      if (!res.ok) {
-        const errors = errorSchema.parse(await res.json()).errors;
-        throw new Error(errors.at(0)?.message);
-      }
-      return;
-    },
-  });
 
 export const fetchDomainsByIdentityMatrix = (matrixId: string) =>
   queryOptions({
@@ -82,27 +67,154 @@ export const getDomainQuery = (domainId: string) =>
     },
   });
 
-export function useDeleteDomainMutation() {
+export function useDomainMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (domainId: string) => {
-      const res = await fetch(`/api/app/domain/${domainId}`, {
-        method: "DELETE",
+    mutationFn: async (options: { body: UpdateDomainBody }) => {
+      const res = await fetch("/api/app/identity-matrix/domain", {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(options.body),
       });
 
       if (!res.ok) {
-        throw new FetchError(res);
+        const errors = errorSchema.parse(await res.json()).errors;
+        throw new Error(errors.at(0)?.message);
       }
+
+      return res.json() as Promise<Domain>;
     },
-    onSuccess: (_, identityMatrixId: string) => {
+    onSuccess: async (_, domain) => {
       queryClient.invalidateQueries(
-        fetchDomainsByIdentityMatrix(identityMatrixId)
+        fetchDomainsByIdentityMatrix(domain.body.identityMatrixId)
       );
-      // queryClient.removeQueries(categoriesQuery(categoryId));
     },
   });
 }
+
+// export function useDeleteDomainMutation() {
+//   const queryClient = useQueryClient();
+
+//   return useMutation({
+//     mutationFn: async (domainId: string) => {
+//       const res = await fetch(`/api/app/domain/${domainId}`, {
+//         method: "DELETE",
+//       });
+
+//       if (!res.ok) {
+//         throw new FetchError(res);
+//       }
+//     },
+//     onSuccess: (_, identityMatrixId: string) => {
+//       queryClient.invalidateQueries(
+//         fetchDomainsByIdentityMatrix(identityMatrixId)
+//       );
+//       // queryClient.removeQueries(categoriesQuery(categoryId));
+//     },
+//   });
+// }
+
+// export function useDeleteDomainMutation(): UseMutationReturnType<
+//   { domainId: string; identityMatrixId: string }, // return type
+//   Error, // error type
+//   { domainId: string; identityMatrixId: string }, // variables type
+//   unknown // context type
+// > {
+//   const queryClient = useQueryClient();
+
+//   return useMutation<
+//     { domainId: string; identityMatrixId: string }, // return type
+//     Error, // error type
+//     { domainId: string; identityMatrixId: string } // variables type
+//   >({
+//     mutationFn: async ({ domainId, identityMatrixId }) => {
+//       const res = await fetch(`/api/app/domain/${domainId}`, {
+//         method: "DELETE",
+//       });
+
+//       if (!res.ok) {
+//         throw new FetchError(res);
+//       }
+
+//       return { domainId, identityMatrixId };
+//     },
+
+//     onSuccess: (_, { identityMatrixId }) => {
+//       queryClient.invalidateQueries(
+//         fetchDomainsByIdentityMatrix(identityMatrixId)
+//       );
+//     },
+//   });
+// }
+
+type DeleteDomainInput = {
+  domainId: string;
+  identityMatrixId: string;
+};
+
+type DeleteDomainOutput = DeleteDomainInput;
+
+export function useDeleteDomainMutation() {
+  const queryClient = useQueryClient();
+
+  const deleteDomain = async ({
+    domainId,
+    identityMatrixId,
+  }: DeleteDomainInput): Promise<DeleteDomainOutput> => {
+    const res = await fetch(`/api/app/domain/${domainId}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) {
+      throw new FetchError(res);
+    }
+
+    return { domainId, identityMatrixId };
+  };
+
+  return useMutation<DeleteDomainOutput, Error, DeleteDomainInput>({
+    mutationFn: deleteDomain,
+    onSuccess: (_, { identityMatrixId }) => {
+      queryClient.invalidateQueries(
+        fetchDomainsByIdentityMatrix(identityMatrixId)
+      );
+    },
+  });
+}
+
+// export function useDeleteDomainMutation() {
+//   const queryClient = useQueryClient();
+
+//   return useMutation({
+//     // Передаём объект с нужными данными
+//     mutationFn: async (variables: {
+//       domainId: string;
+//       identityMatrixId: string;
+//     }) => {
+//       const { domainId, identityMatrixId } = variables;
+//       const res = await fetch(`/api/app/domain/${domainId}`, {
+//         method: "DELETE",
+//       });
+
+//       if (!res.ok) {
+//         throw new FetchError(res);
+//       }
+
+//       return { domainId, identityMatrixId }; // возвращаем идентификаторы
+//     },
+
+//     // identityMatrixId передаётся через variables, а не через 2-й аргумент
+//     onSuccess: (_, { identityMatrixId }: { identityMatrixId: string }) => {
+//       queryClient.invalidateQueries(
+//         fetchDomainsByIdentityMatrix(identityMatrixId)
+//       );
+//     },
+//   });
+// }
 
 // export function useUpdateDomainMutation() {
 //   return useMutation({

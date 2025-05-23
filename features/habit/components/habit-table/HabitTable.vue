@@ -66,11 +66,7 @@ const { mutate: deleteHabit } = useDeleteHabitMutation();
           {{ row.numberOfCompletions }}
         </TableCell>
         <TableCell>
-          {{
-            dayjs(
-              utcTimestampToDate(String(dayjs(row.createdAt).valueOf()))
-            ).format("MMMM D YYYY, h:mm A")
-          }}
+          {{ utcTimestampToDate(row.createdAt) }}
         </TableCell>
         <TableCell>
           <div class="flex gap-3">
