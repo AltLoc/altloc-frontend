@@ -2,7 +2,6 @@ import { queryOptions, useMutation, useQueryClient } from "@tanstack/vue-query";
 import { z } from "zod";
 import type { Habit } from "@/features/habit/model";
 import { FetchError } from "@/utils/fetch";
-import { getMeQueryOptions } from "@/features/user/service/user.client";
 
 const errorSchema = z.object({
   errors: z.array(
@@ -21,7 +20,7 @@ export const updateHabitBodySchema = z.object({
   dayPart: z.enum(["MORNING", "AFTERNOON", "EVENING", "NIGHT"]),
 });
 
-export type UpdateDomainBody = z.infer<typeof updateHabitBodySchema>;
+export type UpdateHabitBody = z.infer<typeof updateHabitBodySchema>;
 
 export const fetchHabitDayPartSchema = z.object({
   dayPart: z.enum(["MORNING", "AFTERNOON", "EVENING", "NIGHT"]),
@@ -35,26 +34,6 @@ export const completedHabitBodySchema = z.object({
   userId: z.string(),
 });
 export type CompletedHabitBody = z.infer<typeof completedHabitBodySchema>;
-
-export const useHabitMutation = () =>
-  useMutation({
-    mutationFn: async (options: { body: UpdateDomainBody }) => {
-      const res = await fetch("/api/app/domain/habit", {
-        method: "PUT",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        // body: JSON.stringify(data),
-        body: JSON.stringify(options.body),
-      });
-      if (!res.ok) {
-        const errors = errorSchema.parse(await res.json()).errors;
-        throw new Error(errors.at(0)?.message);
-      }
-      return;
-    },
-  });
 
 export const fetchHabitsByDomain = (domainId: string) =>
   queryOptions({
@@ -87,6 +66,55 @@ export const fetchHabit = (habitId: string) =>
       return res.json() as Promise<Habit>;
     },
   });
+
+export function useCreateHabitMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (options: { body: UpdateHabitBody }) => {
+      const res = await fetch("/api/app/domain/habit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(options.body),
+      });
+      if (!res.ok) {
+        const errors = errorSchema.parse(await res.json()).errors;
+        throw new Error(errors.at(0)?.message);
+      }
+      return res.json() as Promise<Habit>;
+    },
+    onSuccess: async (_, domain) => {
+      queryClient.invalidateQueries(fetchHabitsByDomain(domain.body.domainId));
+    },
+  });
+}
+
+export function useUpdateHabitMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (options: { body: UpdateHabitBody }) => {
+      console.log("Updating habit", options.body);
+      const res = await fetch(`/api/app/domain/habit/${options.body.id}`, {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(options.body),
+      });
+      if (!res.ok) {
+        const errors = errorSchema.parse(await res.json()).errors;
+        throw new Error(errors.at(0)?.message);
+      }
+      return res.json() as Promise<Habit>;
+    },
+    onSuccess: async (_, domain) => {
+      queryClient.invalidateQueries(fetchHabitsByDomain(domain.body.domainId));
+    },
+  });
+}
 
 export const fetchHabitsByDayPart = (dayPart: Ref<string>) =>
   queryOptions({
@@ -123,52 +151,36 @@ export const fetchHabits = queryOptions({
   },
 });
 
+type DeleteHabitRaw = {
+  habitId: string;
+  domainId: string;
+};
+
 export function useDeleteHabitMutation() {
   const queryClient = useQueryClient();
 
-  return useMutation({
-    mutationFn: async (habitId: string) => {
-      const res = await fetch(`/api/app/habit/${habitId}`, {
-        method: "DELETE",
-      });
+  const deleteHabit = async ({
+    habitId,
+    domainId,
+  }: DeleteHabitRaw): Promise<DeleteHabitRaw> => {
+    const res = await fetch(`/api/app/habit/${habitId}`, {
+      method: "DELETE",
+    });
 
-      if (!res.ok) {
-        throw new FetchError(res);
-      }
-    },
-    onSuccess: (_, domainId: string) => {
+    if (!res.ok) {
+      throw new FetchError(res);
+    }
+
+    return { habitId, domainId };
+  };
+
+  return useMutation<DeleteHabitRaw, Error, DeleteHabitRaw>({
+    mutationFn: deleteHabit,
+    onSuccess: (_, { domainId }) => {
       queryClient.invalidateQueries(fetchHabitsByDomain(domainId));
-      // queryClient.removeQueries(categoriesQuery(categoryId));
     },
   });
 }
-
-// export function useCompletedHabitkMutation() {
-//   const queryClient = useQueryClient();
-//   return useMutation({
-//     mutationFn: async ({
-//       habitId,
-//       dayPart,
-//     }: {
-//       habitId: string;
-//       dayPart: Ref<string>;
-//     }) => {
-//       const res = await fetch(`/api/app/habit/${habitId}/completed`, {
-//         method: "PUT",
-//       });
-
-//       if (!res.ok) {
-//         throw new FetchError(res);
-//       }
-
-//       return res.json() as Promise<Habit>;
-//     },
-//     onSuccess: (_, habit) => {
-//       queryClient.invalidateQueries(fetchHabitsByDayPart(habit.dayPart));
-//       queryClient.invalidateQueries(getMeQueryOptions);
-//     },
-//   });
-// }
 
 export function useCompletedHabitMutation() {
   const queryClient = useQueryClient();
@@ -179,7 +191,7 @@ export function useCompletedHabitMutation() {
       dayPart,
     }: {
       habitId: string;
-      dayPart: string; // ⛔ Убрал Ref<string>
+      dayPart: string;
     }) => {
       const res = await fetch(`/api/app/habit/${habitId}/completed`, {
         method: "PUT",
@@ -194,7 +206,7 @@ export function useCompletedHabitMutation() {
     onSuccess: async (_, habit) => {
       await Promise.all([
         queryClient.invalidateQueries(fetchHabits),
-        queryClient.invalidateQueries(fetchHabitsByDayPart(ref(habit.dayPart))), // Wrapped in ref()
+        queryClient.invalidateQueries(fetchHabitsByDayPart(ref(habit.dayPart))),
       ]);
     },
   });

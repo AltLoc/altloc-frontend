@@ -7,16 +7,18 @@ import {
   TableHeaderCell,
   TableRow,
 } from "@/components/ui/table";
-// import type { Domain } from "@/features/domain/model";
-import dayjs from "dayjs";
-import {
-  fetchHabitsByDomain,
-  useDeleteHabitMutation,
-} from "@/features/habit/service/index";
+import { fetchHabitsByDomain } from "@/features/habit/service/index";
 import { useQuery } from "@tanstack/vue-query";
 import type { Domain } from "@/features/domain/model";
 import { convertSecondsToMinutes } from "@/utils/time";
 import { useI18n } from "vue-i18n";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import DotsHorizontalIcon from "@/assets/icons/dots-horizontal.svg?component";
+import { HabitDropDownMenu } from "@/features/habit/components/habit-dropdown-menu/";
 
 const { t } = useI18n();
 
@@ -27,12 +29,9 @@ const { data: habit } = useQuery({
   ...fetchHabitsByDomain(props.domain.id),
   enabled: true,
 });
-
-const { mutate: deleteHabit } = useDeleteHabitMutation();
 </script>
 
 <template>
-  <!-- <div class="overflow-x-auto overflow-y-hidden"> -->
   <Table>
     <TableHeader>
       <TableRow>
@@ -69,24 +68,19 @@ const { mutate: deleteHabit } = useDeleteHabitMutation();
           {{ utcTimestampToDate(row.createdAt) }}
         </TableCell>
         <TableCell>
-          <div class="flex gap-3">
-            <a :href="`/user/domain/${row.id}/edit`" class="text-zinc-400">
-              Edit
-            </a>
-            <span
-              @click="
-                () => {
-                  deleteHabit(row.id);
-                }
-              "
-              class="text-zinc-400"
+          <DropdownMenu :modal="false">
+            <DropdownMenuTrigger
+              class="p-1 hover:bg-black/5 rounded data-[state=open]:bg-black/5"
+              aria-label="Actions"
             >
-              Delete
-            </span>
-          </div>
+              <DotsHorizontalIcon class="size-5 stroke-[1.75] text-zinc-600" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" class="min-w-40">
+              <HabitDropDownMenu :habit="row" />
+            </DropdownMenuContent>
+          </DropdownMenu>
         </TableCell>
       </TableRow>
     </TableBody>
   </Table>
-  <!-- </div> -->
 </template>

@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { z } from "zod";
-import { useCreateHabitMutation } from "@/features/habit/service/index";
+import {
+  useUpdateHabitMutation,
+  fetchHabit,
+} from "@/features/habit/service/index";
 import { Button } from "@/components/ui/button";
 import LoaderIcon from "@/assets/icons/loader.svg?component";
 import { toTypedSchema } from "@vee-validate/zod";
 import { useForm, Field } from "vee-validate";
 import { useI18n } from "vue-i18n";
+import { useQuery, useQueryClient } from "@tanstack/vue-query";
+import type { Habit } from "@/features/habit/model";
 import { TextArea } from "@/components/ui/text-area/";
+import { TextField } from "@/components/ui/input/";
 import {
   Select,
   SelectContent,
@@ -14,15 +20,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { Domain } from "@/features/domain/model";
 
 const { t } = useI18n();
 
-const router = useRouter();
-
-const props = defineProps<{
-  domain: Domain;
-}>();
+const props = defineProps<{ habit: Habit }>();
 
 const HabitSchema = z.object({
   id: z.string().optional(),
@@ -33,59 +34,78 @@ const HabitSchema = z.object({
   targetNumberOfCompletions: z.number().min(1).max(10000),
 });
 
-const { handleSubmit, setFieldError } = useForm({
+const { handleSubmit, meta, setFieldError, resetForm } = useForm({
   validationSchema: toTypedSchema(HabitSchema),
-  initialValues: {
-    domainId: props.domain.id,
-  },
   validateOnMount: false,
 });
 
-const { mutate: createHabit, isPending, error } = useCreateHabitMutation();
+const queryClient = useQueryClient();
+queryClient.setQueryData(fetchHabit(props.habit.id).queryKey, props.habit);
+const { data: habit } = useQuery(fetchHabit(props.habit.id));
+
+watch(
+  habit,
+  () => {
+    if (!habit.value) return;
+    resetForm({
+      values: {
+        id: habit.value.id,
+        name: habit.value.name,
+        runtime: habit.value.runtime,
+        dayPart: habit.value.dayPart as
+          | "MORNING"
+          | "AFTERNOON"
+          | "EVENING"
+          | "NIGHT",
+        targetNumberOfCompletions: habit.value.targetNumberOfCompletions,
+        domainId: habit.value.domainId,
+      },
+    });
+  },
+  {
+    immediate: true,
+  }
+);
+
+const { mutate: updateHabit, isPending, error } = useUpdateHabitMutation();
 
 const onSubmit = handleSubmit((values) => {
-  createHabit(
-    {
-      body: {
-        domainId: props.domain.id,
-        name: values.name,
-        runtime: values.runtime,
-        dayPart: values.dayPart,
-        targetNumberOfCompletions: values.targetNumberOfCompletions,
-      },
+  const { ...rest } = values;
+  updateHabit({
+    body: {
+      id: props.habit.id,
+      ...rest,
     },
-    {
-      // onSuccess: () => {
-      //   router.push("/user/domain/" + props.domain.id);
-      // },
-      onError: (err) => {
-        setFieldError("name", err.message);
-      },
-    }
-  );
+  });
 });
 </script>
 
 <template>
   <form @submit.prevent="onSubmit" class="w-full">
     <div class="flex flex-col gap-3">
-      <TextArea
-        name="name"
-        :label="t('app.habit.title')"
-        type="text"
-        :placeholder="t('app.habit.placeholder')"
-        autocomplete="off"
-      />
-      <!-- <Label for="targetNumberOfCompletions">
-        {{ t("app.habit.targetNumberOfCompletions") }}
-      </Label> -->
-      <TextField
-        name="targetNumberOfCompletions"
-        :label="t('app.habit.targetNumberOfCompletions')"
-        type="number"
-        placeholder="0"
-        autocomplete="off"
-      />
+      <Field name="name" v-slot="{ field, errorMessage }">
+        <TextArea
+          v-bind="field"
+          :label="t('app.habit.title')"
+          :placeholder="t('app.habit.placeholder')"
+          autocomplete="off"
+        />
+        <span v-if="errorMessage" class="text-xs font-medium text-red-600">
+          {{ errorMessage }}
+        </span>
+      </Field>
+      <Field name="targetNumberOfCompletions" v-slot="{ field, errorMessage }">
+        <TextField
+          v-bind="field"
+          type="number"
+          :label="t('app.habit.targetNumberOfCompletions')"
+          placeholder="0"
+          autocomplete="off"
+        />
+        <span v-if="errorMessage" class="text-xs font-medium text-red-600">
+          {{ errorMessage }}
+        </span>
+      </Field>
 
       <Field
         as="div"
@@ -124,21 +144,13 @@ const onSubmit = handleSubmit((values) => {
         </span>
       </Field>
 
-      <Field
-        as="div"
-        class="flex flex-col gap-1.5"
-        name="runtime"
-        v-slot="{ field, errorMessage }"
-      >
+      <Field name="runtime" v-slot="{ value, errorMessage, handleChange }">
         <Label for="runtime">
           {{ t("app.habit.runTime") }}
         </Label>
         <Select
-          :name="field.name"
-          :model-value="field.value"
-          @update:model-value="
-            (val) => field['onUpdate:modelValue']?.(Number(val))
-          "
+          :model-value="String(value)"
+          @update:model-value="(val) => handleChange(Number(val))"
         >
           <SelectTrigger :invalid="!!errorMessage">
             <SelectValue :placeholder="t('app.habit.runFromTo')" />
@@ -169,7 +181,7 @@ const onSubmit = handleSubmit((values) => {
         class="mr-2 size-5 animate-spin stroke-[1.5] text-white"
         v-if="isPending"
       />
-      {{ isPending ? t("app.habit.creating") : t("app.habit.create") }}
+      {{ isPending ? t("app.habit.editing") : t("app.habit.edit") }}
     </Button>
   </form>
 </template>
