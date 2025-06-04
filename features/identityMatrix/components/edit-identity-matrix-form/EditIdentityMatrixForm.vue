@@ -22,8 +22,10 @@ import {
 } from "@/components/ui/file-upload";
 import { AvatarImage, AvatarRoot, AvatarFallback } from "radix-vue";
 import { PLACEHOLDER_AVATAR } from "@/utils/images";
+import { useToast } from "@/components/ui/toast/use-toast";
 
 const { t } = useI18n();
+const { toast } = useToast();
 
 const props = defineProps<{ identityMatrix: IdentityMatrix }>();
 
@@ -81,10 +83,21 @@ const {
 
 const onSubmit = handleSubmit((values) => {
   const { ...rest } = values;
-  updateIdentityMatrix({
-    id: props.identityMatrix.id,
-    ...rest,
-  });
+  updateIdentityMatrix(
+    {
+      id: props.identityMatrix.id,
+      ...rest,
+    },
+    {
+      onSuccess: () => {
+        toast({
+          title: t("common.successUpdate"),
+          variant: "success",
+          duration: 2000,
+        });
+      },
+    }
+  );
 });
 </script>
 
@@ -183,5 +196,6 @@ const onSubmit = handleSubmit((values) => {
           : t("app.identityMatrix.edit")
       }}
     </Button>
+    <Toaster />
   </form>
 </template>

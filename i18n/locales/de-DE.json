@@ -62,7 +62,10 @@
     "search": "Suchen",
     "createdAt": "Erstellt am",
     "updatedAt": "Zuletzt aktualisiert am",
-    "name": "Name"
+    "name": "Name",
+    "successUpdate": "Erfolgreich aktualisiert",
+    "successCreate": "Erfolgreich erstellt",
+    "successDelete": "Erfolgreich gelöscht"
   },
   "social": {
     "facebook": "Facebook",

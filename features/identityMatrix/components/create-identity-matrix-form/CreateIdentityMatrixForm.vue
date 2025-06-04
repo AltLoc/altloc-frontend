@@ -19,9 +19,11 @@ import { AvatarImage, AvatarRoot, AvatarFallback } from "radix-vue";
 import { PLACEHOLDER_AVATAR } from "@/utils/images";
 import EditIcon from "@/assets/icons/edit.svg?component";
 import { useRouter } from "vue-router";
+import { useToast } from "@/components/ui/toast/use-toast";
 
 const router = useRouter();
 const { t } = useI18n();
+const { toast } = useToast();
 
 // Banner image of the identity matrix no optional
 const { handleSubmit, meta, resetForm } = useForm({
@@ -51,7 +53,14 @@ const {
 const onSubmit = handleSubmit((values) => {
   createIdentityMatrix(values, {
     onSuccess: () => {
-      router.push("/user/matrix");
+      setTimeout(() => {
+        router.push("/user/matrix");
+      }, 5000);
+      toast({
+        title: t("common.successCreate"),
+        variant: "success",
+        duration: 2000,
+      });
     },
   });
 });
@@ -159,6 +168,7 @@ const onSubmit = handleSubmit((values) => {
             : t("app.identityMatrix.create")
         }}
       </Button>
+      <Toaster />
     </div>
   </form>
 </template>

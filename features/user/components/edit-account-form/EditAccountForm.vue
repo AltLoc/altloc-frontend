@@ -23,8 +23,10 @@ import {
 import { getCDNImageURL, PLACEHOLDER_AVATAR } from "@/utils/images";
 import { useI18n } from "vue-i18n";
 import LanguageDropdown from "@/layouts/LanguageDropdown.vue";
+import { useToast } from "@/components/ui/toast/use-toast";
 
 const { t } = useI18n();
+const { toast } = useToast();
 
 const { data: me } = useQuery(getMeQueryOptions);
 
@@ -63,7 +65,15 @@ watch(
 const { mutate: updateUser, isPending } = useUpdateCurrentUserMutation();
 
 const onSubmit = handleSubmit((data) => {
-  updateUser(data);
+  updateUser(data, {
+    onSuccess: () => {
+      toast({
+        title: t("common.successUpdate"),
+        variant: "success",
+        duration: 2000,
+      });
+    },
+  });
 });
 </script>
 
@@ -153,5 +163,6 @@ const onSubmit = handleSubmit((data) => {
         {{ t("app.cabinet.settings.account.save") }}
       </Button>
     </div>
+    <Toaster />
   </form>
 </template>

@@ -11,8 +11,10 @@ import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import { useQuery, useQueryClient } from "@tanstack/vue-query";
 import type { Domain } from "@/features/domain/model";
+import { useToast } from "@/components/ui/toast/use-toast";
 
 const { t } = useI18n();
+const { toast } = useToast();
 
 const props = defineProps<{ domain: Domain }>();
 
@@ -51,13 +53,24 @@ const { mutate: updateDomain, isPending, error } = useDomainMutation();
 
 const onSubmit = handleSubmit((values) => {
   const { ...rest } = values;
-  updateDomain({
-    body: {
-      id: props.domain.id,
-      identityMatrixId: props.domain.identityMatrixId,
-      ...rest,
+  updateDomain(
+    {
+      body: {
+        id: props.domain.id,
+        identityMatrixId: props.domain.identityMatrixId,
+        ...rest,
+      },
     },
-  });
+    {
+      onSuccess: () => {
+        toast({
+          title: t("common.successUpdate"),
+          variant: "success",
+          duration: 2000,
+        });
+      },
+    }
+  );
 });
 </script>
 
@@ -86,5 +99,6 @@ const onSubmit = handleSubmit((values) => {
       />
       {{ isPending ? t("app.domain.editing") : t("app.domain.edit") }}
     </Button>
+    <Toaster />
   </form>
 </template>

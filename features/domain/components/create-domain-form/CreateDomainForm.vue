@@ -7,8 +7,10 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import { TextArea } from "@/components/ui/text-area/";
+import { useToast } from "@/components/ui/toast/use-toast";
 
 const { t } = useI18n();
+const { toast } = useToast();
 
 const props = defineProps<{
   identityMatrixId: string;
@@ -39,6 +41,13 @@ const onSubmit = handleSubmit((values) => {
       },
     },
     {
+      onSuccess: () => {
+        toast({
+          title: t("common.successCreate"),
+          variant: "success",
+          duration: 2000,
+        });
+      },
       onError: (err) => {
         setFieldError("name", err.message);
       },
@@ -72,5 +81,6 @@ const onSubmit = handleSubmit((values) => {
       />
       {{ isPending ? t("app.domain.creating") : t("app.domain.create") }}
     </Button>
+    <Toaster />
   </form>
 </template>

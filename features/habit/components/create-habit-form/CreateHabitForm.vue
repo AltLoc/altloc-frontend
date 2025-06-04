@@ -15,8 +15,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import type { Domain } from "@/features/domain/model";
+import { useToast } from "@/components/ui/toast/use-toast";
 
 const { t } = useI18n();
+const { toast } = useToast();
 
 const router = useRouter();
 
@@ -55,9 +57,13 @@ const onSubmit = handleSubmit((values) => {
       },
     },
     {
-      // onSuccess: () => {
-      //   router.push("/user/domain/" + props.domain.id);
-      // },
+      onSuccess: () => {
+        toast({
+          title: t("common.successCreate"),
+          variant: "success",
+          duration: 2000,
+        });
+      },
       onError: (err) => {
         setFieldError("name", err.message);
       },
@@ -145,6 +151,9 @@ const onSubmit = handleSubmit((values) => {
           </SelectTrigger>
           <SelectContent class="text-zinc-700">
             <SelectItem :value="'15'">15 sec (for test)</SelectItem>
+            <SelectItem :value="'30'">30 sec</SelectItem>
+            <SelectItem :value="'60'">1 min</SelectItem>
+            <SelectItem :value="'180'">3 min</SelectItem>
             <SelectItem :value="'300'">5 min</SelectItem>
             <SelectItem :value="'900'">15 min</SelectItem>
             <SelectItem :value="'1800'">30 min</SelectItem>
@@ -171,5 +180,6 @@ const onSubmit = handleSubmit((values) => {
       />
       {{ isPending ? t("app.habit.creating") : t("app.habit.create") }}
     </Button>
+    <Toaster />
   </form>
 </template>

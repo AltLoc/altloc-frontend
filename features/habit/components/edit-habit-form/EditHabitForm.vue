@@ -20,8 +20,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useToast } from "@/components/ui/toast/use-toast";
 
 const { t } = useI18n();
+const { toast } = useToast();
 
 const props = defineProps<{ habit: Habit }>();
 
@@ -71,12 +73,23 @@ const { mutate: updateHabit, isPending, error } = useUpdateHabitMutation();
 
 const onSubmit = handleSubmit((values) => {
   const { ...rest } = values;
-  updateHabit({
-    body: {
-      id: props.habit.id,
-      ...rest,
+  updateHabit(
+    {
+      body: {
+        id: props.habit.id,
+        ...rest,
+      },
     },
-  });
+    {
+      onSuccess: () => {
+        toast({
+          title: t("common.successUpdate"),
+          variant: "success",
+          duration: 2000,
+        });
+      },
+    }
+  );
 });
 </script>
 
@@ -157,6 +170,9 @@ const onSubmit = handleSubmit((values) => {
           </SelectTrigger>
           <SelectContent class="text-zinc-700">
             <SelectItem :value="'15'">15 sec (for test)</SelectItem>
+            <SelectItem :value="'30'">30 sec</SelectItem>
+            <SelectItem :value="'60'">1 min</SelectItem>
+            <SelectItem :value="'180'">3 min</SelectItem>
             <SelectItem :value="'300'">5 min</SelectItem>
             <SelectItem :value="'900'">15 min</SelectItem>
             <SelectItem :value="'1800'">30 min</SelectItem>
@@ -183,5 +199,6 @@ const onSubmit = handleSubmit((values) => {
       />
       {{ isPending ? t("app.habit.editing") : t("app.habit.edit") }}
     </Button>
+    <Toaster />
   </form>
 </template>

@@ -24,23 +24,18 @@ export default defineNuxtRouteMiddleware(async () => {
   const queryClient = useQueryClient();
 
   try {
-    // Пробуем получить пользователя
     await queryClient.fetchQuery(getMeQueryOptions);
   } catch (error: any) {
-    // Если токен истёк — пробуем обновить
     if (error?.response?.status === 401 || error?.status === 401) {
       try {
         await refresAuthToken();
 
-        // Повторяем запрос
         await queryClient.fetchQuery(getMeQueryOptions);
       } catch (refreshError: any) {
-        // Если и refresh не сработал — уводим на логин
         return "/auth/login";
       }
     }
 
-    // Если серверная ошибка
     if (error?.response?.status === 500 || error?.status === 500) {
       return "/";
     }
