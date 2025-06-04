@@ -144,3 +144,19 @@ export const useResetPasswordEmailMutation = () => {
     },
   });
 };
+
+export const refresAuthToken = async () => {
+  const res = await fetch("/api/auth/password/refresh", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!res.ok) {
+    throw new FetchError(res);
+  }
+
+  return res.json();
+};

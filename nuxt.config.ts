@@ -19,6 +19,7 @@ export default defineNuxtConfig({
   gtag: {
     id: process.env.PUBLIC_GOOGLE_ANALYTICS_ID,
   },
+
   vite: {
     plugins: [svgLoader()],
     resolve: {
