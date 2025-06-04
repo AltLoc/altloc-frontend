@@ -20,8 +20,22 @@ definePageMeta({
   middleware: "auth",
 });
 
-useSeoMeta({
+useHead({
   title: "App | Altloc",
+  meta: [
+    {
+      name: "description",
+      content:
+        "AltLoc is a gamified habit tracker that helps you build identity-driven habits.",
+    },
+    {
+      name: "theme-color",
+      content: "#1d4ed8", // blue-700
+    },
+    {
+      charset: "utf-8",
+    },
+  ],
 });
 </script>
 
