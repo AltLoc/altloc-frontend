@@ -28,7 +28,7 @@ const progress = computed(() => {
   <div class="flex flex-col gap-3 flex-1">
     <div class="flex gap-3 justify-between">
       <div
-        class="flex gap-1 bg-blue-100 p-2 rounded-xl items-center"
+        class="flex gap-1 bg-blue-100 p-2 rounded-xl items-center justify-center"
         title="Experience"
       >
         <StarBoldIcon class="size-5 stroke-[1.7] text-zinc-700 text-sm" />
@@ -39,18 +39,22 @@ const progress = computed(() => {
       </div>
       <div class="flex gap-3">
         <div
-          class="flex gap-1 bg-blue-100 p-2 rounded-xl items-center"
+          class="flex gap-1 bg-blue-100 py-1 px-2 rounded-xl items-center justify-center"
           title="Level"
         >
           <StarIcon class="size-5 stroke-[1.7] text-zinc-700 text-sm" />
-          <span class="text-zinc-700" v-if="user"> {{ user.level }} lvl </span>
+          <span class="text-zinc-700 text-xs" title="Level" v-if="user">
+            {{ user.level }}
+          </span>
         </div>
         <div
-          class="flex gap-1 bg-blue-100 p-2 rounded-xl items-center"
+          class="flex gap-1 bg-blue-100 py-1 px-2 rounded-xl items-center justify-center"
           title="Score"
         >
-          <DiamondIcon class="size-6 stroke-[1.7] text-zinc-700" />
-          <span class="text-zinc-700">{{ user?.currency }}</span>
+          <DiamondIcon class="size-5 stroke-[1.7] text-zinc-700" />
+          <span class="text-zinc-700 text-xs" title="Virtual currency">
+            {{ user?.currency }}
+          </span>
         </div>
       </div>
     </div>

@@ -2,15 +2,17 @@
 import GameControllerIcon from "@/assets/icons/game-controller.svg?component";
 import CommentIcon from "@/assets/icons/comment.svg?component";
 import GridOnSharpIcon from "@/assets/icons/grid-on-sharp.svg?component";
-import SettingsIcon from "@/assets/icons/settings.svg?component";
-import AstronautHelmetIcon from "@/assets/icons/astronaut-helmet.svg?component";
 import { useLocalePath } from "#i18n";
 import { useI18n } from "vue-i18n";
-import MobileDropdownMenu from "@/layouts/MobileDropdownMenu.vue";
+import type { User } from "@/features/user/model";
+// import MobileDropdownMenu from "@/layouts/MobileDropdownMenu.vue";
+import ProfileDropdownMenu from "@/layouts/ProfileDropdownMenu.vue";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
 const route = useRoute();
+
+const props = defineProps<{ user: User }>();
 </script>
 
 <template>
@@ -74,43 +76,10 @@ const route = useRoute();
         </div>
       </div>
       <div class="flex items-center justify-around gap-3">
-        <!-- Settings -->
-        <!-- <div class="flex flex-col items-center">
-          <NuxtLink
-            :to="localePath('/user/settings')"
-            :class="[
-              ' flex-col items-center gap-0.5 block rounded-xl p-1.5 transition-colors',
-              route.path === localePath('/user/profile')
-                ? 'text-white bg-blue-700'
-                : 'text-zinc-300 hover:bg-blue-400 hover:text-white',
-            ]"
-          >
-            <SettingsIcon class="size-6 stroke-[1.5]" />
-          </NuxtLink>
-          <span class="text-[10px] text-zinc-200">
-            {{ t("app.cabinet.nav.settings") }}
-          </span>
-        </div> -->
-        <!-- Profile -->
-        <!-- <div class="flex flex-col items-center">
-          <NuxtLink
-            :to="localePath('/user/profile')"
-            :class="[
-              ' flex-col items-center gap-0.5 block rounded-xl p-1.5 transition-colors',
-              route.path === localePath('/user/profile')
-                ? 'text-white bg-blue-700'
-                : 'text-zinc-300 hover:bg-blue-400 hover:text-white',
-            ]"
-          >
-            <AstronautHelmetIcon class="size-6 stroke-[1.5]" />
-          </NuxtLink>
-          <span class="text-[10px] text-zinc-200">
-            {{ t("app.cabinet.nav.profile") }}
-          </span>
-        </div> -->
         <!-- Home -->
         <div class="flex flex-col items-center">
-          <MobileDropdownMenu />
+          <!-- <MobileDropdownMenu /> -->
+          <ProfileDropdownMenu v-if="user" :user="user" class="md:hidden" />
         </div>
       </div>
     </div>

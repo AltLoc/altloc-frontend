@@ -50,11 +50,16 @@ const dayPartIcon = computed(() => {
     <section class="relative mt-6 px-3 md:px-10">
       <div class="container mx-auto flex flex-col gap-4">
         <GamificationProgressBar v-if="user" :user="user" />
-        <div class="flex gap-1.5 items-center">
-          <h2 class="text-xl font-bold text-zinc-700">
-            {{ t("app.habit.dailyQuests") }}
-          </h2>
-          <component :is="dayPartIcon" class="size-8 stroke-2 text-zinc-700" />
+        <div class="flex gap-2.5 items-center">
+          <div class="flex gap-2 justify-center">
+            <h2 class="text-lg font-semibold text-zinc-700">
+              {{ t("app.habit.dailyQuests") }}
+            </h2>
+            <component
+              :is="dayPartIcon"
+              class="size-6 stroke-2 text-zinc-700"
+            />
+          </div>
         </div>
 
         <DayPartTabs v-model:dayPart="dayPart" />

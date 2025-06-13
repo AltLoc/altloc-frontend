@@ -51,7 +51,7 @@ const isActive = (path: string) => {
 <template>
   <DropdownMenu :modal="false">
     <DropdownMenuTrigger class="flex items-center gap-2.5">
-      <span class="text-sm font-semibold text-zinc-100">
+      <span class="text-sm font-semibold text-zinc-100 md:block hidden">
         {{ user.username }}
       </span>
       <img

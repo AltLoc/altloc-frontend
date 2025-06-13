@@ -41,7 +41,7 @@ useHead({
 
 <template>
   <header
-    class="pointer-events-auto flex bg-blue-800 md:justify-center items-center p-3 px-6 md:px-10"
+    class="pointer-events-auto md:flex bg-blue-800 md:justify-center items-center p-3 px-6 md:px-10 hidden"
   >
     <div class="flex justify-between items-center flex-1">
       <a href="/user/quests" class="flex gap-2 items-center">
@@ -66,5 +66,5 @@ useHead({
     <slot />
   </div>
 
-  <MobileIslandMenu />
+  <MobileIslandMenu :user="user" v-if="user" />
 </template>
