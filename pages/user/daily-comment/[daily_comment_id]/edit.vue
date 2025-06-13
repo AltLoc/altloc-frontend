@@ -20,15 +20,19 @@ const { data: dailyComment } = useQuery({
 <template>
   <AppLayout>
     <section class="relative mt-6 px-3 md:px-10">
-      <div class="flex flex-col justify-between items-center">
+      <div class="mx-auto max-w-xl flex flex-col gap-6">
         <h2 class="text-lg font-semibold flex items-center gap-2">
-          Edit Daily Comment
+          {{ $t("app.dailyComment.edit") }}
         </h2>
 
-        <EditDailyCommentForm
-          v-if="dailyComment"
-          :dailyComment="dailyComment"
-        />
+        <div
+          class="bg-white shadow-lg rounded-xl p-6 border border-zinc-100 transition-all duration-300 hover:shadow-xl"
+        >
+          <EditDailyCommentForm
+            v-if="dailyComment"
+            :dailyComment="dailyComment"
+          />
+        </div>
       </div>
     </section>
   </AppLayout>
