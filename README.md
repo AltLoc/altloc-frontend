@@ -8,8 +8,8 @@ All modules listed below are planned for **Version 1.0**.
 
 ### ✅ Auth (Authentication and Registration)  
 - [x] User registration via email  
-- [ ] User registration via Google  
-- [ ] Email confirmation  
+- [x] User registration via Google  
+- [x] Email confirmation  
 - [x] Login functionality  
 - [ ] Password recovery form  
 
@@ -17,8 +17,8 @@ All modules listed below are planned for **Version 1.0**.
 
 ### ✅ User Profile  
 - [X] Fetch and display user profile data  
-- [ ] User can update email and password  
-- [ ] Display activity history  
+- [x] User can update email and password  
+- [x] Display activity history  
 
 ---
 
@@ -42,9 +42,9 @@ All modules listed below are planned for **Version 1.0**.
 ---
 
 ### ✅ Gamification  
-- [ ] Display user level and points  
-- [ ] Show rewards for progress  
-- [ ] Task completion and points update in real-time  
+- [x] Display user level and points  
+- [x] Show rewards for progress  
+- [x] Task completion and points update in real-time  
 
 ---
 
@@ -56,8 +56,8 @@ All modules listed below are planned for **Version 1.0**.
 ---
 
 ### ✅ Daily Session  
-- [ ] Daily structure layout (4 parts)  
-- [ ] Display daily progress and reports  
+- [x] Daily structure layout (4 parts)  
+- [x] Display daily progress and reports  
 
 ---
 
