@@ -2,15 +2,23 @@
 import DiamondIcon from "@/assets/icons/diamond.svg?component";
 import StarIcon from "@/assets/icons/star.svg?component";
 import StarBoldIcon from "@/assets/icons/starBold.svg?component";
+import ClockIcon from "@/assets/icons/clock.svg?component"; // stroke-width="1.5"
 import { Progress } from "@/components/ui/progress";
 import { computed } from "vue";
 import type { User } from "@/features/user/model";
+import type { Habit } from "@/features/habit/model";
+import { convertSecondsToTimeString } from "@/utils/time";
 
 const props = defineProps<{
   user: User;
+  habits: Habit[];
 }>();
 
 const baseLevelScore = 8;
+
+const totalSpentTime = computed(() => {
+  return props.habits.reduce((sum, habit) => sum + (habit.spentTime || 0), 0);
+});
 
 const nextLevelScore = computed(() => {
   if (!props.user) return 0;
@@ -38,6 +46,16 @@ const progress = computed(() => {
         </span>
       </div>
       <div class="flex gap-3">
+        <div
+          v-if="habits.length"
+          title="Spent time"
+          class="flex gap-1 bg-blue-100 py-1 px-2 rounded-xl items-center justify-center"
+        >
+          <ClockIcon class="size-5 stroke-[1.7] text-zinc-700 text-sm" />
+          <span class="text-zinc-700 text-xs" title="Time spent on habit">
+            {{ convertSecondsToTimeString(totalSpentTime) }}
+          </span>
+        </div>
         <div
           class="flex gap-1 bg-blue-100 py-1 px-2 rounded-xl items-center justify-center"
           title="Level"

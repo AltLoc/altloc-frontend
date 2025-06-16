@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppLayout from "@/layouts/AppLayout.vue";
 import { useQuery } from "@tanstack/vue-query";
-import { fetchHabitsByDayPart } from "@/features/habit/service";
+import { fetchHabitsByDayPart, fetchHabits } from "@/features/habit/service";
 import { HabitGrid } from "@/features/habit/components/habit-grid";
 import { getMeQueryOptions } from "@/features/user/service/user.client";
 import { GamificationProgressBar } from "@/features/gamification/components/gamification-progress-bar/";
@@ -15,6 +15,7 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 const { data: user } = useQuery(getMeQueryOptions);
+const { data: habits } = useQuery(fetchHabits);
 
 const dayPart = ref<string>("MORNING");
 
@@ -49,7 +50,11 @@ const dayPartIcon = computed(() => {
   <AppLayout>
     <section class="relative mt-6 px-3 md:px-10">
       <div class="container mx-auto flex flex-col gap-4">
-        <GamificationProgressBar v-if="user" :user="user" />
+        <GamificationProgressBar
+          v-if="user"
+          :user="user"
+          :habits="habits ?? []"
+        />
         <div class="flex gap-2.5 items-center">
           <div class="flex gap-2 justify-center">
             <h2 class="text-lg font-semibold text-zinc-700">

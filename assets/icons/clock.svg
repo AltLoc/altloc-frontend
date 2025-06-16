@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+    <!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ -->
+    <g fill="none" stroke="currentColor">
+        <circle cx="12" cy="12" r="10" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"
+            d="M12 8v4l2.5 2.5" />
+    </g>
+</svg>
