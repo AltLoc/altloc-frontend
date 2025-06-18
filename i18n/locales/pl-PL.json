@@ -174,6 +174,7 @@
       "completed": "Ukończono",
       "start": "Start",
       "thereStill": "Pozostało: ",
+      "spentTime": "Spędzony czas: ",
       "dayPart": {
         "title": "Część dnia",
         "placeholder": "Wybierz część dnia",

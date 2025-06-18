@@ -172,6 +172,7 @@
       "completed": "Завершено",
       "start": "Почати",
       "thereStill": "Залишилося: ",
+      "spentTime": "Витрачено часу: ",
       "dayPart": {
         "title": "Частина дня",
         "placeholder": "Виберіть частину дня",

@@ -174,6 +174,7 @@
       "completed": "Completed",
       "start": "Start",
       "thereStill": "There's still: ",
+      "spentTime": "Spent time: ",
       "dayPart": {
         "title": "Part of the day",
         "placeholder": "Select the part of the day",

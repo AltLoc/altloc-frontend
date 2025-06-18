@@ -8,8 +8,8 @@ export const convertSecondsToTimeString = (totalSeconds: number): string => {
   const secondsInMinute = 60;
   const secondsInHour = 3600;
   const secondsInDay = 86400;
-  const secondsInMonth = 30 * secondsInDay; // approximately
-  const secondsInYear = 365 * secondsInDay; // approximately
+  // const secondsInMonth = 30 * secondsInDay;
+  // const secondsInYear = 365 * secondsInDay;
 
   let remainingSeconds = totalSeconds;
 
@@ -28,7 +28,7 @@ export const convertSecondsToTimeString = (totalSeconds: number): string => {
   const minutes = Math.floor(remainingSeconds / secondsInMinute);
   const seconds = remainingSeconds % secondsInMinute;
 
-  return ` ${days} days ${hours.toString().padStart(2, "0")}:${minutes
+  return `${hours.toString().padStart(2, "0")}:${minutes
     .toString()
     .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 };

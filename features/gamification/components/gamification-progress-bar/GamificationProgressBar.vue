@@ -2,7 +2,7 @@
 import DiamondIcon from "@/assets/icons/diamond.svg?component";
 import StarIcon from "@/assets/icons/star.svg?component";
 import StarBoldIcon from "@/assets/icons/starBold.svg?component";
-import ClockIcon from "@/assets/icons/clock.svg?component"; // stroke-width="1.5"
+import ClockIcon from "@/assets/icons/clock.svg?component";
 import { Progress } from "@/components/ui/progress";
 import { computed } from "vue";
 import type { User } from "@/features/user/model";
@@ -52,7 +52,10 @@ const progress = computed(() => {
           class="flex gap-1 bg-blue-100 py-1 px-2 rounded-xl items-center justify-center"
         >
           <ClockIcon class="size-5 stroke-[1.7] text-zinc-700 text-sm" />
-          <span class="text-zinc-700 text-xs" title="Time spent on habit">
+          <span
+            class="text-zinc-700 text-xs"
+            title="Total time spent on habits"
+          >
             {{ convertSecondsToTimeString(totalSpentTime) }}
           </span>
         </div>

@@ -39,6 +39,8 @@ import SunsetIcon from "@/assets/icons/sunset.svg?component";
 import SunHighIcon from "@/assets/icons/sun-high.svg?component";
 import SunriseIcon from "@/assets/icons/sunrise.svg?component";
 import MoonIcon from "@/assets/icons/moon.svg?component";
+import ClockIcon from "@/assets/icons/clock.svg?component";
+import { convertSecondsToTimeString } from "@/utils/time";
 
 const { t } = useI18n();
 const route = useRoute();
@@ -121,14 +123,23 @@ const dayPartIcon = computed(() => {
                 <ArrowRightIcon class="size-4 stroke-[1.5] text-red-500" />
                 <span class="text-sm text-zinc-700 font-medium">
                   {{ t("app.habit.target") }}:
-                  <span class="font-semibold text-zinc-900">{{
-                    habit?.targetNumberOfCompletions
-                  }}</span>
+                  <span class="font-semibold text-zinc-900">
+                    {{ habit?.targetNumberOfCompletions }}
+                  </span>
+                </span>
+              </div>
+
+              <div class="flex items-center gap-3" title="Time spent on habit">
+                <ClockIcon class="size-4 stroke-[1.5] text-purple-500" />
+                <span class="text-sm text-zinc-700 font-medium">
+                  {{ t("app.habit.spentTime") }}
+                  <span class="text-sm text-zinc-700 font-medium" v-if="habit">
+                    {{ convertSecondsToTimeString(habit?.spentTime) }}
+                  </span>
                 </span>
               </div>
 
               <div class="flex items-center gap-3">
-                <!-- <ArrowRightIcon class="size-4 stroke-[1.5] text-purple-500" /> -->
                 <component
                   :is="dayPartIcon"
                   class="size-4 stroke-[1.5] text-zinc-700"
