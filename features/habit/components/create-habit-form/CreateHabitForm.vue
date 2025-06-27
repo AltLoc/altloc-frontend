@@ -139,28 +139,32 @@ const onSubmit = handleSubmit((values) => {
         <Label for="runtime">
           {{ t("app.habit.runTime") }}
         </Label>
+
         <Select
           :name="field.name"
-          :model-value="field.value"
-          @update:model-value="
-            (val) => field['onUpdate:modelValue']?.(Number(val))
-          "
+          :model-value="String(field.value)"
+          @update:model-value="(val) => field.onChange(Number(val))"
         >
           <SelectTrigger :invalid="!!errorMessage">
-            <SelectValue :placeholder="t('app.habit.runFromTo')" />
+            <SelectValue>
+              {{
+                field.value ? field.value + " sec" : t("app.habit.runFromTo")
+              }}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent class="text-zinc-700">
-            <SelectItem :value="'15'">15 sec (for test)</SelectItem>
-            <SelectItem :value="'30'">30 sec</SelectItem>
-            <SelectItem :value="'60'">1 min</SelectItem>
-            <SelectItem :value="'180'">3 min</SelectItem>
-            <SelectItem :value="'300'">5 min</SelectItem>
-            <SelectItem :value="'900'">15 min</SelectItem>
-            <SelectItem :value="'1800'">30 min</SelectItem>
-            <SelectItem :value="'3600'">1 hour</SelectItem>
-            <SelectItem :value="'7200'">2 hours</SelectItem>
+            <SelectItem value="15">15 sec (for test)</SelectItem>
+            <SelectItem value="30">30 sec</SelectItem>
+            <SelectItem value="60">1 min</SelectItem>
+            <SelectItem value="180">3 min</SelectItem>
+            <SelectItem value="300">5 min</SelectItem>
+            <SelectItem value="900">15 min</SelectItem>
+            <SelectItem value="1800">30 min</SelectItem>
+            <SelectItem value="3600">1 hour</SelectItem>
+            <SelectItem value="7200">2 hours</SelectItem>
           </SelectContent>
         </Select>
+
         <span v-if="errorMessage" class="text-xs font-medium text-red-600">
           {{ errorMessage }}
         </span>
